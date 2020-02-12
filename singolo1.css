@@ -1,0 +1,10 @@
+body {
+  box-sizing: border-box;
+  background-color: gainsboro;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
