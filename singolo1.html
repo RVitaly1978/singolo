@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
         integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI="
@@ -14,14 +15,11 @@
 
 <body>
 
-  <header>
-
+  <header class="header">
     <div class="wrapper-header">
 
       <h1 class="logo-header">
-        <a href="#">
-          Singolo
-        </a>
+        <a href="#">Singolo</a>
       </h1>
   
       <nav>
@@ -35,15 +33,45 @@
       </nav>
 
     </div>
-
   </header>
 
   <main>
 
     <section class="section-slider">
+      <div class="wrapper-slider">
+
+        <button class="slider-btn slider-btn--left"></button>
+        <button class="slider-btn slider-btn--right"></button>
+
+        <ul class="slider-list">
+          <li class="slider-list__item">
+            <img src="./assets/images/phone-vertical.png" alt="foto">
+          </li>
+          <li class="slider-list__item">
+            <img src="./assets/images/phone-horizontal.png" alt="foto">
+          </li>
+        </ul>
+
+      </div>
     </section>
 
     <section class="section-services">
+      <div class="wrapper-services">
+
+        <h2 class="services__title">Our services</h2>
+
+        <p class="services__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+
+        <ul class="services-list">
+          <li class="services-list__item">
+            <img class="services-tile__icon" src="./assets/images/pen.svg" alt="media">
+            <h3 class="services-tile__title">Custom design</h3>
+            <p class="services-tile__text">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
+          </li>
+
+        </ul>
+
+      </div>
     </section>
     
     <section class="section-portfolio">
