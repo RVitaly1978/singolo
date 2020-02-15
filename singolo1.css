@@ -36,6 +36,11 @@ h1, h2, h3, h4 {
   padding: 0;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 /*- header --------------------------------------- */
 
 .header {
@@ -198,12 +203,12 @@ h1, h2, h3, h4 {
 .wrapper-services {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 4.25em 2.5em 4.125em 2.5em;
+  padding: 3.9em 2.5em 3.7em 2.5em;
 }
 
 .services__title {
   font-size: 1.875rem;
-  line-height: 1.125rem;
+  line-height: 1.875rem;
   font-weight: 900;
   color: var(--services-title-color);
   text-transform: capitalize;
@@ -211,7 +216,7 @@ h1, h2, h3, h4 {
 }
 
 .services__text {
-  margin-top: 1.5em;
+  margin-top: 1.125em;
   font-size: 1.125rem;
   line-height: 1.875rem;
   font-weight: 300;
@@ -220,39 +225,78 @@ h1, h2, h3, h4 {
 }
 
 .services-list {
+  padding: 0;
+  margin: 1.0em 0.0625em 0 0.0625em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.25em;
+  grid-template-rows: 1fr 1fr;
   list-style: none;
 }
 
 .services-list__item {
   margin: 0;
-  padding: 0;
+  padding: 1.875em 0 0 0;
+  display: flex;
+  align-items: flex-start;
 }
 
 .services-tile__icon {
   width: 59px;
   height: 59px;
+  margin: 0.125em 1.25em 0 0;
   border-radius: 50%;
   border: 2px solid var(--services-title-color);
-  /* background-image: url(./assets/images/pen.svg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%; */
+  background-size: initial;
 }
 
-.services-tile__title {
+.pen-icon {
+  background-image: url(./assets/images/pen.svg);
+}
+
+.bulb-icon {
+  background-image: url(./assets/images/bulb.svg);
+}
+
+.heart-icon {
+  background-image: url(./assets/images/heart.svg);
+}
+
+.phone-icon {
+  background-image: url(./assets/images/phone.svg);
+}
+
+.bubble-icon {
+  background-image: url(./assets/images/bubble.svg);
+}
+
+.star-icon {
+  background-image: url(./assets/images/star.svg);
+}
+
+.services-tile__body {
+  flex: 1;
+}
+
+.services-tile__body > h3 {
   font-size: 1.125rem;
   line-height: 1.125rem;
   font-weight: 900;
   color: var(--services-title-color);
   text-transform: capitalize;
-  letter-spacing: -0.005em;
+  letter-spacing: 0.001em;
 }
 
-.services-tile__text {
-  margin-top: 1.5em;
+.services-tile__body > p {
+  margin-top: 0.75em;
   font-size: 0.75rem;
   line-height: 1.375rem;
   font-weight: 400;
   color: var(--services-text-color);
+  text-align: justify;
   letter-spacing: 0.01em;
 }
+
+/*- section-portfolio --------------------------------------- */
