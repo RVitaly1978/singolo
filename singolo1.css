@@ -14,6 +14,10 @@
   --portfolio-border: #323746;
   --portfolio-title-color: #666d89;
   --portfolio-text-color: #767e9e;
+  --aboutUs-background: #f2f2f2;
+  --aboutUs-border: #fff;
+  --aboutUs-title-color: #666d89;
+  --aboutUs-text-color: #767e9e;
 
   --content-width: 1020px;
   
@@ -22,11 +26,9 @@
 
 body {
   box-sizing: border-box;
-  background-color: gainsboro;
+  background-color: lightslategrey;
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
   font-size: 1rem;
-  line-height: 1.4;
 }
 
 *,
@@ -56,6 +58,12 @@ img {
   padding: 0;
 }
 
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
 /*- header --------------------------------------- */
 
 .header {
@@ -83,7 +91,6 @@ img {
   line-height: 1;
   font-weight: 700;
   color: var(--header-text-color);
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
@@ -129,9 +136,9 @@ img {
 .navbar-header__item > a {
   display: block;
   font-size: 0.75rem;
+  line-height: 0.9375rem;
   font-weight: 700;
   color: var(--header-text-color);
-  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -0.027em;
 }
@@ -429,4 +436,117 @@ img {
 
 .img-12 {
   transform: translate(-2.25em, -3.75em);
+}
+
+/*- section-aboutUs --------------------------------------- */
+
+.section-aboutUs {
+  padding: 3.85em 0 4.275em 0;
+  background-color: var(--aboutUs-background);
+  border-bottom: 6px solid var(--aboutUs-border);
+}
+
+.aboutUs__title {
+  font-size: 1.875rem;
+  line-height: 1.875rem;
+  font-weight: 900;
+  color: var(--aboutUs-title-color);
+  text-transform: capitalize;
+  letter-spacing: -0.005em;
+}
+
+.aboutUs__text {
+  margin-top: 1.175em;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  font-weight: 300;
+  color: var(--aboutUs-text-color);
+  letter-spacing: 0.0035em;
+  word-spacing: 0.05em;
+}
+
+.employees-list {
+  margin-top: 2.8em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.employees-list__item {
+  width: 300px; /* -------------------------------------- */
+  display: flex;
+  flex-direction: column;
+}
+
+.employees-list__item + .employees-list__item {
+  margin-left: 1.25em;
+}
+
+.employees-list__item > img {
+  width: 100%;
+  height: auto;
+}
+
+.employees-list__item > h3 {
+  margin-top: 0.9em;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-weight: 900;
+  color: var(--aboutUs-title-color);
+  letter-spacing: -0.0075em;
+}
+
+.employees-list__item > p {
+  margin-top: 0.85em;
+  font-size: 0.75rem;
+  line-height: 1.35rem;
+  font-weight: 400;
+  color: var(--aboutUs-text-color);
+  text-align: justify;
+  letter-spacing: -0.01em;
+  word-spacing: -0.01em;
+}
+
+.media-tab-list {
+  display: flex;
+  margin-top: 1.5em;
+}
+
+.media-tab-list__item + .media-tab-list__item {
+  margin-left: 0.5em;
+}
+
+.media-tab-list__item > a {
+  display: block;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 1px solid var(--aboutUs-title-color);
+  background-position: center;
+  background-size: initial;
+  background-repeat: no-repeat;
+}
+
+.media-tab-list__item > a:hover {
+  border: 2px solid var(--slider-border);
+}
+
+.media-tab-list__item > a:active {
+  border: 2px solid var(--slider-border);
+  background-color: var(--slider-background);
+}
+
+.tab-facebook {
+  background-image: url(./assets/images/facebook.png);
+}
+
+.tab-google {
+  background-image: url(./assets/images/google+.png);
+}
+
+.tab-twitter {
+  background-image: url(./assets/images/twitter.png);
+}
+
+.tab-linkedin {
+  background-image: url(./assets/images/linkedin.png);
 }
