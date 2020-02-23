@@ -1,27 +1,36 @@
+
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src: url("./assets/fonts/Lato-Light-300.ttf") format("truetype");
+  src: local('Lato Light'), local('Lato-Light'),
+      url('./assets/fonts/Lato-Light-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/Lato-Light-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/Lato-Regular-400.ttf") format("truetype");
+  src: local('Lato Regular'), local('Lato-Regular'),
+      url('./assets/fonts/Lato-Regular-400.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/Lato-Regular-400.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: url("./assets/fonts/Lato-Bold-700.ttf") format("truetype");
+  src: local('Lato Bold'), local('Lato-Bold'),
+      url('./assets/fonts/Lato-Bold-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/Lato-Bold-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 900;
-  src: url("./assets/fonts/Lato-Black-900.ttf") format("truetype");
+  src: local('Lato Black'), local('Lato-Black'),
+      url('./assets/fonts/Lato-Black-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/Lato-Black-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

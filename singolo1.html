@@ -18,13 +18,13 @@
   <header class="header">
     <div class="wrapper header__wrapper">
 
-      <h1 class="logo-header">
-        Singolo
+      <h1>
+        <span class="logo">Singolo</span>
       </h1>
 
       <nav>
         <ul class="navbar header__navbar">
-          <li class="navbar__item"><a href="#!">Home</a></li>
+          <li class="navbar__item navbar__item--active"><a href="#!">Home</a></li>
           <li class="navbar__item"><a href="#!">Services</a></li>
           <li class="navbar__item"><a href="#!">Portfolio</a></li>
           <li class="navbar__item"><a href="#!">About</a></li>
@@ -38,19 +38,21 @@
   <main>
 
     <div class="slider">
-      <div class="wrapper slider__wrapper">
+      <div class="wrapper">
 
-        <button class="button slider__button--left"></button>
-        <button class="button slider__button--right"></button>
-
-        <ul class="slider-list">
-          <li class="slider-list__item">
-            <img src="./assets/images/phone-vertical.png" alt="Vertical phone">
-          </li>
-          <li class="slider-list__item">
-            <img src="./assets/images/phone-horizontal.png" alt="Horizontal phone">
-          </li>
-        </ul>
+        <div class="slider__wrapper">
+          <button class="button slider__button slider__button--left slider__button--perfectPixel"></button>
+          <button class="button slider__button slider__button--right"></button>
+  
+          <ul class="slider-list">
+            <li class="slider-list__item">
+              <img src="./assets/images/phone-vertical.png" alt="Vertical phone">
+            </li>
+            <li class="slider-list__item">
+              <img src="./assets/images/phone-horizontal.png" alt="Horizontal phone">
+            </li>
+          </ul>
+        </div>
 
       </div>
     </div>
