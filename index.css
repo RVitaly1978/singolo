@@ -263,7 +263,6 @@ img {
 
 .slider__button:hover {
   filter: brightness(10);
-  transition: filter 0.2s linear;
 }
 
 .slider__button:active {
@@ -434,8 +433,8 @@ img {
   background-image: url(./assets/images/heart.svg);
 }
 
-.services-tile--phone-icon.services-tile::before {
-  background-image: url(./assets/images/phone.svg);
+.services-tile--mobile-icon.services-tile::before {
+  background-image: url(./assets/images/mobile.svg);
 }
 
 .services-tile--bubble-icon.services-tile::before {
@@ -696,7 +695,7 @@ img {
   margin-left: 0.5em;
 }
 
-.media-tab-list__item > a {
+.social-tab {
   display: block;
   width: 2rem;
   height: 2rem;
@@ -710,29 +709,30 @@ img {
   font-size: 0;
 }
 
-.media-tab-list__item > a:hover {
+.social-tab:hover {
   border: 2px solid var(--color-slider-border);
 }
 
-.media-tab-list__item > a:active {
+.social-tab:active {
   border: 2px solid var(--color-slider-border);
   background-color: var(--color-slider-background);
+  transition: background-color 0.1s linear;
 }
 
-.tab-facebook {
-  background-image: url(./assets/images/facebook.png);
+.social-tab--facebook {
+  background-image: url(./assets/images/facebook.svg);
 }
 
-.tab-google {
-  background-image: url(./assets/images/google+.png);
+.social-tab--google {
+  background-image: url(./assets/images/google.svg);
 }
 
-.tab-twitter {
-  background-image: url(./assets/images/twitter.png);
+.social-tab--twitter {
+  background-image: url(./assets/images/twitter.svg);
 }
 
-.tab-linkedin {
-  background-image: url(./assets/images/linkedin.png);
+.social-tab--linkedin {
+  background-image: url(./assets/images/linkedin.svg);
 }
 
 /*- section-get a quote --------------------------------------- */
@@ -801,6 +801,7 @@ img {
   padding-top: 0.6em;
   padding-bottom: 1.6em;
   width: 100%;
+  resize: none;
 }
 
 .form__submit {
@@ -848,12 +849,14 @@ img {
   line-height: 1.75;
 }
 
-.contact-tab-list {
-  padding: 1.2625rem 0 0 1.4375rem;
+.contact-list {
+  padding: 1.2625rem 0 0 1.0rem;
 }
 
-.contact-tab-list a {
+.contact__item {
   position: relative;
+  padding-left: 0.58333em;
+  padding-right: 0.58333em;
   font-size: 0.75rem;
   line-height: 1.6;
   font-weight: 400;
@@ -861,48 +864,49 @@ img {
   letter-spacing: 0.005em;
 }
 
-.contact-tab-list a.pixel-perfect {
+.contact__item.pixel-perfect {
   line-height: 2.1;
   letter-spacing: -0.01em;
 }
 
-.contact-tab-list a::before {
+.contact__item::before {
   content: '';
   display: block;
   position: absolute;
-  left: -1rem;
+  left: -0.75em;
   bottom: +2px;
   background-size: initial;
   background-repeat: no-repeat;
   transform: translateX(calc(-50% - 0.5px));
 }
 
-.location-contact-icon::before {
+.contact__item--location::before {
   width: 7px;
   height: 11px;
-  background-image: url(./assets/images/location.png);
+  background-image: url(./assets/images/location.svg);
 }
 
-.phone-contact-icon::before {
+.contact__item--phone::before {
   width: 11px;
   height: 11px;
-  background-image: url(./assets/images/phone.png);
+  background-image: url(./assets/images/phone.svg);
 }
 
-.mail-contact-icon::before {
+.contact__item--mail::before {
   width: 13px;
   height: 8px;
-  background-image: url(./assets/images/mail.png);
+  background-image: url(./assets/images/mail.svg);
 }
 
-.contact-tab-list a:hover {
-  color: var(--color-footer-background);
-  transition: color 0.2s linear;
+.contact__item:hover {
+  padding-left: calc(0.58333em - 1px);
+  padding-right: calc(0.58333em - 1px);
+  border-radius: 0.4em;
+  border: 1px solid var(--color-quote-input-background);
 }
 
-.contact-tab-list a:active {
-  color: var(--color-footer-background);
-  border-radius: 0.5em;
+.contact__item:active {
+  border-radius: 0.4em;
   background-color: var(--color-quote-input-background);
   transition: background-color 0.1s linear;
 }
