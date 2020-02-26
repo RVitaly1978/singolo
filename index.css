@@ -215,7 +215,8 @@ img {
 }
 
 .navbar__item > a:hover {
-  transform: scale(1.2);
+  transform: scale(0.9);
+  transition: transform 0.1s linear;
 }
 
 .navbar__item > a:active {
@@ -255,13 +256,14 @@ img {
   left: 2px;
 }
 
-.button.slider__button--right {
+.slider__button--right {
   right: 0;
   transform: rotate(180deg);
 }
 
 .slider__button:hover {
   filter: brightness(10);
+  transition: filter 0.2s linear;
 }
 
 .slider__button:active {
@@ -519,13 +521,11 @@ img {
 
 .tabs-list__item > button:hover {
   border: 1px solid #c5c5c5;
-  color: #dedede;
 }
 
 .tabs-list__item > button:active {
   border: 1px solid #c5c5c5;
   color: #dedede;
-  background-color: var(--color-slider-background);
 }
 
 .portfolio__images {
@@ -548,9 +548,29 @@ img {
   overflow: hidden;
 }
 
-.images-list__item > img {
+.images-list__item > a {
+  display: block;
+  height: 100%;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.images-list__item > a:hover {
+  border-radius: 0.3rem;
+  border: 3px solid #c5c5c5;
+}
+
+.images-list__item > a:active {
+  border-radius: 0.3rem;
+  border: 3px solid #dedede;
+  filter: brightness(130%);
+  transition: filter 0.1s linear;
+}
+
+.images-list__item img {
   display: block;
   object-fit: fill;
+  font-size: 1rem;
 }
 
 .img-01 {
@@ -678,13 +698,16 @@ img {
 
 .media-tab-list__item > a {
   display: block;
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   border: 1px solid var(--color-aboutUs-title);
   background-position: center;
   background-size: initial;
   background-repeat: no-repeat;
+  text-align: center;
+  color: #000;
+  font-size: 0;
 }
 
 .media-tab-list__item > a:hover {
@@ -764,6 +787,10 @@ img {
 
 .form__input::placeholder {
   color: inherit;
+}
+
+.form__input:focus {
+  color: var(--color-quote-title);
 }
 
 .form__input + .form__input {
