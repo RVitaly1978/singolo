@@ -20,11 +20,21 @@
 
       <nav>
         <ul class="navbar header__navbar">
-          <li class="navbar__item navbar__item--active"><a href="#!">Home</a></li>
-          <li class="navbar__item"><a href="#services">Services</a></li>
-          <li class="navbar__item"><a href="#portfolio">Portfolio</a></li>
-          <li class="navbar__item"><a href="#aboutUs">About</a></li>
-          <li class="navbar__item"><a href="#contact">Contact</a></li>
+          <li class="navbar__item navbar__item--active">
+            <a class="navbar__link" href="#!">Home</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#services">Services</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#about-us">About</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#contact">Contact</a>
+          </li>
         </ul>
       </nav>
 
@@ -37,7 +47,7 @@
       <div class="wrapper">
 
         <div class="slider__wrapper">
-          <button class="slider__button slider__button--left slider__button--perfectPixel"></button>
+          <button class="slider__button slider__button--left pixel-perfect"></button>
           <button class="slider__button slider__button--right"></button>
   
           <ul class="slider-list">
@@ -68,36 +78,36 @@
 
         <p class="services__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
 
-        <ul class="layout-3-column services__list services__list--perfectPixel">
+        <ul class="services__features features-list pixel-perfect">
 
-          <li class="layout-3-column__item services-tile services-tile--pen-icon">
-            <h3 class="services-tile__title">Custom design</h3>
-            <p class="services-tile__text">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
+          <li class="features-list__item feature-tile feature-tile--pen">
+            <h3 class="feature-tile__title">Custom design</h3>
+            <p class="feature-tile__text">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
           </li>
 
-          <li class="layout-3-column__item services-tile services-tile--bulb-icon">
-            <h3 class="services-tile__title">Inovative ideas</h3>
-            <p class="services-tile__text">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
+          <li class="features-list__item feature-tile feature-tile--bulb">
+            <h3 class="feature-tile__title">Inovative ideas</h3>
+            <p class="feature-tile__text">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
           </li>
 
-          <li class="layout-3-column__item services-tile services-tile--heart-icon">
-            <h3 class="services-tile__title">Love is the answer</h3>
-            <p class="services-tile__text">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
+          <li class="features-list__item feature-tile feature-tile--heart">
+            <h3 class="feature-tile__title">Love is the answer</h3>
+            <p class="feature-tile__text">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
           </li>
 
-          <li class="layout-3-column__item services-tile services-tile--mobile-icon">
-            <h3 class="services-tile__title">Responsive layout</h3>
-            <p class="services-tile__text">Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Praesent elit leo.</p>
+          <li class="features-list__item feature-tile feature-tile--mobile">
+            <h3 class="feature-tile__title">Responsive layout</h3>
+            <p class="feature-tile__text">Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Praesent elit leo.</p>
           </li>
 
-          <li class="layout-3-column__item services-tile services-tile--bubble-icon">
-            <h3 class="services-tile__title">24 / 7 support</h3>
-            <p class="services-tile__text">Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellentesque egestas venenatis lorem.</p>
+          <li class="features-list__item feature-tile feature-tile--bubble">
+            <h3 class="feature-tile__title">24 / 7 support</h3>
+            <p class="feature-tile__text">Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellentesque egestas venenatis lorem.</p>
           </li>
 
-          <li class="layout-3-column__item services-tile services-tile--star-icon">
-            <h3 class="services-tile__title">Feel like a star</h3>
-            <p class="services-tile__text">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
+          <li class="features-list__item feature-tile feature-tile--star">
+            <h3 class="feature-tile__title">Feel like a star</h3>
+            <p class="feature-tile__text">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
           </li>
 
         </ul>
@@ -112,110 +122,155 @@
   
         <p class="portfolio__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
   
-        <ul class="portfolio__tabs tabs-list perfect-pixel">
-          <li class="tabs-list__item tabs-list__item--active"><button>All</button></li>
-          <li class="tabs-list__item"><button>Web design</button></li>
-          <li class="tabs-list__item"><button>Graphic design</button></li>
-          <li class="tabs-list__item"><button>Artwork</button></li>
+        <ul class="portfolio__tabs tabs-list pixel-perfect">
+          <li class="tabs-list__item"><button class="portfolio-tab portfolio-tab--active">All</button></li>
+          <li class="tabs-list__item"><button class="portfolio-tab">Web design</button></li>
+          <li class="tabs-list__item"><button class="portfolio-tab">Graphic design</button></li>
+          <li class="tabs-list__item"><button class="portfolio-tab">Artwork</button></li>
         </ul>
   
         <ul class="portfolio__images images-list">
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 1
-              <img class="img-01" src="./assets/images/image-01.png" alt="portfolio image 1"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 1
+              <img class="portfolio__img portfolio__img--01" src="./assets/images/image-01.png" alt="portfolio image 1">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 2
-              <img class="img-02" src="./assets/images/image-02.png" alt="portfolio image 2"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 2
+              <img class="portfolio__img portfolio__img--02" src="./assets/images/image-02.png" alt="portfolio image 2">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 3
-              <img class="img-03" src="./assets/images/image-03.png" alt="portfolio image 3"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 3
+              <img class="portfolio__img portfolio__img--03" src="./assets/images/image-03.png" alt="portfolio image 3">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 4
-              <img class="img-04" src="./assets/images/image-04.png" alt="portfolio image 4"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 4
+              <img class="portfolio__img portfolio__img--04" src="./assets/images/image-04.png" alt="portfolio image 4">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 5
-              <img class="img-05" src="./assets/images/image-05.png" alt="portfolio image 5"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 5
+              <img class="portfolio__img portfolio__img--05" src="./assets/images/image-05.png" alt="portfolio image 5">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 6
-              <img class="img-06" src="./assets/images/image-06.png" alt="portfolio image 6"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 6
+              <img class="portfolio__img portfolio__img--06" src="./assets/images/image-06.png" alt="portfolio image 6">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 7
-              <img class="img-07" src="./assets/images/image-07.png" alt="portfolio image 7"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 7
+              <img class="portfolio__img portfolio__img--07" src="./assets/images/image-07.png" alt="portfolio image 7">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 8
-              <img class="img-08" src="./assets/images/image-08.png" alt="portfolio image 8"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 8
+              <img class="portfolio__img portfolio__img--08" src="./assets/images/image-08.png" alt="portfolio image 8">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 9
-              <img class="img-09" src="./assets/images/image-09.png" alt="portfolio image 9"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 9
+              <img class="portfolio__img portfolio__img--09" src="./assets/images/image-09.png" alt="portfolio image 9">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 10
-              <img class="img-10" src="./assets/images/image-10.png" alt="portfolio image 10"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 10
+              <img class="portfolio__img portfolio__img--10" src="./assets/images/image-10.png" alt="portfolio image 10">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 11
-              <img class="img-11" src="./assets/images/image-11.png" alt="portfolio image 11"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 11
+              <img class="portfolio__img portfolio__img--11" src="./assets/images/image-11.png" alt="portfolio image 11">
+            </a>
           </li>
           <li class="images-list__item">
-            <a href="#!">Link to portfolio image 12
-              <img class="img-12" src="./assets/images/image-12.png" alt="portfolio image 12"></a>
+            <a class="portfolio__link" href="#!">Link to portfolio image 12
+              <img class="portfolio__img portfolio__img--12" src="./assets/images/image-12.png" alt="portfolio image 12">
+            </a>
           </li>
         </ul>
 
       </div>
     </section>
 
-    <section id="aboutUs" class="aboutUs">
+    <section id="about-us" class="about-us">
       <div class="wrapper">
 
-        <h2 class="aboutUs__title">About us</h2>
+        <h2 class="about-us__title">About us</h2>
 
-        <p class="aboutUs__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p class="about-us__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
 
-        <ul class="aboutUs__employees employees-list">
+        <ul class="about-us__employees employees-list">
 
-          <li class="employees-list__item">
-            <img src="./assets/images/photo-01.png" alt="Adam Jensen">
-            <h3>Adam Jensen</h3>
-            <p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
-            <ul class="media-tab-list perfect-pixel">
-              <li class="media-tab-list__item"><a class="social-tab social-tab--facebook" href="#!">Link to Facebook</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--google" href="#!">Link to Google</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--twitter" href="#!">Link to Twitter</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--linkedin" href="#!">Link to Linkedin</a></li>
+          <li class="employees-list__item employee-card">
+
+            <img class="employee-card__img" src="./assets/images/photo-01.png" alt="Adam Jensen">
+            <h3 class="employee-card__title">Adam Jensen</h3>
+            <p class="employee-card__text">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
+            
+            <ul class="employee-card__socials socials-list pixel-perfect">
+              <li class="socials-list__item">
+                <a class="social-link social-link--facebook" href="#!">Link to Facebook</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--google" href="#!">Link to Google</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--twitter" href="#!">Link to Twitter</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--linkedin" href="#!">Link to Linkedin</a>
+              </li>
             </ul>
+
           </li>
 
-          <li class="employees-list__item">
-            <img class="perfect-pixel" src="./assets/images/photo-02.png" alt="Desmond Miles">
-            <h3>Desmond Miles</h3>
-            <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
-            <ul class="media-tab-list">
-              <li class="media-tab-list__item"><a class="social-tab social-tab--facebook" href="#!">Link to Facebook</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--google" href="#!">Link to Google</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--twitter" href="#!">Link to Twitter</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--linkedin" href="#!">Link to Linkedin</a></li>
+          <li class="employees-list__item employee-card">
+
+            <img class="employee-card__img pixel-perfect" src="./assets/images/photo-02.png" alt="Desmond Miles">
+            <h3 class="employee-card__title">Desmond Miles</h3>
+            <p class="employee-card__text">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
+          
+            <ul class="employee-card__socials socials-list">
+              <li class="socials-list__item">
+                <a class="social-link social-link--facebook" href="#!">Link to Facebook</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--google" href="#!">Link to Google</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--twitter" href="#!">Link to Twitter</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--linkedin" href="#!">Link to Linkedin</a>
+              </li>
             </ul>
+
           </li>
 
-          <li class="employees-list__item">
-            <img src="./assets/images/photo-03.png" alt="Scolara Visari">
-            <h3>Scolara Visari</h3>
-            <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
-            <ul class="media-tab-list">
-              <li class="media-tab-list__item"><a class="social-tab social-tab--facebook" href="#!">Link to Facebook</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--google" href="#!">Link to Google</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--twitter" href="#!">Link to Twitter</a></li>
-              <li class="media-tab-list__item"><a class="social-tab social-tab--linkedin" href="#!">Link to Linkedin</a></li>
+          <li class="employees-list__item employee-card">
+
+            <img class="employee-card__img" src="./assets/images/photo-03.png" alt="Scolara Visari">
+            <h3 class="employee-card__title">Scolara Visari</h3>
+            <p class="employee-card__text">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
+            
+            <ul class="employee-card__socials socials-list">
+              <li class="socials-list__item">
+                <a class="social-link social-link--facebook" href="#!">Link to Facebook</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--google" href="#!">Link to Google</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--twitter" href="#!">Link to Twitter</a>
+              </li>
+              <li class="socials-list__item">
+                <a class="social-link social-link--linkedin" href="#!">Link to Linkedin</a>
+              </li>
             </ul>
+
           </li>
 
         </ul>
@@ -235,7 +290,7 @@
           <form class="form" id="quote-form">
 
             <input
-              class="form__input form__name"
+              class="form__input form__input--name"
               type="text"
               form="quote-form"
               required
@@ -243,7 +298,7 @@
               placeholder="Name (Required)">
 
             <input
-              class="form__input form__email"
+              class="form__input form__input--email"
               type="email"
               form="quote-form"
               required
@@ -251,13 +306,13 @@
               placeholder="Email (Required)">
 
             <input
-              class="form__input form__subject"
+              class="form__input form__input--subject"
               type="text"
               form="quote-form"
               placeholder="Subject">
 
             <textarea
-              class="form__input form__textarea"
+              class="form__input form__input--textarea"
               form="quote-form"
               cols="60"
               rows="8"
@@ -271,21 +326,21 @@
               
           </form>
 
-          <div class="contact-information">
+          <div class="contacts">
 
-            <h3>Contact Information</h3>
+            <h3 class="contacts__title">Contact Information</h3>
 
-            <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
+            <p class="contacts__text">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
             
-            <ul class="contact-list">
-              <li class="contact-list__item">
-                <a href="#!" class="contact__item contact__item--location">Elm St. 14/05 Lost City</a>
+            <ul class="contacts-list">
+              <li class="contacts-list__item">
+                <a href="#!" class="contact-link contact-link--location">Elm St. 14/05 Lost City</a>
               </li>
-              <li class="contact-list__item">
-                <a href="tel:035283318635" class="contact__item contact__item--phone">03528 331 86 35</a>
+              <li class="contacts-list__item">
+                <a href="tel:035283318635" class="contact-link contact-link--phone">03528 331 86 35</a>
               </li>
-              <li class="contact-list__item">
-                <a href="mailto:info@singolo.com" class="contact__item contact__item--mail pixel-perfect">info@singolo.com</a>
+              <li class="contacts-list__item">
+                <a href="mailto:info@singolo.com" class="contact-link contact-link--mail pixel-perfect">info@singolo.com</a>
               </li>
             </ul>
 
@@ -301,13 +356,21 @@
   <footer class="footer">
     <div class="wrapper footer__wrapper">
 
-      <p class="footer__text">© Copyright 2013 · by PSDchat.com</p>
+      <p class="footer__copyright">© Copyright 2013 · by PSDchat.com</p>
 
-      <ul class="media-tab-list">
-        <li class="media-tab-list__item"><a class="social-tab social-tab--facebook" href="#!">Link to Facebook</a></li>
-        <li class="media-tab-list__item"><a class="social-tab social-tab--google" href="#!">Link to Google</a></li>
-        <li class="media-tab-list__item"><a class="social-tab social-tab--twitter" href="#!">Link to Twitter</a></li>
-        <li class="media-tab-list__item"><a class="social-tab social-tab--linkedin" href="#!">Link to Linkedin</a></li>
+      <ul class="footer__socials socials-list">
+        <li class="socials-list__item">
+          <a class="social-link social-link--facebook" href="#!">Link to Facebook</a>
+        </li>
+        <li class="socials-list__item">
+          <a class="social-link social-link--google" href="#!">Link to Google</a>
+        </li>
+        <li class="socials-list__item">
+          <a class="social-link social-link--twitter" href="#!">Link to Twitter</a>
+        </li>
+        <li class="socials-list__item">
+          <a class="social-link social-link--linkedin" href="#!">Link to Linkedin</a>
+        </li>
       </ul>
   
     </div>
