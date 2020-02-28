@@ -287,11 +287,12 @@
         
         <div class="flex-2-column">
 
-          <form class="form" id="quote-form">
+          <form class="form" id="quote-form" action="#" method="POST">
 
             <input
               class="form__input form__input--name"
               type="text"
+              name="user-name"
               form="quote-form"
               required
               title="Enter your name"
@@ -300,19 +301,22 @@
             <input
               class="form__input form__input--email"
               type="email"
+              name="email-address"
               form="quote-form"
               required
-              title="Enter your email in format: <username>@<domain>"
+              title="Enter your email in format: username@domain"
               placeholder="Email (Required)">
 
             <input
               class="form__input form__input--subject"
               type="text"
+              name="subject"
               form="quote-form"
               placeholder="Subject">
 
             <textarea
               class="form__input form__input--textarea"
+              name="project-details"
               form="quote-form"
               cols="60"
               rows="8"
@@ -321,6 +325,7 @@
             <input
               class="form__input form__submit"
               type="submit"
+              name="submit"
               form="quote-form"
               value="Submit">
               
