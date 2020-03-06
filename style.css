@@ -439,7 +439,7 @@ img {
 }
 
 .feature-tile__text {
-  max-height: 6.25em;
+  max-height: 5.5em;
   margin-top: 0.75em;
   font-size: 0.75rem;
   line-height: 1.84;
@@ -782,6 +782,16 @@ img {
 
 .form__input:focus {
   color: var(--color-quote-title);
+}
+
+.form__input:required:focus:valid {
+  outline: 2px solid green;
+  outline-offset: 3px;
+}
+
+.form__input:required:focus:invalid {
+  outline: 2px solid red;
+  outline-offset: 3px;
 }
 
 .form__input + .form__input {
