@@ -55,6 +55,10 @@ IMAGES_LIST.addEventListener('click', imagesListHandler);
 
 /* functionality to tabs-list ---------------------------------------------- */
 
+function getRandomInRange(max, min = 1) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 function tabsListHandler(event) {
   if (event.target.tagName !== 'BUTTON') return;
 
@@ -63,6 +67,15 @@ function tabsListHandler(event) {
   });
 
   event.target.classList.add('portfolio-tab--active');
+
+  const imagesList = [...IMAGES_LIST.querySelectorAll('li')];
+  const random = getRandomInRange(imagesList.length);
+
+  for (let i = 0; i < imagesList.length; i += 1) {
+    if (i > random) {
+      IMAGES_LIST.prepend(imagesList[i]);
+    }
+  }
 }
 
 TABS_LIST.addEventListener('click', tabsListHandler);
@@ -85,9 +98,8 @@ function modalMessageButtonHandler(event) {
 FORM_SUBMIT_BTN.addEventListener('click', formSubmitButtonHandler);
 MODAL_MESSAGE_BTN.addEventListener('click', modalMessageButtonHandler);
 
-document.addEventListener('scroll', (event) => {
+document.addEventListener('keydown', (event) => {
   if (isModal) {
     event.preventDefault();
-    return;
   }
 });
