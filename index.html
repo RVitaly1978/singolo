@@ -293,11 +293,12 @@
               placeholder="Describe your project in detail..."></textarea>
 
             <input
+              id="form-submit-btn"
               class="form__input form__submit"
               type="submit"
               name="submit"
               form="quote-form"
-              value="Submit">
+              value="Send">
               
           </form>
 
@@ -349,6 +350,16 @@
   
     </div>
   </footer>
+
+  <div id="modal" class="modal-hidden">
+    <div class="modal__overlay"></div>
+    <div class="modal__message">
+      <h3 class="message__title">Письмо отправлено</h3>
+      <p id="message-subject" class="message__text">Тема</p>
+      <p id="message-discribe" class="message__text">Описание</p>
+      <button id="message-btn" class="message__btn">Ок</button>
+    </div>
+  </div>
 
   <script src="./script.js"></script>
   

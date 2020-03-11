@@ -3,6 +3,10 @@ const NAVBAR = document.querySelector('#navbar');
 const IMAGES_LIST = document.querySelector('#images-list');
 const TABS_LIST = document.querySelector('#tabs-list');
 const SLAIDER_LIST = document.querySelector('#slider-list');
+const FORM_SUBMIT_BTN = document.querySelector('#form-submit-btn');
+const MODAL = document.querySelector('#modal');
+const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
+let isModal = false;
 
 /* functionality to navbar ---------------------------------------------- */
 
@@ -62,3 +66,28 @@ function tabsListHandler(event) {
 }
 
 TABS_LIST.addEventListener('click', tabsListHandler);
+
+
+/* functionality to form ---------------------------------------------- */
+
+function formSubmitButtonHandler(event) {
+  event.preventDefault();
+
+  MODAL.className = 'modal';
+  isModal = true;
+}
+
+function modalMessageButtonHandler(event) {
+  MODAL.className = 'modal-hidden';
+  isModal = false;
+}
+
+FORM_SUBMIT_BTN.addEventListener('click', formSubmitButtonHandler);
+MODAL_MESSAGE_BTN.addEventListener('click', modalMessageButtonHandler);
+
+document.addEventListener('scroll', (event) => {
+  if (isModal) {
+    event.preventDefault();
+    return;
+  }
+});
