@@ -3,6 +3,7 @@ const NAVBAR = document.querySelector('#navbar');
 const IMAGES_LIST = document.querySelector('#images-list');
 const TABS_LIST = document.querySelector('#tabs-list');
 const SLAIDER_LIST = document.querySelector('#slider-list');
+const QUOTE_FORM = document.querySelector('#quote-form');
 const FORM_SUBMIT_BTN = document.querySelector('#form-submit-btn');
 const MODAL = document.querySelector('#modal');
 const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
@@ -72,7 +73,7 @@ function tabsListHandler(event) {
   const random = getRandomInRange(imagesList.length);
 
   for (let i = 0; i < imagesList.length; i += 1) {
-    if (i > random) {
+    if (i >= random) {
       IMAGES_LIST.prepend(imagesList[i]);
     }
   }
@@ -85,6 +86,38 @@ TABS_LIST.addEventListener('click', tabsListHandler);
 
 function formSubmitButtonHandler(event) {
   event.preventDefault();
+  
+  const nameInput = QUOTE_FORM.querySelector('input.form__input--name');
+  const emailInput = QUOTE_FORM.querySelector('input.form__input--email');
+  // console.dir(emailInput);
+  if (!nameInput.checkValidity()) {
+    // alert(nameInput.validationMessage);
+    // alert(nameInput.title);
+    QUOTE_FORM.invalid();
+  }
+  
+  if (!emailInput.checkValidity()) {
+    alert(emailInput.validationMessage);
+    alert(emailInput.title);
+    return false;
+  }
+
+  const subjectInput = QUOTE_FORM.querySelector('input.form__input--subject');
+  const describeTextarea = QUOTE_FORM.querySelector('textarea.form__input--textarea');
+  
+  if (subjectInput.value.toString() !== '') {
+    MODAL.querySelector('#message-subject').innerHTML = subjectInput.value.toString();
+    subjectInput.value = '';
+  } else {
+    MODAL.querySelector('#message-subject').innerHTML = 'Без темы';
+  }
+
+  if (describeTextarea.value.toString() !== '') {
+    MODAL.querySelector('#message-describe').innerHTML = describeTextarea.value.toString();
+    describeTextarea.value = '';
+  } else {
+    MODAL.querySelector('#message-describe').innerHTML = 'Без описания';
+  }
 
   MODAL.className = 'modal';
   isModal = true;
