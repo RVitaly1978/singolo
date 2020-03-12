@@ -104,14 +104,14 @@ function formSubmitButtonHandler(event) {
   const describeTextarea = QUOTE_FORM.querySelector('textarea.form__input--textarea');
   
   if (subjectInput.value.toString() !== '') {
-    MODAL.querySelector('#message-subject').innerHTML = subjectInput.value.toString();
+    MODAL.querySelector('#message-subject').innerHTML = `Тема: ${subjectInput.value}`;
     // subjectInput.value = '';
   } else {
     MODAL.querySelector('#message-subject').innerHTML = 'Без темы';
   }
 
   if (describeTextarea.value.toString() !== '') {
-    MODAL.querySelector('#message-describe').innerHTML = describeTextarea.value.toString();
+    MODAL.querySelector('#message-describe').innerHTML = `Описание: ${describeTextarea.value}`;
     // describeTextarea.value = '';
   } else {
     MODAL.querySelector('#message-describe').innerHTML = 'Без описания';

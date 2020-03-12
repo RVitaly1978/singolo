@@ -288,10 +288,11 @@ img {
 
 .slider__button:active {
   background-size: 12.5%;
+  outline: none;
 }
 
 .slider__button:focus {
-  outline-color: var(--color-header-background);
+  outline-color: #eb847d;
 }
 
 .slider-list {
@@ -1043,6 +1044,7 @@ img {
   line-height: 1.67;
   font-weight: 300;
   color: var(--color-quote-text);
+  word-spacing: 0.3em;
 }
 
 .message__btn {
