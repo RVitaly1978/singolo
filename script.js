@@ -4,9 +4,9 @@ const IMAGES_LIST = document.querySelector('#images-list');
 const TABS_LIST = document.querySelector('#tabs-list');
 const SLIDER_LIST = document.querySelector('#slider-list');
 const QUOTE_FORM = document.querySelector('#quote-form');
-const FORM_SUBMIT_BTN = document.querySelector('#form-submit-btn');
 const MODAL = document.querySelector('#modal');
 const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
+
 let isModal = false;
 
 /* functionality to navbar ---------------------------------------------- */
@@ -26,7 +26,7 @@ NAVBAR.addEventListener('click', navbarHandler);
 
 /* functionality to slider-list ---------------------------------------------- */
 
-function sliderListHandler(event) {
+function sliderScreenClickHandler(event) {
   if (event.target.tagName !== 'IMG') return;
 
   if (event.target.className === 'iphone__shadow') return;
@@ -36,12 +36,12 @@ function sliderListHandler(event) {
   PHONE.querySelector('img.iphone__screen').classList.toggle('iphone__screen--off');
 }
 
-SLIDER_LIST.addEventListener('click', sliderListHandler);
+SLIDER_LIST.addEventListener('click', sliderScreenClickHandler);
 
 
 /* functionality to images-list ---------------------------------------------- */
 
-function imagesListHandler(event) {
+function imagesClickHandler(event) {
   if (event.target.tagName !== 'IMG') return;
 
   IMAGES_LIST.querySelectorAll('li').forEach(elem => {
@@ -51,7 +51,7 @@ function imagesListHandler(event) {
   event.target.closest('li').classList.add('images-list__item--active');
 }
 
-IMAGES_LIST.addEventListener('click', imagesListHandler);
+IMAGES_LIST.addEventListener('click', imagesClickHandler);
 
 
 /* functionality to tabs-list ---------------------------------------------- */
@@ -60,7 +60,7 @@ function getRandomInRange(max, min = 1) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function tabsListHandler(event) {
+function tabsClickHandler(event) {
   if (event.target.tagName !== 'BUTTON') return;
 
   TABS_LIST.querySelectorAll('li > button').forEach(elem => {
@@ -79,54 +79,41 @@ function tabsListHandler(event) {
   }
 }
 
-TABS_LIST.addEventListener('click', tabsListHandler);
+TABS_LIST.addEventListener('click', tabsClickHandler);
 
 
 /* functionality to form ---------------------------------------------- */
 
-function formSubmitButtonHandler(event) {
-  event.preventDefault();
-  
-  const nameInput = QUOTE_FORM.querySelector('input.form__input--name');
-  const emailInput = QUOTE_FORM.querySelector('input.form__input--email');
+function formSubmitHandler(event) {
+  this.checkValidity();
 
-  if (!nameInput.checkValidity()) {
-    alert(`${nameInput.validationMessage}. ${nameInput.title}`);
-    return false;
-  }
-  
-  if (!emailInput.checkValidity()) {
-    alert(`${emailInput.validationMessage}. ${emailInput.title}`);
-    return false;
-  }
+  event.preventDefault();
 
   const subjectInput = QUOTE_FORM.querySelector('input.form__input--subject');
   const describeTextarea = QUOTE_FORM.querySelector('textarea.form__input--textarea');
   
   if (subjectInput.value.toString() !== '') {
     MODAL.querySelector('#message-subject').innerHTML = `Тема: ${subjectInput.value}`;
-    // subjectInput.value = '';
   } else {
     MODAL.querySelector('#message-subject').innerHTML = 'Без темы';
   }
 
   if (describeTextarea.value.toString() !== '') {
     MODAL.querySelector('#message-describe').innerHTML = `Описание: ${describeTextarea.value}`;
-    // describeTextarea.value = '';
   } else {
     MODAL.querySelector('#message-describe').innerHTML = 'Без описания';
   }
 
-  MODAL.className = 'modal';
+  MODAL.className = 'modal--visible';
   isModal = true;
 }
 
 function modalMessageButtonHandler(event) {
-  MODAL.className = 'modal-hidden';
+  MODAL.className = 'modal--hidden';
   isModal = false;
 }
 
-FORM_SUBMIT_BTN.addEventListener('click', formSubmitButtonHandler);
+QUOTE_FORM.addEventListener('submit', formSubmitHandler);
 MODAL_MESSAGE_BTN.addEventListener('click', modalMessageButtonHandler);
 
 document.addEventListener('keydown', (event) => {
