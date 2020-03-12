@@ -106,6 +106,7 @@ button {
   font-family: inherit;
   text-transform: capitalize;
   cursor: pointer;
+  user-select: none;
 }
 
 input,
@@ -255,35 +256,38 @@ img {
 }
 
 .slider__button {
-  --slider-btn-height: 27px;
-  width: 16px;
+  --slider-btn-height: 100px;
+  width: 100px;
   height: var(--slider-btn-height);
   position: absolute;
   top: calc(50% - var(--slider-btn-height) / 2);
+  border-radius: 0.4333em;
   background-image: url(./assets/images/slider-btn-left.png);
+  background-size: initial;
   z-index: 10;
 }
 
 .slider__button--left {
-  left: 0;
+  left: -42px;
 }
 
 .slider__button.pixel-perfect {
-  left: 2px;
+  left: -40px;
 }
 
 .slider__button--right {
-  right: 0;
+  right: -42px;
   transform: rotate(180deg);
 }
 
 .slider__button:hover {
-  filter: brightness(10);
+  background-color: #eb847d;
+  transition: all 0.3s linear;
+  outline: none;
 }
 
 .slider__button:active {
-  filter: brightness(10);
-  background-size: 80%;
+  background-size: 12.5%;
 }
 
 .slider__button:focus {
@@ -318,6 +322,7 @@ img {
   top: 0;
   left: 0;
   z-index: 10;
+  cursor: pointer;
 }
 
 .iphone__screen {
@@ -332,7 +337,8 @@ img {
   object-fit: none;
   object-position: -14px -135px;
   z-index: 20;
-  transition: filter 0.3s linear;
+  cursor: pointer;
+  transition: filter 0.5s linear;
 }
 
 .iphone-horizontal {
@@ -372,9 +378,9 @@ img {
   z-index: 20;
 }
 
-.iphone__screen:hover {
+/* .iphone__screen:hover {
   border-color: var(--color-slider-background);
-}
+} */
 
 .iphone__screen--off {
   filter: opacity(0);
@@ -752,13 +758,13 @@ img {
   font-size: 0;
 }
 
-.social-link:hover {
+.social-link:active {
   border: 2px solid var(--color-quote-background);
 }
 
-.social-link:active {
-  background-color: var(--color-quote-background);
-  transition: background-color 0.1s linear;
+.social-link:hover {
+  background-color: #aab7db;
+  transition: background-color 0.5s linear;
 }
 
 .social-link--facebook {
@@ -1026,7 +1032,7 @@ img {
 }
 
 .message__title {
-  margin-bottom: 0.75em;
+  margin-bottom: 1em;
   color: var(--color-quote-title);
   text-transform: uppercase;
   word-spacing: 0.5em;
@@ -1045,7 +1051,7 @@ img {
   border-radius: 0.41667em;
   border: 2px solid transparent;
   background-color: var(--color-quote-input-background);
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1;
   font-weight: 700;
   color: var(--color-quote-text);

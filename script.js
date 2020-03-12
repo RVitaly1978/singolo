@@ -2,7 +2,7 @@
 const NAVBAR = document.querySelector('#navbar');
 const IMAGES_LIST = document.querySelector('#images-list');
 const TABS_LIST = document.querySelector('#tabs-list');
-const SLAIDER_LIST = document.querySelector('#slider-list');
+const SLIDER_LIST = document.querySelector('#slider-list');
 const QUOTE_FORM = document.querySelector('#quote-form');
 const FORM_SUBMIT_BTN = document.querySelector('#form-submit-btn');
 const MODAL = document.querySelector('#modal');
@@ -36,7 +36,7 @@ function sliderListHandler(event) {
   PHONE.querySelector('img.iphone__screen').classList.toggle('iphone__screen--off');
 }
 
-SLAIDER_LIST.addEventListener('click', sliderListHandler);
+SLIDER_LIST.addEventListener('click', sliderListHandler);
 
 
 /* functionality to images-list ---------------------------------------------- */
@@ -89,16 +89,14 @@ function formSubmitButtonHandler(event) {
   
   const nameInput = QUOTE_FORM.querySelector('input.form__input--name');
   const emailInput = QUOTE_FORM.querySelector('input.form__input--email');
-  // console.dir(emailInput);
+
   if (!nameInput.checkValidity()) {
-    // alert(nameInput.validationMessage);
-    // alert(nameInput.title);
-    QUOTE_FORM.invalid();
+    alert(`${nameInput.validationMessage}. ${nameInput.title}`);
+    return false;
   }
   
   if (!emailInput.checkValidity()) {
-    alert(emailInput.validationMessage);
-    alert(emailInput.title);
+    alert(`${emailInput.validationMessage}. ${emailInput.title}`);
     return false;
   }
 
@@ -107,14 +105,14 @@ function formSubmitButtonHandler(event) {
   
   if (subjectInput.value.toString() !== '') {
     MODAL.querySelector('#message-subject').innerHTML = subjectInput.value.toString();
-    subjectInput.value = '';
+    // subjectInput.value = '';
   } else {
     MODAL.querySelector('#message-subject').innerHTML = 'Без темы';
   }
 
   if (describeTextarea.value.toString() !== '') {
     MODAL.querySelector('#message-describe').innerHTML = describeTextarea.value.toString();
-    describeTextarea.value = '';
+    // describeTextarea.value = '';
   } else {
     MODAL.querySelector('#message-describe').innerHTML = 'Без описания';
   }
