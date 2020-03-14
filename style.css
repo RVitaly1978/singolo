@@ -276,7 +276,7 @@ img {
   position: absolute;
   top: calc(50% - var(--slider-btn-height) / 2 - 15px);
   border-radius: 0.4333em;
-  background-image: url(./assets/images/slider-btn-left.png);
+  background-image: url(./assets/images/slider-btn-left.svg);
   background-size: initial;
   z-index: 10;
 }
@@ -394,6 +394,7 @@ img {
   top: 0;
   left: 0;
   z-index: 10;
+  border-radius: 26px;
   cursor: pointer;
 }
 
@@ -454,6 +455,7 @@ img {
   position: absolute;
   left: 131px;
   top: 0;
+  border-radius: 29px;
   z-index: 10;
 }
 
@@ -666,6 +668,7 @@ img {
   column-gap: calc(1.25em - 10px);
   row-gap: calc(1.25em - 10px);
   overflow: hidden;
+  user-select: none;
 }
 
 .images-list__item {
@@ -682,6 +685,7 @@ img {
 
 .images-list__item:hover {
   outline: 1px solid var(--color-slider-background);
+  transition: outline 0.4s linear;
   outline-offset: -1px;
 }
 
@@ -689,7 +693,6 @@ img {
 .images-list__item--active,
 .images-list__item--active:focus {
   border-color: var(--color-slider-background);
-  transition: border-color 0.2s linear;
   outline: none;
 }
 
@@ -1111,13 +1114,14 @@ img {
 
 .modal__message {
   padding: 2em 2.5em;
+  max-width: 60vw;
   border-radius: 0.41667em;
   border: 2px solid var(--color-quote-text);
   background-color: var(--color-quote-background);
 }
 
 .message__title {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   color: var(--color-quote-title);
   text-transform: uppercase;
   word-spacing: 0.5em;
@@ -1129,6 +1133,10 @@ img {
   font-weight: 300;
   color: var(--color-quote-text);
   word-spacing: 0.3em;
+}
+
+.message__text + .message__text {
+  margin-top: 1em;
 }
 
 .message__btn {
