@@ -35,6 +35,7 @@
   --color-footer-text: #666d89;
 
   --content-width: 1020px;
+  --content-padding-side: 2.5em;
   
   font-size: 1em;
 
@@ -147,7 +148,7 @@ img {
 .wrapper {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 0 2.5em;
+  padding: 0 var(--content-padding-side);
 }
 
 /*- header --------------------------------------- */
@@ -242,17 +243,18 @@ img {
 /*- slider-section --------------------------------------- */
 
 .slider {
-  padding: 3.3125em 0 3.625em 0;
+  height: 37.5em;
+  padding: 3.3125em 0 2.375em 0;
+  /* padding: 3.3125em 0 3.625em 0; */
   background-color: var(--color-slider-background);
   border-bottom: 6px solid var(--color-slider-border);
   scroll-margin-top: var(--header-height);
 }
 
-.slider__wrapper {
+.slider__container {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 513px;
 }
 
 .slider__button {
@@ -260,7 +262,7 @@ img {
   width: 100px;
   height: var(--slider-btn-height);
   position: absolute;
-  top: calc(50% - var(--slider-btn-height) / 2);
+  top: calc(50% - var(--slider-btn-height) / 2 - 15px);
   border-radius: 0.4333em;
   background-image: url(./assets/images/slider-btn-left.png);
   background-size: initial;
@@ -268,11 +270,11 @@ img {
 }
 
 .slider__button--left {
-  left: -42px;
+  left: -40px;
 }
 
 .slider__button.pixel-perfect {
-  left: -40px;
+  top: calc(50% - var(--slider-btn-height) / 2 - 16px);
 }
 
 .slider__button--right {
@@ -296,18 +298,69 @@ img {
 }
 
 .slider-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   width: 100%;
-  overflow-x: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
 }
 
 .slider-list__item {
-  display: flex;
-  justify-content: space-between;
+  display: none;
+  padding: 0 2.25em;
+  width: calc(var(--content-width) - 2 * var(--content-padding-side));
+  flex: 0 0 auto;
+  justify-content: center;
   align-items: center;
-  line-height: 0;
+  animation: 1s ease-in-out;
+}
+
+.active,
+.next {
+  display: flex;
+}
+
+.next {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.to-left {
+  animation-name: left;
+}
+
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
 }
 
 .iphone-vertical {
@@ -403,10 +456,6 @@ img {
 
 .iphone__screen--off {
   filter: opacity(0);
-}
-
-.slider-hidden {
-  display: none;
 }
 
 /*- section-services --------------------------------------- */

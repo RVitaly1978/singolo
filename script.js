@@ -1,15 +1,7 @@
 
-const NAVBAR = document.querySelector('#navbar');
-const IMAGES_LIST = document.querySelector('#images-list');
-const TABS_LIST = document.querySelector('#tabs-list');
-const SLIDER_LIST = document.querySelector('#slider-list');
-const QUOTE_FORM = document.querySelector('#quote-form');
-const MODAL = document.querySelector('#modal');
-const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
-
-let isModal = false;
-
 /* functionality to navbar ---------------------------------------------- */
+
+const NAVBAR = document.querySelector('#navbar');
 
 function navbarHandler(event) {
   if (event.target.tagName !== 'A') return;
@@ -26,20 +18,80 @@ NAVBAR.addEventListener('click', navbarHandler);
 
 /* functionality to slider-list ---------------------------------------------- */
 
+const SLIDER_LIST = document.querySelector('#slider-list');
+const LEFT_CONTROL = document.querySelector('.slider__button.slider__button--left');
+const RIGHT_CONTROL = document.querySelector('.slider__button.slider__button--right');
+
+let items = SLIDER_LIST.querySelectorAll('.slider-list__item');
+let currentItem = 0;
+let isEnabled = true;
+
+function changeCurrentItem(n) {
+  currentItem = (n + items.length) % items.length;
+}
+
+function hideItem(direction) {
+  isEnabled = false;
+  items[currentItem].classList.add(direction);
+  items[currentItem].addEventListener('animationend', function() {
+    this.classList.remove('active', direction);
+  });
+}
+
+function showItem(direction) {
+  items[currentItem].classList.add('next',direction);
+  items[currentItem].addEventListener('animationend', function() {
+    this.classList.remove('next', direction);
+    this.classList.add('active');
+    isEnabled = true;
+  });
+}
+
+function previousItem(n) {
+  hideItem('to-right');
+  changeCurrentItem(n - 1);
+  showItem('from-left');
+}
+
+function nextItem(n) {
+  hideItem('to-left');
+  changeCurrentItem(n + 1);
+  showItem('from-right');
+}
+
+function leftControlClickHandler() {
+  if (isEnabled) {
+    previousItem(currentItem);
+  }
+}
+
+function rightControlClickHandler() {
+  if (isEnabled) {
+    nextItem(currentItem);
+  }
+}
+
+LEFT_CONTROL.addEventListener('click', leftControlClickHandler);
+RIGHT_CONTROL.addEventListener('click', rightControlClickHandler);
+
+/* click on phones ----------------------------------------------------------- */
+
 function sliderScreenClickHandler(event) {
   if (event.target.tagName !== 'IMG') return;
 
   if (event.target.className === 'iphone__shadow') return;
 
-  let PHONE = event.target.closest('div');
+  let phone = event.target.closest('div');
 
-  PHONE.querySelector('img.iphone__screen').classList.toggle('iphone__screen--off');
+  phone.querySelector('img.iphone__screen').classList.toggle('iphone__screen--off');
 }
 
 SLIDER_LIST.addEventListener('click', sliderScreenClickHandler);
 
 
 /* functionality to images-list ---------------------------------------------- */
+
+const IMAGES_LIST = document.querySelector('#images-list');
 
 function imagesClickHandler(event) {
   if (event.target.tagName !== 'IMG') return;
@@ -55,6 +107,8 @@ IMAGES_LIST.addEventListener('click', imagesClickHandler);
 
 
 /* functionality to tabs-list ---------------------------------------------- */
+
+const TABS_LIST = document.querySelector('#tabs-list');
 
 function getRandomInRange(max, min = 1) {
   return Math.floor(Math.random() * (max - min) + min);
@@ -83,6 +137,11 @@ TABS_LIST.addEventListener('click', tabsClickHandler);
 
 
 /* functionality to form ---------------------------------------------- */
+
+const QUOTE_FORM = document.querySelector('#quote-form');
+const MODAL = document.querySelector('#modal');
+const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
+let isModal = false;
 
 function formSubmitHandler(event) {
   this.checkValidity();
