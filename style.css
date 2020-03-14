@@ -251,6 +251,18 @@ img {
   scroll-margin-top: var(--header-height);
 }
 
+.slider__item1 {
+  background-color: var(--color-slider-background);
+  border-color: var(--color-slider-border);
+  transition: background-color 1s linear, border-color 1s linear;
+}
+
+.slider__item2 {
+  background-color: #648BF0;
+  border-color: #888BF0;
+  transition: background-color 1s linear, border-color 1s linear;
+}
+
 .slider__container {
   position: relative;
   width: 100%;
@@ -316,12 +328,13 @@ img {
   animation: 1s ease-in-out;
 }
 
-.active,
-.next {
+.slider--active,
+.slider--next {
+  position: relative;
   display: flex;
 }
 
-.next {
+.slider--next {
   position: absolute;
   top: 0;
   width: 100%;

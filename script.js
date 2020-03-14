@@ -18,6 +18,7 @@ NAVBAR.addEventListener('click', navbarHandler);
 
 /* functionality to slider-list ---------------------------------------------- */
 
+const SLIDER_SECTION = document.querySelector('#slider');
 const SLIDER_LIST = document.querySelector('#slider-list');
 const LEFT_CONTROL = document.querySelector('.slider__button.slider__button--left');
 const RIGHT_CONTROL = document.querySelector('.slider__button.slider__button--right');
@@ -34,15 +35,21 @@ function hideItem(direction) {
   isEnabled = false;
   items[currentItem].classList.add(direction);
   items[currentItem].addEventListener('animationend', function() {
-    this.classList.remove('active', direction);
+    this.classList.remove('slider--active', direction);
   });
 }
 
+function setBackgroundToSliderSection(style) {
+  SLIDER_SECTION.className = 'slider';
+  SLIDER_SECTION.classList.add(style);
+}
+
 function showItem(direction) {
-  items[currentItem].classList.add('next',direction);
+  items[currentItem].classList.add('slider--next', direction);
+  setBackgroundToSliderSection(items[currentItem].dataset.bg_style);
   items[currentItem].addEventListener('animationend', function() {
-    this.classList.remove('next', direction);
-    this.classList.add('active');
+    this.classList.remove('slider--next', direction);
+    this.classList.add('slider--active');
     isEnabled = true;
   });
 }
