@@ -316,6 +316,7 @@ img {
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+  user-select: none;
 }
 
 .slider-list__item {
@@ -959,14 +960,35 @@ img {
   padding-top: 0.6em;
   padding-bottom: 1.6em;
   width: 100%;
+  max-height: 17em;
+  overflow-y: scroll;
   resize: none;
 }
 
+.form__input--textarea::-webkit-scrollbar {
+  -webkit-appearance: inherit;
+  border-radius: 0.41667em;
+  width: 8px;
+}
+
+.form__input--textarea::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--color-quote-text);
+  cursor: pointer;
+}
+
+.form__input--textarea::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
 .form__submit {
-  padding-left: 5em;
-  padding-right: 5em;
+  padding: 0.5em 5em;
+  flex-grow: 0;
+  width: min-content;
   border: 2px solid transparent;
-  color: var(--color-quote-title);
+  background-color: #FBC65F;
+  font-size: 0.875rem;
+  color:  #886A30;
   line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
@@ -980,8 +1002,9 @@ img {
 }
 
 .form__submit:hover {
+  color: var(--color-quote-title);
   background-color: var(--color-footer-background);
-  transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear, color 0.2s linear;
   outline: none;
 }
 
@@ -1114,13 +1137,14 @@ img {
 
 .modal__message {
   padding: 2em 2.5em;
-  max-width: 60vw;
+  max-width: 40vw;
   border-radius: 0.41667em;
   border: 2px solid var(--color-quote-text);
   background-color: var(--color-quote-background);
 }
 
 .message__title {
+  padding-right: 1em;
   margin-bottom: 1.5em;
   color: var(--color-quote-title);
   text-transform: uppercase;
@@ -1128,6 +1152,7 @@ img {
 }
 
 .message__text {
+  padding-right: 1em;
   font-size: 1.125rem;
   line-height: 1.67;
   font-weight: 300;
@@ -1139,16 +1164,37 @@ img {
   margin-top: 1em;
 }
 
+.message__text--limit-height {
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+.message__text--limit-height::-webkit-scrollbar {
+  -webkit-appearance: inherit;
+  width: 8px;
+}
+
+.message__text--limit-height::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--color-quote-title);
+  cursor: pointer;
+}
+
+.message__text--limit-height::-webkit-scrollbar-track {
+  background-color: var(--color-quote-background);
+}
+
 .message__btn {
+  float: right;
   margin-top: 2.5em;
-  padding: 0.6667em 2.5em;
+  padding: 0.75em 2.5em;
   border-radius: 0.41667em;
   border: 2px solid transparent;
-  background-color: var(--color-quote-input-background);
-  font-size: 1rem;
+  background-color: #FBC65F;
+  font-size: 0.875rem;
   line-height: 1;
   font-weight: 700;
-  color: var(--color-quote-text);
+  color:  #886A30;
   text-transform: uppercase;
   overflow: hidden;
   cursor: pointer;
@@ -1161,7 +1207,8 @@ img {
 }
 
 .message__btn:hover {
+  color: var(--color-quote-text);
   background-color: var(--color-footer-background);
-  transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear, color 0.2s linear;
   outline: none;
 }
