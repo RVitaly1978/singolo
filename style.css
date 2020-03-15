@@ -223,14 +223,18 @@ img {
 }
 
 .navbar__link:hover {
-  text-decoration: underline;
+  color: rgb(150, 150, 150);
+}
+
+.navbar__link:active {
+  color: var(--color-slider-background);
 }
 
 .navbar__link--active {
   color: var(--color-slider-background);
 }
 
-.navbar__link:active {
+.navbar__link.navbar__link--active:hover {
   color: var(--color-slider-background);
 }
 
@@ -278,7 +282,8 @@ img {
   border-radius: 0.4333em;
   background-image: url(./assets/images/slider-btn-left.svg);
   background-size: initial;
-  z-index: 10;
+  z-index: 50;
+  transition: all 0.4s linear;
 }
 
 .slider__button--left {
@@ -296,7 +301,6 @@ img {
 
 .slider__button:hover {
   background-color: rgba(255, 255, 255, 0.25);
-  transition: all 0.3s linear;
   outline: none;
 }
 
@@ -394,7 +398,7 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 5;
   border-radius: 26px;
   cursor: pointer;
 }
@@ -407,7 +411,7 @@ img {
   left: 14px;
   object-fit: none;
   object-position: -14px -135px;
-  z-index: 20;
+  z-index: 10;
   cursor: pointer;
   transition: filter 0.5s linear;
 }
@@ -433,7 +437,7 @@ img {
   top: calc(-100% + 10px);
   transform-origin: left 50%;
   transform: rotateZ(90deg);
-  z-index: 10;
+  z-index: 5;
 }
 
 .iphone-horizontal > .iphone__screen {
@@ -444,7 +448,7 @@ img {
   left: 61px;
   object-fit: none;
   object-position: -125px -119px;
-  z-index: 20;
+  z-index: 10;
 }
 
 .iphones-container {
@@ -457,7 +461,7 @@ img {
   left: 131px;
   top: 0;
   border-radius: 29px;
-  z-index: 10;
+  z-index: 5;
 }
 
 .iphones-container > .iphone__screen {
@@ -467,7 +471,7 @@ img {
   width: 201px;
   height: 354px;
   object-position: initial;
-  z-index: 20;
+  z-index: 10;
 }
 
 .iphone__screen--off {
@@ -845,15 +849,16 @@ img {
   text-align: center;
   color: #000;
   font-size: 0;
-}
-
-.social-link:active {
-  border: 2px solid var(--color-quote-background);
+  transition: all 0.4s linear;
 }
 
 .social-link:hover {
   background-color: #aab7db;
-  transition: background-color 0.5s linear;
+}
+
+.social-link:active {
+  border: 2px solid var(--color-quote-background);
+  transition: border 0.1s linear;
 }
 
 .social-link--facebook {
@@ -875,7 +880,7 @@ img {
 /*- section-get a quote --------------------------------------- */
 
 .quote {
-  padding: 3.85em 0 1.15em 0;
+  padding: 3.85em 0 1.2em 0;
   background-color: var(--color-quote-background);
   border-bottom: 6px solid var(--color-quote-border);
   scroll-margin-top: var(--header-height);
@@ -921,23 +926,29 @@ img {
   font-weight: 400;
   color: var(--color-quote-input-text);
   overflow: hidden;
+  transition: background-color 0.4s linear, color 0.4s linear;
 }
 
-.form__input:hover {
-  background-color: #ad423d;
-  transition: background-color 0.5s linear;
+.form__input + .form__input {
+  margin-top: 1rem;
 }
 
 .form__input::-ms-input-placeholder {
   color: inherit;
 }
+
 .form__input::placeholder {
   color: inherit;
 }
 
+.form__input:hover {
+  background-color: #ad423d;
+}
+
 .form__input:focus {
   color: var(--color-quote-title);
-  outline-color: var(--color-footer-background);
+  outline: 1px solid var(--color-footer-background);
+  outline-offset: 2px;
 }
 
 .form__input:required:focus:not(:placeholder-shown):valid {
@@ -952,10 +963,6 @@ img {
   outline: none;
 }
 
-.form__input + .form__input {
-  margin-top: 1rem;
-}
-
 .form__input--textarea {
   padding-top: 0.6em;
   padding-bottom: 1.6em;
@@ -963,29 +970,32 @@ img {
   max-height: 17em;
   overflow-y: scroll;
   resize: none;
+  cursor: auto;
 }
 
 .form__input--textarea::-webkit-scrollbar {
-  -webkit-appearance: inherit;
-  border-radius: 0.41667em;
-  width: 8px;
+  width: 0.85em;
 }
 
 .form__input--textarea::-webkit-scrollbar-thumb {
-  border-radius: 2px;
+  border-radius: 0.41667em;
   background-color: var(--color-quote-text);
-  cursor: pointer;
+}
+
+.form__input--textarea:not(:focus)::-webkit-scrollbar-thumb {
+  display: none;
 }
 
 .form__input--textarea::-webkit-scrollbar-track {
   background-color: inherit;
+  border-radius: 0.41667em;
 }
 
 .form__submit {
-  padding: 0.5em 5em;
+  padding: 0.55em 5em;
   flex-grow: 0;
-  width: min-content;
-  border: 2px solid transparent;
+  width: max-content;
+  border: 1px solid transparent;
   background-color: #FBC65F;
   font-size: 0.875rem;
   color:  #886A30;
@@ -993,18 +1003,17 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 
 .form__submit:active {
   border-color: var(--color-quote-title);
-  transition: border-color 0.2s linear;
   outline: none;
 }
 
 .form__submit:hover {
   color: var(--color-quote-title);
   background-color: var(--color-footer-background);
-  transition: background-color 0.2s linear, color 0.2s linear;
   outline: none;
 }
 
@@ -1123,23 +1132,23 @@ img {
 }
 
 .modal--visible {
-  display: flex;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 100;
 }
 
 .modal__message {
   padding: 2em 2.5em;
   max-width: 40vw;
-  border-radius: 0.41667em;
-  border: 2px solid var(--color-quote-text);
+  border-radius: 5px;
+  border: 1px solid var(--color-quote-text);
   background-color: var(--color-quote-background);
 }
 
@@ -1154,42 +1163,43 @@ img {
 .message__text {
   padding-right: 1em;
   font-size: 1.125rem;
-  line-height: 1.67;
-  font-weight: 300;
+  line-height: 1.4;
+  font-weight: 400;
   color: var(--color-quote-text);
-  word-spacing: 0.3em;
+  word-wrap: break-word;
+  cursor: auto;
 }
 
 .message__text + .message__text {
-  margin-top: 1em;
+  margin-top: 1.3em;
 }
 
 .message__text--limit-height {
-  max-height: 40vh;
+  max-height: 30vh;
+  padding-right: calc(1em - 8px);
   overflow-y: scroll;
 }
 
 .message__text--limit-height::-webkit-scrollbar {
-  -webkit-appearance: inherit;
   width: 8px;
 }
 
 .message__text--limit-height::-webkit-scrollbar-thumb {
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: var(--color-quote-title);
-  cursor: pointer;
 }
 
 .message__text--limit-height::-webkit-scrollbar-track {
-  background-color: var(--color-quote-background);
+  background-color: inherit;
 }
 
 .message__btn {
   float: right;
-  margin-top: 2.5em;
+  margin-top: 3em;
+  margin-right: 1.2857em;
   padding: 0.75em 2.5em;
   border-radius: 0.41667em;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background-color: #FBC65F;
   font-size: 0.875rem;
   line-height: 1;

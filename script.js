@@ -156,8 +156,10 @@ function addTabsImagesClickHandler(tabsList, images) {
 function addFormSubmitHandler(form, modalButton) {
   form.addEventListener('submit', formSubmitHandler);
   modalButton.addEventListener('click', modalMessageButtonHandler);
-
+  
   const MODAL = document.querySelector('#modal');
+  MODAL.addEventListener('click', modalClickHandler);
+
   let isModal = false;
 
   function formSubmitHandler(event) {
@@ -181,6 +183,7 @@ function addFormSubmitHandler(form, modalButton) {
   
     MODAL.className = 'modal--visible';
     isModal = true;
+    removeScrollInBody();
     modalButton.focus();
 
     document.addEventListener('keydown', (event) => {
@@ -194,9 +197,31 @@ function addFormSubmitHandler(form, modalButton) {
       }
     });
   }
+
+  function modalClickHandler(event) {
+    if (event.target.id !== 'modal') return;
+
+    modalMessageButtonHandler();
+  }
   
   function modalMessageButtonHandler() {
     MODAL.className = 'modal--hidden';
     isModal = false;
+    addScrollInBody();
+  }
+
+  function removeScrollInBody() {
+    const bodyClientWidthBefore = document.body.clientWidth;
+    document.body.style.overflow = 'hidden';
+    const bodyClientWidthAfter = document.body.clientWidth;
+
+    if (bodyClientWidthAfter - bodyClientWidthBefore) {
+      document.body.style.paddingRight = `${bodyClientWidthAfter - bodyClientWidthBefore}px`;
+    }
+  }
+
+  function addScrollInBody() {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '0';
   }
 }
