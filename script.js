@@ -23,15 +23,65 @@ window.addEventListener('load', () => {
 
 function addNavLinksClickHandler(navbar) {
   navbar.addEventListener('click', navbarHandler);
+  document.addEventListener('scroll', scrollHandler);
+
+  isNavLinksClick = false;
 
   function navbarHandler(event) {
     if (event.target.tagName !== 'A') return;
+    isNavLinksClick = true;
   
     this.querySelectorAll('a').forEach(elem => {
       elem.classList.remove('navbar__link--active');
     });
   
     event.target.classList.add('navbar__link--active');
+
+    removeFlagAfterScrollEnd(event);
+  }
+  
+  function removeFlagAfterScrollEnd(event) {
+    let timeout;
+
+    document.addEventListener('scroll', () => {
+      if (timeout !== false) {
+        clearTimeout(timeout);
+      }
+    
+      timeout = setTimeout(function() {
+        const headerHeight = document.querySelector('header').getBoundingClientRect().height;
+        const blockID = event.target.getAttribute('href').substr(1);
+        const elem = document.querySelector(`#${blockID}`);
+  
+        if (elem.getBoundingClientRect().top <= headerHeight + 1) {
+          isNavLinksClick = false;
+        }
+      }, 100);
+    });
+  }
+
+  function scrollHandler() {
+    if (isNavLinksClick) return;
+
+    const headerHeight = document.querySelector('header').getBoundingClientRect().height;
+    const anchors = document.querySelectorAll('a.navbar__link');
+    
+    anchors.forEach((anchor) => {
+      const blockID = anchor.getAttribute('href').substr(1);
+      const elem = document.querySelector(`#${blockID}`);
+    
+      if ((elem.getBoundingClientRect().top <= headerHeight + 1)
+        && (elem.getBoundingClientRect().bottom >= headerHeight + 1)) {
+        if (!anchor.classList.contains('navbar__link--active')) {
+          anchor.classList.add('navbar__link--active');
+        }
+      };
+    
+      if ((elem.getBoundingClientRect().top > headerHeight + 1)
+        || (elem.getBoundingClientRect().bottom < headerHeight + 1)) {
+          anchor.classList.remove('navbar__link--active');
+      };
+    })
   }
 }
 

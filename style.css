@@ -283,7 +283,7 @@ img {
   background-image: url(./assets/images/slider-btn-left.svg);
   background-size: initial;
   z-index: 50;
-  transition: all 0.4s linear;
+  transition: background-color 0.4s linear;
 }
 
 .slider__button--left {
