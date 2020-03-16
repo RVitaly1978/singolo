@@ -33,6 +33,8 @@
 
   --color-footer-background: #2d303a;
   --color-footer-text: #666d89;
+  
+  --color-outline: #FBC65F;
 
   --content-width: 1020px;
   --content-padding-side: 2.5em;
@@ -40,6 +42,10 @@
   font-size: 1em;
 
   scroll-behavior: smooth;
+}
+
+:focus {
+  outline: 1px auto var(--color-outline);
 }
 
 body {
@@ -123,10 +129,6 @@ a {
   padding: 0;
   color: inherit;
   text-decoration: none;
-}
-
-a:focus {
-  outline-color: var(--color-slider-background);
 }
 
 ul {
@@ -307,10 +309,6 @@ img {
 .slider__button:active {
   background-size: 12.5%;
   outline: none;
-}
-
-.slider__button:focus {
-  outline-color: rgba(255, 255, 255, 0.75);
 }
 
 .slider-list {
@@ -635,7 +633,7 @@ img {
 }
 
 .portfolio-tab:focus {
-  outline: 1px solid var(--color-slider-background);
+  outline: 1px solid var(--color-outline);
   outline-offset: 1px;
 }
 
@@ -684,7 +682,7 @@ img {
 }
 
 .images-list__item:focus {
-  outline: 1px solid #c5c5c5;
+  outline: 1px solid var(--color-outline);
   outline-offset: -1px;
 }
 
@@ -947,7 +945,7 @@ img {
 
 .form__input:focus {
   color: var(--color-quote-title);
-  outline: 1px solid var(--color-footer-background);
+  outline: 1px solid var(--color-outline);
   outline-offset: 2px;
 }
 
@@ -1098,10 +1096,6 @@ img {
 .contact-link:active {
   background-color: var(--color-quote-input-background);
   transition: background-color 0.2s linear;
-}
-
-.contact-link:focus {
-  outline-color: var(--color-footer-background);
 }
 
 /*- footer --------------------------------------- */
