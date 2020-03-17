@@ -1,0 +1,227 @@
+
+.slider {
+  height: 37.5em;
+  padding: 3.3125em 0 2.375em 0;
+  background-color: $color-slider-background;
+  border-bottom: 6px solid $color-slider-border;
+  scroll-margin-top: $header-height;
+}
+
+.slider__item1 {
+  background-color: var(--color-slider-background);
+  border-color: var(--color-slider-border);
+  transition: background-color 1s linear, border-color 1s linear;
+}
+
+.slider__item2 {
+  background-color: #648BF0;
+  border-color: #888BF0;
+  transition: background-color 1s linear, border-color 1s linear;
+}
+
+.slider__container {
+  position: relative;
+  width: 100%;
+  height: 513px;
+}
+
+.slider__button {
+  --slider-btn-height: 100px;
+  width: 100px;
+  height: var(--slider-btn-height);
+  position: absolute;
+  top: calc(50% - var(--slider-btn-height) / 2 - 15px);
+  border-radius: 0.4333em;
+  background-image: url(./assets/images/slider-btn-left.svg);
+  background-size: initial;
+  z-index: 50;
+  transition: background-color 0.4s linear;
+}
+
+.slider__button--left {
+  left: -40px;
+}
+
+.slider__button.pixel-perfect {
+  top: calc(50% - var(--slider-btn-height) / 2 - 16px);
+}
+
+.slider__button--right {
+  right: -42px;
+  transform: rotate(180deg);
+}
+
+.slider__button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  outline: none;
+}
+
+.slider__button:active {
+  background-size: 12.5%;
+  outline: none;
+}
+
+.slider-list {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+.slider-list__item {
+  display: none;
+  padding: 0 2.25em;
+  width: calc(var(--content-width) - 2 * var(--content-padding-side));
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  animation: 1s ease-in-out;
+}
+
+.slider--active,
+.slider--next {
+  position: relative;
+  display: flex;
+}
+
+.slider--next {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.to-left {
+  animation-name: left;
+}
+
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.iphone-vertical {
+  margin: 0 2.25em;
+  height: 483px;
+  width: 240px;
+  position: relative;
+}
+
+.iphone__shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.iphone__base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  border-radius: 26px;
+  cursor: pointer;
+}
+
+.iphone__screen {
+  height: 333px;
+  width: 188px;
+  position: absolute;
+  top: 65px;
+  left: 14px;
+  object-fit: none;
+  object-position: -14px -135px;
+  z-index: 10;
+  cursor: pointer;
+  transition: filter 0.5s linear;
+}
+
+.iphone-horizontal {
+  margin: 0 2.25em;
+  height: 240px;
+  width: 484px;
+  position: relative;
+}
+
+.iphone-horizontal > .iphone__shadow {
+  position: absolute;
+  left: calc(50% + 2px);
+  top: calc(-100% - 2px);
+  transform-origin: left 50%;
+  transform: rotateY(180deg) rotateZ(90deg);
+}
+
+.iphone-horizontal > .iphone__base {
+  position: absolute;
+  left: calc(50% - 12px);
+  top: calc(-100% + 10px);
+  transform-origin: left 50%;
+  transform: rotateZ(90deg);
+  z-index: 5;
+}
+
+.iphone-horizontal > .iphone__screen {
+  width: 333px;
+  height: 188px;
+  position: absolute;
+  top: 13px;
+  left: 61px;
+  object-fit: none;
+  object-position: -125px -119px;
+  z-index: 10;
+}
+
+.iphones-container {
+  margin: 0 2.25em;
+  position: relative;
+}
+
+.iphones-container > .iphone__base {
+  position: absolute;
+  left: 131px;
+  top: 0;
+  border-radius: 29px;
+  z-index: 5;
+}
+
+.iphones-container > .iphone__screen {
+  position: absolute;
+  top: 69px;
+  left: 145px;
+  width: 201px;
+  height: 354px;
+  object-position: initial;
+  z-index: 10;
+}
+
+.iphone__screen--off {
+  filter: opacity(0);
+}

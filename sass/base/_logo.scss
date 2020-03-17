@@ -1,0 +1,16 @@
+
+.logo {
+  display: block;
+  position: relative;
+  color: $color-header-text-color;
+  letter-spacing: -0.02em;
+
+  &::after {
+    content: "*";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    color: $color-slider-background;
+  }
+}
+

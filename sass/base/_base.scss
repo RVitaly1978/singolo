@@ -1,0 +1,112 @@
+
+html {
+  font-size: 1em;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  @extend %font-main;
+  // font-family: 'Lato', Verdana, sans-serif;
+  color: $color-light;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+:focus {
+  outline: 1px auto $color-outline;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  @include font ($size: 1.5625rem, $height: 1, $weight: 700);
+  // font-size: 1.5625rem;
+  // line-height: 1;
+  // font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  @include font ($size: 1.875rem, $height: 1, $weight: 900);
+  // font-size: 1.875rem;
+  // line-height: 1;
+  // font-weight: 900;
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  @include font ($size: 1.125rem, $height: 1, $weight: 900);
+  // font-size: 1.125rem;
+  // line-height: 1;
+  // font-weight: 900;
+  text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  overflow: hidden;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: inherit;
+  text-transform: capitalize;
+  cursor: pointer;
+  user-select: none;
+}
+
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: inherit;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+}

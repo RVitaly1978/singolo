@@ -215,20 +215,20 @@ function addFormSubmitHandler(form, modalButton) {
   function formSubmitHandler(event) {
     this.checkValidity();
     event.preventDefault();
-  
+
     const subjectInput = this.querySelector('#input-subject');
     const describeTextarea = this.querySelector('#input-description');
-    
+
     if (subjectInput.value.toString() !== '') {
-      MODAL.querySelector('#message-subject').innerHTML = `Тема: ${subjectInput.value}`;
+      MODAL.querySelector('#message-subject').innerText = `Тема: ${subjectInput.value}`;
     } else {
-      MODAL.querySelector('#message-subject').innerHTML = 'Без темы';
+      MODAL.querySelector('#message-subject').innerText = 'Без темы';
     }
-  
+
     if (describeTextarea.value.toString() !== '') {
-      MODAL.querySelector('#message-describe').innerHTML = `Описание: ${describeTextarea.value}`;
+      MODAL.querySelector('#message-describe').innerText = `Описание: ${describeTextarea.value}`;
     } else {
-      MODAL.querySelector('#message-describe').innerHTML = 'Без описания';
+      MODAL.querySelector('#message-describe').innerText = 'Без описания';
     }
   
     MODAL.className = 'modal--visible';
