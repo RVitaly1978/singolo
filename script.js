@@ -220,15 +220,15 @@ function addFormSubmitHandler(form, modalButton) {
     const describeTextarea = this.querySelector('#input-description');
     
     if (subjectInput.value.toString() !== '') {
-      MODAL.querySelector('#message-subject').innerHTML = `Тема: ${subjectInput.value}`;
+      MODAL.querySelector('#message-subject').innerText = `Тема: ${subjectInput.value}`;
     } else {
-      MODAL.querySelector('#message-subject').innerHTML = 'Без темы';
+      MODAL.querySelector('#message-subject').innerText = 'Без темы';
     }
   
     if (describeTextarea.value.toString() !== '') {
-      MODAL.querySelector('#message-describe').innerHTML = `Описание: ${describeTextarea.value}`;
+      MODAL.querySelector('#message-describe').innerText = `Описание: ${describeTextarea.value}`;
     } else {
-      MODAL.querySelector('#message-describe').innerHTML = 'Без описания';
+      MODAL.querySelector('#message-describe').innerText = 'Без описания';
     }
   
     MODAL.className = 'modal--visible';
@@ -258,6 +258,7 @@ function addFormSubmitHandler(form, modalButton) {
     MODAL.className = 'modal--hidden';
     isModal = false;
     addScrollInBody();
+    clearFormData();
   }
 
   function removeScrollInBody() {
@@ -273,5 +274,14 @@ function addFormSubmitHandler(form, modalButton) {
   function addScrollInBody() {
     document.body.style.overflow = '';
     document.body.style.paddingRight = '0';
+  }
+
+  function clearFormData() {
+    form.querySelectorAll('input, textarea').forEach((elem) => {
+      if ((elem.getAttribute('type') !== 'submit')
+        || (elem.tagName === 'TEXTAREA')) {
+        elem.value = '';
+      }
+    });
   }
 }
