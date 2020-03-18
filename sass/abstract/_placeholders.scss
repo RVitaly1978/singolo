@@ -3,8 +3,24 @@
   font-family: 'Lato', Verdana, sans-serif;
 }
 
+%transition-all-150-linear {
+  transition: all 0.15s linear;
+}
+
+%transition-bgColor-150-linear {
+  transition: background-color 0.15s linear;
+}
+
+%transition-all-400-linear {
+  transition: all 0.4s linear;
+}
+
 %transition-color-150-linear {
   transition: color 0.15s linear;
+}
+
+%transition-borderColor-150-linear {
+  transition: border-color 0.15s linear;
 }
 
 %transition-bgColor-400-linear {
@@ -13,4 +29,12 @@
 
 %transition-filter-400-linear {
   transition: filter 0.4s linear;
+}
+
+%transition-bgColor-borderColor-1000-linear {
+  transition: background-color 1s linear, border-color 1s linear;
+}
+
+%transition-bgColor-color-400-linear {
+  transition: background-color 0.4s linear, color 0.4s linear;
 }

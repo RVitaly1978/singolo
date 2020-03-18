@@ -34,7 +34,6 @@
   letter-spacing: -0.0275em;
   user-select: none;
   @extend %transition-color-150-linear;
-  // transition: color 0.15s linear;
 
   &:hover {
     color: rgb(150, 150, 150);

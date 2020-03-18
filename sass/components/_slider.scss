@@ -1,4 +1,6 @@
 
+$slider-btn-height: 100px;
+
 .slider {
   height: 37.5em;
   padding: 3.3125em 0 2.375em 0;
@@ -10,13 +12,13 @@
 .slider__item1 {
   background-color: $color-slider-background;
   border-color: $color-slider-border;
-  transition: background-color 1s linear, border-color 1s linear;
+  @extend %transition-bgColor-borderColor-1000-linear;
 }
 
 .slider__item2 {
   background-color: #648BF0;
   border-color: #888BF0;
-  transition: background-color 1s linear, border-color 1s linear;
+  @extend %transition-bgColor-borderColor-1000-linear;
 }
 
 .slider__container {
@@ -26,11 +28,10 @@
 }
 
 .slider__button {
-  $slider-btn-height: 100px;
   height: $slider-btn-height;
   width: 100px;
   position: absolute;
-  top: calc(50% - $slider-btn-height / 2 - 15px);
+  top: calc(50% - #{$slider-btn-height} / 2 - 15px);
   border-radius: 5px;
   background-image: url(./assets/images/slider-btn-left.svg);
   background-size: initial;
@@ -57,7 +58,7 @@
   }
 
   &.pixel-perfect {
-    top: calc(50% - $slider-btn-height / 2 - 16px);
+    top: calc(50% - #{$slider-btn-height} / 2 - 16px);
   }
 }
 
@@ -74,7 +75,7 @@
 .slider-list__item {
   display: none;
   padding: 0 2.25em;
-  width: calc($content-width - 2 * $content-padding-side);
+  width: calc(#{$content-width} - 2 * #{$content-padding-side});
   flex: 0 0 auto;
   justify-content: center;
   align-items: center;
@@ -162,7 +163,6 @@
   z-index: $z-index-iphone-screen;
   cursor: pointer;
   @extend %transition-filter-400-linear;
-  // transition: filter 0.5s linear;
 
   &--off {
     filter: opacity(0);
@@ -193,11 +193,8 @@
     top: calc(-100% + 10px);
     transform-origin: left 50%;
     transform: rotateZ(90deg);
-    // z-index: $z-index-iphone-base;
   }
-}
 
-.iphone-horizontal {
   .iphone__screen {
     width: 333px;
     height: 188px;
@@ -206,7 +203,6 @@
     left: 61px;
     object-fit: none;
     object-position: -125px -119px;
-    // z-index: $z-index-iphone-screen;
   }
 }
 
@@ -221,11 +217,8 @@
     left: 131px;
     top: 0;
     border-radius: 29px;
-    // z-index: $z-index-iphone-base;
   }
-}
 
-.iphones-container {
   .iphone__screen {
     position: absolute;
     top: 69px;
@@ -233,6 +226,5 @@
     width: 201px;
     height: 354px;
     object-position: initial;
-    // z-index: $z-index-iphone-screen;
   }
 }

@@ -1,0 +1,51 @@
+
+.socials-list {
+  display: flex;
+}
+
+.socials-list__item + .socials-list__item {
+  margin-left: 0.5em;
+}
+
+.social-link {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid $color-aboutUs-title;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  @include font ($size: 0, $height: 0, $weight: inherit);
+  color: #000;
+  @extend %transition-all-400-linear;
+
+  &:hover {
+    background-color: #929ebe;
+  }
+
+  &:active {
+    border-color: $color-quote-background;
+    background-color: $color-outline;
+    @extend %transition-all-150-linear;
+  }
+
+  &--facebook {
+    background-image: url(./assets/images/facebook.svg);
+  }
+  
+  &--google {
+    background-image: url(./assets/images/google.svg);
+  }
+  
+  &--twitter {
+    background-image: url(./assets/images/twitter.svg);
+  }
+  
+  &--linkedin {
+    background-image: url(./assets/images/linkedin.svg);
+  }
+}

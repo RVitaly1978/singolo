@@ -13,56 +13,54 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 100;
+  z-index: $z-index-form-modal;
 }
 
 .modal__message {
   padding: 2em 2.5em;
   max-width: 40vw;
   border-radius: 5px;
-  border: 1px solid var(--color-quote-text);
-  background-color: var(--color-quote-background);
+  border: 1px solid $color-quote-text;
+  background-color: $color-quote-background;
 }
 
 .message__title {
   padding-right: 1em;
   margin-bottom: 1.5em;
-  color: var(--color-quote-title);
+  color: $color-quote-title;
   text-transform: uppercase;
   word-spacing: 0.5em;
 }
 
 .message__text {
   padding-right: 1em;
-  font-size: 1.125rem;
-  line-height: 1.4;
-  font-weight: 400;
-  color: var(--color-quote-text);
+  @include font ($size: 1.125rem, $height: 1.4, $weight: 400);
+  color: $color-quote-text;
   word-wrap: break-word;
   cursor: auto;
+
+  &--limit-height {
+    max-height: 30vh;
+    padding-right: calc(1em - 8px);
+    overflow-y: scroll;
+  }
+  
+  &--limit-height::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &--limit-height::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $color-quote-title;
+  }
+  
+  &--limit-height::-webkit-scrollbar-track {
+    background-color: inherit;
+  }
 }
 
 .message__text + .message__text {
   margin-top: 1.3em;
-}
-
-.message__text--limit-height {
-  max-height: 30vh;
-  padding-right: calc(1em - 8px);
-  overflow-y: scroll;
-}
-
-.message__text--limit-height::-webkit-scrollbar {
-  width: 8px;
-}
-
-.message__text--limit-height::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: var(--color-quote-title);
-}
-
-.message__text--limit-height::-webkit-scrollbar-track {
-  background-color: inherit;
 }
 
 .message__btn {
@@ -70,27 +68,25 @@
   margin-top: 3em;
   margin-right: 1.2857em;
   padding: 0.75em 2.5em;
-  border-radius: 0.41667em;
+  border-radius: 5px;
   border: 1px solid transparent;
-  background-color: #FBC65F;
-  font-size: 0.875rem;
-  line-height: 1;
-  font-weight: 700;
-  color:  #886A30;
+  background-color: $color-outline;
+  @include font ($size: 0.875rem, $height: 1, $weight: 700);
+  color: #886A30;
   text-transform: uppercase;
   overflow: hidden;
   cursor: pointer;
-}
 
-.message__btn:active {
-  border-color: var(--color-quote-text);
-  transition: border-color 0.2s linear;
-  outline: none;
-}
-
-.message__btn:hover {
-  color: var(--color-quote-text);
-  background-color: var(--color-footer-background);
-  transition: background-color 0.2s linear, color 0.2s linear;
-  outline: none;
+  &:active {
+    border-color: $color-quote-text;
+    @extend %transition-borderColor-150-linear;
+    outline: none;
+  }
+  
+  &:hover {
+    color: $color-quote-text;
+    background-color: $color-footer-background;
+    @extend %transition-bgColor-color-400-linear;
+    outline: none;
+  }
 }

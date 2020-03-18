@@ -1,22 +1,22 @@
 
+$margin-right-employees-list__item: 1.25em;
+
 .about-us {
   padding: 3.86em 0 4.2em 0;
-  background-color: var(--color-aboutUs-background);
-  border-bottom: 6px solid var(--color-aboutUs-border);
-  scroll-margin-top: var(--header-height);
+  background-color: $color-aboutUs-background;
+  border-bottom: 6px solid $color-aboutUs-border;
+  scroll-margin-top: $header-height;
 }
 
 .about-us__title {
-  color: var(--color-aboutUs-title);
+  color: $color-aboutUs-title;
   letter-spacing: -0.0001em;
 }
 
 .about-us__text {
   margin-top: 1.175em;
-  font-size: 1.125rem;
-  line-height: 1.667;
-  font-weight: 300;
-  color: var(--color-aboutUs-text);
+  @include font ($size: 1.125rem, $height: 1.667, $weight: 300);
+  color: $color-aboutUs-text;
   letter-spacing: 0.0032em;
 }
 
@@ -30,23 +30,22 @@
 }
 
 .employees-list__item {
-  --margin-right-employees-list__item: 1.25em;
-  max-width: calc((100% - 2 * var(--margin-right-employees-list__item)) / 3);
+  max-width: calc((100% - 2 * #{$margin-right-employees-list__item}) / 3);
 }
 
 .employee-card__img {
   width: 100%;
   height: auto;
-}
 
-.employee-card__img.pixel-perfect {
-  transform: translate(-0.0625em, 0);
+  &.pixel-perfect {
+    transform: translate(-1px, 0);
+  }
 }
 
 .employee-card__title {
   margin-top: 0.8em;
   margin-left: -0.0555em;
-  color: var(--color-aboutUs-title);
+  color: $color-aboutUs-title;
   word-spacing: 0.04em;
   letter-spacing: -0.006em;
 }
@@ -55,66 +54,14 @@
   margin-top: 0.83em;
   margin-left: -0.045em;
   max-height: 3.5em;
-  font-size: 0.75rem;
-  line-height: 1.82;
-  font-weight: 400;
-  color: var(--color-aboutUs-text);
+  @include font ($size: 0.75rem, $height: 1.82, $weight: 400);
+  color: $color-aboutUs-text;
 }
 
 .employee-card__socials {
   margin-top: 1.49em;
-}
 
-.employee-card__socials.pixel-perfect {
-  margin-left: 0.0625em;
-}
-
-.socials-list {
-  display: flex;
-}
-
-.socials-list__item + .socials-list__item {
-  margin-left: 0.5em;
-}
-
-.social-link {
-  width: 2rem;
-  height: 2rem;
-  display: block;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 1px solid var(--color-aboutUs-title);
-  background-size: inherit;
-  background-repeat: no-repeat;
-  background-position: center;
-  text-align: center;
-  color: #000;
-  font-size: 0;
-  transition: all 0.4s linear;
-}
-
-.social-link:hover {
-  background-color: #aab7db;
-}
-
-.social-link:active {
-  border: 2px solid var(--color-quote-background);
-  transition: border 0.1s linear;
-}
-
-.social-link--facebook {
-  background-image: url(./assets/images/facebook.svg);
-}
-
-.social-link--google {
-  background-image: url(./assets/images/google.svg);
-}
-
-.social-link--twitter {
-  background-image: url(./assets/images/twitter.svg);
-}
-
-.social-link--linkedin {
-  background-image: url(./assets/images/linkedin.svg);
+  &.pixel-perfect {
+    margin-left: 1px;
+  }
 }
