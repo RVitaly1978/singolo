@@ -29,14 +29,11 @@
   display: block;
   padding: 0 1em;
   @include font ($size: 0.75rem, $height: 1.3, $weight: 700);
-  // font-size: 0.75rem;
-  // line-height: 1.3;
-  // font-weight: 700;
   color: $color-header-text-color;
   text-transform: uppercase;
   letter-spacing: -0.0275em;
   user-select: none;
-  @extend %transition-color-150-liniar;
+  @extend %transition-color-150-linear;
   // transition: color 0.15s linear;
 
   &:hover {
@@ -50,8 +47,8 @@
   &--active {
     color: $color-slider-background;
   }
-}
 
-.navbar__link.navbar__link--active:hover {
-  color: $color-slider-background;
+  &--active:hover {
+    color: $color-slider-background;
+  }
 }

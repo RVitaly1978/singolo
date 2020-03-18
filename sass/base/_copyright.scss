@@ -1,0 +1,6 @@
+
+.copyright {
+  @include font ($size: 0.75rem, $height: 1, $weight: 400);
+  color: $color-footer-text;
+  letter-spacing: -0.005em;
+}

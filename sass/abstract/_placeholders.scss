@@ -3,6 +3,14 @@
   font-family: 'Lato', Verdana, sans-serif;
 }
 
-%transition-color-150-liniar {
+%transition-color-150-linear {
   transition: color 0.15s linear;
+}
+
+%transition-bgColor-400-linear {
+  transition: background-color 0.4s linear;
+}
+
+%transition-filter-400-linear {
+  transition: filter 0.4s linear;
 }

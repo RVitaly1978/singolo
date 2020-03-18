@@ -8,8 +8,8 @@
 }
 
 .slider__item1 {
-  background-color: var(--color-slider-background);
-  border-color: var(--color-slider-border);
+  background-color: $color-slider-background;
+  border-color: $color-slider-border;
   transition: background-color 1s linear, border-color 1s linear;
 }
 
@@ -26,39 +26,39 @@
 }
 
 .slider__button {
-  --slider-btn-height: 100px;
+  $slider-btn-height: 100px;
+  height: $slider-btn-height;
   width: 100px;
-  height: var(--slider-btn-height);
   position: absolute;
-  top: calc(50% - var(--slider-btn-height) / 2 - 15px);
-  border-radius: 0.4333em;
+  top: calc(50% - $slider-btn-height / 2 - 15px);
+  border-radius: 5px;
   background-image: url(./assets/images/slider-btn-left.svg);
   background-size: initial;
-  z-index: 50;
-  transition: background-color 0.4s linear;
-}
+  z-index: $z-index-slider-button;
+  @extend %transition-bgColor-400-linear;
 
-.slider__button--left {
-  left: -40px;
-}
+  &--left {
+    left: -40px;
+  }
 
-.slider__button.pixel-perfect {
-  top: calc(50% - var(--slider-btn-height) / 2 - 16px);
-}
+  &--right {
+    right: -42px;
+    transform: rotate(180deg);
+  }
 
-.slider__button--right {
-  right: -42px;
-  transform: rotate(180deg);
-}
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none;
+  }
+  
+  &:active {
+    background-size: 12.5%;
+    outline: none;
+  }
 
-.slider__button:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  outline: none;
-}
-
-.slider__button:active {
-  background-size: 12.5%;
-  outline: none;
+  &.pixel-perfect {
+    top: calc(50% - $slider-btn-height / 2 - 16px);
+  }
 }
 
 .slider-list {
@@ -74,7 +74,7 @@
 .slider-list__item {
   display: none;
   padding: 0 2.25em;
-  width: calc(var(--content-width) - 2 * var(--content-padding-side));
+  width: calc($content-width - 2 * $content-padding-side);
   flex: 0 0 auto;
   justify-content: center;
   align-items: center;
@@ -146,8 +146,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
   border-radius: 26px;
+  z-index: $z-index-iphone-base;
   cursor: pointer;
 }
 
@@ -159,9 +159,14 @@
   left: 14px;
   object-fit: none;
   object-position: -14px -135px;
-  z-index: 10;
+  z-index: $z-index-iphone-screen;
   cursor: pointer;
-  transition: filter 0.5s linear;
+  @extend %transition-filter-400-linear;
+  // transition: filter 0.5s linear;
+
+  &--off {
+    filter: opacity(0);
+  }
 }
 
 .iphone-horizontal {
@@ -171,32 +176,38 @@
   position: relative;
 }
 
-.iphone-horizontal > .iphone__shadow {
-  position: absolute;
-  left: calc(50% + 2px);
-  top: calc(-100% - 2px);
-  transform-origin: left 50%;
-  transform: rotateY(180deg) rotateZ(90deg);
+.iphone-horizontal {
+  .iphone__shadow {
+    position: absolute;
+    left: calc(50% + 2px);
+    top: calc(-100% - 2px);
+    transform-origin: left 50%;
+    transform: rotateY(180deg) rotateZ(90deg);
+  }
 }
 
-.iphone-horizontal > .iphone__base {
-  position: absolute;
-  left: calc(50% - 12px);
-  top: calc(-100% + 10px);
-  transform-origin: left 50%;
-  transform: rotateZ(90deg);
-  z-index: 5;
+.iphone-horizontal {
+  .iphone__base {
+    position: absolute;
+    left: calc(50% - 12px);
+    top: calc(-100% + 10px);
+    transform-origin: left 50%;
+    transform: rotateZ(90deg);
+    // z-index: $z-index-iphone-base;
+  }
 }
 
-.iphone-horizontal > .iphone__screen {
-  width: 333px;
-  height: 188px;
-  position: absolute;
-  top: 13px;
-  left: 61px;
-  object-fit: none;
-  object-position: -125px -119px;
-  z-index: 10;
+.iphone-horizontal {
+  .iphone__screen {
+    width: 333px;
+    height: 188px;
+    position: absolute;
+    top: 13px;
+    left: 61px;
+    object-fit: none;
+    object-position: -125px -119px;
+    // z-index: $z-index-iphone-screen;
+  }
 }
 
 .iphones-container {
@@ -204,24 +215,24 @@
   position: relative;
 }
 
-.iphones-container > .iphone__base {
-  position: absolute;
-  left: 131px;
-  top: 0;
-  border-radius: 29px;
-  z-index: 5;
+.iphones-container {
+  .iphone__base {
+    position: absolute;
+    left: 131px;
+    top: 0;
+    border-radius: 29px;
+    // z-index: $z-index-iphone-base;
+  }
 }
 
-.iphones-container > .iphone__screen {
-  position: absolute;
-  top: 69px;
-  left: 145px;
-  width: 201px;
-  height: 354px;
-  object-position: initial;
-  z-index: 10;
-}
-
-.iphone__screen--off {
-  filter: opacity(0);
+.iphones-container {
+  .iphone__screen {
+    position: absolute;
+    top: 69px;
+    left: 145px;
+    width: 201px;
+    height: 354px;
+    object-position: initial;
+    // z-index: $z-index-iphone-screen;
+  }
 }
