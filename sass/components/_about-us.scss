@@ -32,36 +32,3 @@ $employees-list__item-margin-right: 1.25em;
 .employees-list__item {
   max-width: calc((100% - 2 * #{$employees-list__item-margin-right}) / 3);
 }
-
-.employee-card__img {
-  width: 100%;
-  height: auto;
-
-  &.pixel-perfect {
-    transform: translate(-1px, 0);
-  }
-}
-
-.employee-card__title {
-  margin-top: 0.8em;
-  margin-left: -0.0555em;
-  color: $color-aboutUs-title;
-  word-spacing: 0.04em;
-  letter-spacing: -0.006em;
-}
-
-.employee-card__text {
-  margin-top: 0.83em;
-  margin-left: -0.045em;
-  max-height: 3.5em;
-  @include font ($size: 0.75rem, $height: 1.82, $weight: 400);
-  color: $color-aboutUs-text;
-}
-
-.employee-card__socials {
-  margin-top: 1.49em;
-
-  &.pixel-perfect {
-    margin-left: 1px;
-  }
-}

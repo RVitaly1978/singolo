@@ -1,6 +1,4 @@
 
-$slider-btn-height: 100px;
-
 .slider {
   height: 37.5em;
   padding: 3.3125em 0 2.375em 0;
@@ -12,13 +10,13 @@ $slider-btn-height: 100px;
 .slider__item1 {
   background-color: $color-slider-background;
   border-color: $color-slider-border;
-  @extend %transition-bgColor-borderColor-1000-linear;
+  @extend %transition-bgColor-borderColor-800-linear;
 }
 
 .slider__item2 {
   background-color: #648BF0;
   border-color: #888BF0;
-  @extend %transition-bgColor-borderColor-1000-linear;
+  @extend %transition-bgColor-borderColor-800-linear;
 }
 
 .slider__container {
@@ -27,6 +25,7 @@ $slider-btn-height: 100px;
   height: 513px;
 }
 
+$slider-btn-height: 100px;
 .slider__button {
   height: $slider-btn-height;
   width: 100px;

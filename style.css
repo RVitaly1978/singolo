@@ -3,11 +3,11 @@ body {
   font-family: "Lato", Verdana, sans-serif;
 }
 
-.social-link:active, .portfolio-tab {
+.portfolio-tab {
   transition: all 0.15s linear;
 }
 
-.contact-link:active {
+.contact-link:active, .social-link:active {
   transition: background-color 0.15s linear;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 .slider__item2, .slider__item1 {
-  transition: background-color 1s linear, border-color 1s linear;
+  transition: background-color 0.8s linear, border-color 1s linear;
 }
 
 .message__btn:hover, .form__input {
@@ -736,7 +736,6 @@ img {
   background-color: #929ebe;
 }
 .social-link:active {
-  border-color: #f06c64;
   background-color: #FBC65F;
 }
 .social-link--facebook {
@@ -870,6 +869,9 @@ img {
   color: #f48c8f;
   overflow: hidden;
 }
+.form__input + .form__input {
+  margin-top: 1rem;
+}
 .form__input::-ms-input-placeholder {
   color: inherit;
 }
@@ -893,10 +895,6 @@ img {
   padding: calc(0.66667em - 2px) calc(1.25em - 2px);
   border: 2px solid red;
   outline: none;
-}
-
-.form__input + .form__input {
-  margin-top: 1rem;
 }
 
 .form__input--textarea {

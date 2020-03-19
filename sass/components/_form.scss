@@ -1,0 +1,104 @@
+
+.form {
+  width: 38.6875em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form__input {
+  padding: 0.66667em 1.25em;
+  border-radius: 5px;
+  border: none;
+  background-color: $color-quote-input-background;
+  @include font ($size: 0.75rem, $height: 1.84, $weight: 400);
+  color: $color-quote-input-text;
+  overflow: hidden;
+  @extend %transition-bgColor-color-400-linear;
+
+  & + & {
+    margin-top: 1rem;
+  }
+
+  &::-ms-input-placeholder {
+    color: inherit;
+  }
+  
+  &::placeholder {
+    color: inherit;
+  }
+  
+  &:hover {
+    background-color: #ad423d;
+  }
+  
+  &:focus {
+    color: $color-quote-title;
+    outline: 1px solid $color-outline;
+    outline-offset: 2px;
+  }
+  
+  &:required:focus:not(:placeholder-shown):valid {
+    padding: calc(0.66667em - 2px) calc(1.25em - 2px);
+    border: 2px solid green;
+    outline: none;
+  }
+  
+  &:required:focus:not(:placeholder-shown):invalid {
+    padding: calc(0.66667em - 2px) calc(1.25em - 2px);
+    border: 2px solid red;
+    outline: none;
+  }
+}
+
+.form__input--textarea {
+  padding-top: 0.6em;
+  padding-bottom: 1.6em;
+  width: 100%;
+  max-height: 17em;
+  overflow-y: scroll;
+  resize: none;
+  cursor: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.85em;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $color-quote-text;
+  }
+  
+  &:not(:focus)::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 5px;
+  }
+}
+
+.form__submit {
+  padding: 0.55em 5em;
+  flex-grow: 0;
+  width: max-content;
+  border: 1px solid transparent;
+  background-color: $color-outline;
+  @include font ($size: 0.875rem, $height: 1, $weight: 700);
+  color:  #886A30;
+  text-transform: uppercase;
+  cursor: pointer;
+  @extend %transition-all-400-linear;
+
+  &:active {
+    border-color: $color-quote-title;
+    outline: none;
+  }
+  
+  &:hover {
+    color: $color-quote-title;
+    background-color: $color-footer-background;
+    outline: none;
+  }
+}

@@ -28,9 +28,8 @@
   }
 
   &:active {
-    border-color: $color-quote-background;
     background-color: $color-outline;
-    @extend %transition-all-150-linear;
+    @extend %transition-bgColor-150-linear;
   }
 
   &--facebook {

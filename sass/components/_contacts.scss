@@ -1,0 +1,79 @@
+
+.contacts {
+  width: 18.75em;
+}
+
+.contacts__title {
+  color: $color-quote-title;
+  letter-spacing: -0.002em;
+}
+
+.contacts__text {
+  margin-top: 0.85em;
+  @include font ($size: 0.75rem, $height: 1.8334, $weight: 400);
+  color: $color-quote-text;
+  text-align: justify;
+  letter-spacing: -0.02em;
+
+  &::first-line {
+    line-height: 1.75;
+  }
+}
+
+.contacts-list {
+  margin-top: 1.2625rem;
+  padding-left: 1.0rem;
+}
+
+.contact-link {
+  position: relative;
+  padding-left: 0.33333em;
+  padding-right: 0.33333em;
+  border-radius: 4px;
+  @include font ($size: 0.75rem, $height: 1.6, $weight: 400);
+  color: $color-quote-text;
+  letter-spacing: 0.005em;
+
+  &.pixel-perfect {
+    line-height: 2.1;
+    letter-spacing: -0.01em;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -0.75em;
+    bottom: +2px;
+    background-size: initial;
+    background-repeat: no-repeat;
+    transform: translateX(calc(-50% - 0.5px));
+  }
+  
+  &--location::before {
+    width: 7px;
+    height: 11px;
+    background-image: url(./assets/images/location.svg);
+  }
+  
+  &--phone::before {
+    width: 11px;
+    height: 11px;
+    background-image: url(./assets/images/phone.svg);
+  }
+  
+  &--mail::before {
+    width: 13px;
+    height: 8px;
+    background-image: url(./assets/images/mail.svg);
+  }
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  &:active {
+    background-color: $color-quote-input-background;
+    @extend %transition-bgColor-150-linear;
+  }
+}
