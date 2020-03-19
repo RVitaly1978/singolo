@@ -1,5 +1,5 @@
 
-$margin-right-employees-list__item: 1.25em;
+$employees-list__item-margin-right: 1.25em;
 
 .about-us {
   padding: 3.86em 0 4.2em 0;
@@ -30,7 +30,7 @@ $margin-right-employees-list__item: 1.25em;
 }
 
 .employees-list__item {
-  max-width: calc((100% - 2 * #{$margin-right-employees-list__item}) / 3);
+  max-width: calc((100% - 2 * #{$employees-list__item-margin-right}) / 3);
 }
 
 .employee-card__img {
