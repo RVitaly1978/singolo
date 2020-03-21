@@ -19,9 +19,9 @@
       </h1>
 
       <nav>
-        <ul class="navbar header__navbar">
+        <ul id="navbar" class="navbar header__navbar">
           <li class="navbar__item">
-            <a class="navbar__link navbar__link--active" href="#!">Home</a>
+            <a class="navbar__link navbar__link--active" href="#slider">Home</a>
           </li>
           <li class="navbar__item">
             <a class="navbar__link" href="#services">Services</a>
@@ -43,27 +43,32 @@
 
   <main>
 
-    <div class="slider">
+    <div id="slider" class="slider">
       <div class="wrapper">
-
-        <div class="slider__wrapper">
+        
+        <div class="slider__container">
 
           <button class="slider__button slider__button--left pixel-perfect" aria-label="previous slide"></button>
           <button class="slider__button slider__button--right" aria-label="next slide"></button>
   
-          <ul class="slider-list">
-            <li class="slider-list__item">
+          <ul id="slider-list" class="slider-list">
+            <li class="slider-list__item slider--active" data-bg_style="slider__item1">
               <div class="iphone-vertical">
                 <img class="iphone__shadow" src="./assets/images/iphone-shadow.png" alt="Vertical phone">
                 <img class="iphone__base" src="./assets/images/iphone-base.png" alt="Vertical phone">
                 <img class="iphone__screen" src="./assets/images/iphone-vertical-screen.png" alt="Vertical phone screen content">
               </div>
-            </li>
-            <li class="slider-list__item">
               <div class="iphone-horizontal">
                 <img class="iphone__shadow" src="./assets/images/iphone-shadow.png" alt="Horizontal phone">
                 <img class="iphone__base" src="./assets/images/iphone-base.png" alt="Horizontal phone">
                 <img class="iphone__screen" src="./assets/images/iphone-horizontal-screen.png" alt="Horizontal phone screen content">
+              </div>
+            </li>
+            <li class="slider-list__item" data-bg_style="slider__item2">
+              <div class="iphones-container">
+                <img class="iphone__bg" src="./assets/images/iphones-bg.png" alt="Vertical phones">
+                <img class="iphone__base" src="./assets/images/iphone-base-big.png" alt="Vertical phones">
+                <img class="iphone__screen" src="./assets/images/iphones-vertical-screen.png" alt="Vertical phones screen content">
               </div>
             </li>
           </ul>
@@ -122,73 +127,49 @@
         <h2 class="portfolio__title">Portfolio</h2>
         <p class="portfolio__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
   
-        <ul class="portfolio__tabs tabs-list pixel-perfect">
+        <ul id="tabs-list" class="portfolio__tabs tabs-list pixel-perfect">
           <li class="tabs-list__item"><button class="portfolio-tab portfolio-tab--active">All</button></li>
           <li class="tabs-list__item"><button class="portfolio-tab">Web design</button></li>
           <li class="tabs-list__item"><button class="portfolio-tab">Graphic design</button></li>
           <li class="tabs-list__item"><button class="portfolio-tab">Artwork</button></li>
         </ul>
   
-        <ul class="portfolio__images images-list">
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 1
-              <img class="portfolio__img portfolio__img--01" src="./assets/images/image-01.png" alt="portfolio image 1">
-            </a>
+        <ul id="images-list" class="portfolio__images images-list">
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--01" src="./assets/images/image-01.png" alt="portfolio image 1">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 2
-              <img class="portfolio__img portfolio__img--02" src="./assets/images/image-02.png" alt="portfolio image 2">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--02" src="./assets/images/image-02.png" alt="portfolio image 2">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 3
-              <img class="portfolio__img portfolio__img--03" src="./assets/images/image-03.png" alt="portfolio image 3">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--03" src="./assets/images/image-03.png" alt="portfolio image 3">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 4
-              <img class="portfolio__img portfolio__img--04" src="./assets/images/image-04.png" alt="portfolio image 4">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--04" src="./assets/images/image-04.png" alt="portfolio image 4">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 5
-              <img class="portfolio__img portfolio__img--05" src="./assets/images/image-05.png" alt="portfolio image 5">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--05" src="./assets/images/image-05.png" alt="portfolio image 5">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 6
-              <img class="portfolio__img portfolio__img--06" src="./assets/images/image-06.png" alt="portfolio image 6">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--06" src="./assets/images/image-06.png" alt="portfolio image 6">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 7
-              <img class="portfolio__img portfolio__img--07" src="./assets/images/image-07.png" alt="portfolio image 7">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--07" src="./assets/images/image-07.png" alt="portfolio image 7">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 8
-              <img class="portfolio__img portfolio__img--08" src="./assets/images/image-08.png" alt="portfolio image 8">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--08" src="./assets/images/image-08.png" alt="portfolio image 8">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 9
-              <img class="portfolio__img portfolio__img--09" src="./assets/images/image-09.png" alt="portfolio image 9">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--09" src="./assets/images/image-09.png" alt="portfolio image 9">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 10
-              <img class="portfolio__img portfolio__img--10" src="./assets/images/image-10.png" alt="portfolio image 10">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--10" src="./assets/images/image-10.png" alt="portfolio image 10">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 11
-              <img class="portfolio__img portfolio__img--11" src="./assets/images/image-11.png" alt="portfolio image 11">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--11" src="./assets/images/image-11.png" alt="portfolio image 11">
           </li>
-          <li class="images-list__item">
-            <a class="portfolio__link" href="#!">Link to portfolio image 12
-              <img class="portfolio__img portfolio__img--12" src="./assets/images/image-12.png" alt="portfolio image 12">
-            </a>
+          <li class="images-list__item" tabindex="0">
+            <img class="portfolio__img portfolio__img--12" src="./assets/images/image-12.png" alt="portfolio image 12">
           </li>
         </ul>
 
@@ -288,6 +269,7 @@
               form="quote-form"
               required
               autocomplete="off"
+              maxlength="110"
               title="Enter your name"
               placeholder="Name (Required)">
 
@@ -298,30 +280,38 @@
               form="quote-form"
               required
               autocomplete="off"
+              maxlength="110"
               title="Enter your email in format: username@domain"
               placeholder="Email (Required)">
 
             <input
+              id="input-subject"
               class="form__input form__input--subject"
               type="text"
               name="subject"
               form="quote-form"
+              autocomplete="off"
+              maxlength="110"
               placeholder="Subject">
 
             <textarea
+              id="input-description"
               class="form__input form__input--textarea"
               name="project-details"
               form="quote-form"
-              cols="60"
+              cols="65"
               rows="8"
+              autocomplete="off"
+              maxlength="2000"
               placeholder="Describe your project in detail..."></textarea>
 
             <input
+              id="form-submit-btn"
               class="form__input form__submit"
               type="submit"
               name="submit"
               form="quote-form"
-              value="Submit">
+              value="Send">
               
           </form>
 
@@ -373,6 +363,17 @@
   
     </div>
   </footer>
+
+  <div id="modal" class="modal--hidden">
+    <div class="modal__message">
+      <h3 class="message__title">Письмо отправлено</h3>
+      <p id="message-subject" class="message__text">Без темы</p>
+      <p id="message-describe" class="message__text message__text--limit-height">Без описания</p>
+      <button id="message-btn" class="message__btn">Ok</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
   
 </body>
 
