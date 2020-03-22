@@ -1,0 +1,68 @@
+
+$slider-btn-height: 100px;
+.slider__button {
+  height: $slider-btn-height;
+  width: 70px;
+  position: absolute;
+  top: calc(50% - #{$slider-btn-height} / 2 - 15px);
+  border-radius: 5px;
+  background-image: url(./assets/images/slider-btn-left.svg);
+  background-size: initial;
+  z-index: $z-index-slider-button;
+  @extend %transition-bgColor-400-linear;
+  
+  @include media-laptop {
+    top: calc(50% - #{$slider-btn-height} / 2 - 100vw * 15 / 1020 );
+  }
+
+  @include media-tablet {
+    width: calc( 70px - ( 768px - 100vw) * ( 70 - 32 ) / ( 768 - 375 ));
+  }
+
+  @include media-mobile {
+    width: 32px;
+  }
+  
+  &--left {
+    left: -27px;
+    
+    @include media-laptop {
+      left: calc( -27px + ( 100vw - 1020px ) * 12 / ( 1020 - 768 ) );
+    }
+
+    @include media-tablet {
+      left: calc( -39px + 10 * ( 768px - 100vw ) / 393 );
+    }
+
+    @include media-mobile {
+      left: calc( 1px - #{$content-padding-side-mobile} );
+    }
+  }
+
+  &--right {
+    transform: rotate(180deg);
+    right: -27px;
+    
+    @include media-laptop {
+      right: calc( -27px + ( 100vw - 1020px ) * 12 / ( 1020 - 768 ) );
+    }
+
+    @include media-tablet {
+      right: calc( -39px + 10 * ( 768px - 100vw ) / 393 );
+    }
+
+    @include media-mobile {
+      right: calc( 1px - #{$content-padding-side-mobile} );
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none;
+  }
+  
+  &:active {
+    background-size: 12.5%;
+    outline: none;
+  }
+}

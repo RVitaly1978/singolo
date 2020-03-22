@@ -5,3 +5,23 @@
   font-weight: $weight;
   font-style: $style;
 }
+
+@mixin media-laptop-max {
+  @media (min-width: $content-width) { @content; }
+}
+
+@mixin media-laptop {
+  @media (max-width: $content-width) { @content; }
+}
+
+@mixin media-tablet {
+  @media (max-width: $content-width-tablet) { @content; }
+}
+
+@mixin media-mobile {
+  @media (max-width: $content-width-mobile) { @content; }
+}
+
+@mixin media-mobile-small {
+  @media (max-width: $content-width-mobile-small) { @content; }
+}

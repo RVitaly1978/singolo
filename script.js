@@ -152,13 +152,11 @@ function addPhonesScreenClickHandler(sliderList) {
 
   function sliderScreenClickHandler(event) {
     if (event.target.tagName !== 'IMG') return;
-  
-    if (event.target.className === 'iphone__shadow') return;
-    if (event.target.className === 'iphone__bg') return;
+    if (event.target.classList.contains('phone__shadow')) return;
   
     const phone = event.target.closest('div');
   
-    phone.querySelector('img.iphone__screen').classList.toggle('iphone__screen--off');
+    phone.querySelector('img.phone__display').classList.toggle('phone__display--off');
   }
 }
 

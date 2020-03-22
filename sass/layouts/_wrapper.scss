@@ -3,4 +3,12 @@
   max-width: $content-width;
   margin: 0 auto;
   padding: 0 $content-padding-side;
+
+  @include media-tablet {
+    padding: 0 calc( #{$content-padding-side} - 10 * ( 768px - 100vw) / 393 );
+  }
+
+  @include media-mobile {
+    padding: 0 $content-padding-side-mobile;
+  }
 }

@@ -37,9 +37,13 @@
 
 // Content width
   $content-width: 1020px;
+  $content-width-tablet: 768px;
+  $content-width-mobile: 375px;
+  $content-width-mobile-small: 320px;
 
 // Padding
-  $content-padding-side: 2.5em;
+  $content-padding-side: 40px;
+  $content-padding-side-mobile: 30px;
 
 // Z-index
   $z-index-header: 50;
