@@ -8,5 +8,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include media-mobile-landscape {
+    justify-content: center;
+  }
 }
 
+.footer__copyright {
+  @include media-mobile-landscape {
+    display: none;
+  }
+}

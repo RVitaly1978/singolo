@@ -1,11 +1,28 @@
 
-$employees-list__item-margin-right: 1.25em;
-
 .about-us {
-  padding: 3.86em 0 4.2em 0;
+  padding: 59px 0 68px 0;
   background-color: $color-aboutUs-background;
   border-bottom: 6px solid $color-aboutUs-border;
-  scroll-margin-top: $header-height;
+  scroll-margin-top: calc( #{$header-height} - 5px );
+
+  @include media-laptop {
+    $ratio-padding-top: calc(( 59 - 52 ) / ( 1020 - 768 ));
+    padding-top: calc( 59px - ( 1020px - 100vw ) * #{$ratio-padding-top} );
+  }
+
+  @include media-tablet {
+    $ratio-padding-top: calc(( 52 - 33 ) / ( 768 - 640 ));
+    $ratio-padding-bottom: calc(( 68 - 39 ) / ( 768 - 640 ));
+
+    padding-top: calc( 52px - ( 768px - 100vw ) * #{$ratio-padding-top} );
+    padding-bottom: calc( 68px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
+  }
+
+  @include media-mobile-landscape {
+    padding-top: 33px;
+    padding-bottom: 39px;
+    border-bottom-color: $color-aboutUs-background;
+  }
 }
 
 .about-us__title {
@@ -14,7 +31,7 @@ $employees-list__item-margin-right: 1.25em;
 }
 
 .about-us__text {
-  margin-top: 1.175em;
+  margin-top: 1.0083em;
   @include font ($size: 1.125rem, $height: 1.667, $weight: 300);
   color: $color-aboutUs-text;
   letter-spacing: 0.0032em;
@@ -27,8 +44,39 @@ $employees-list__item-margin-right: 1.25em;
 .employees-list {
   display: flex;
   justify-content: space-between;
+
+  @include media-mobile-landscape {
+    flex-direction: column;
+    padding: 0 15%;
+  }
+
+  @include media-mobile-landscape-small {
+    padding: 0;
+  }
 }
 
 .employees-list__item {
-  max-width: calc((100% - 2 * #{$employees-list__item-margin-right}) / 3);
+  $item-margin-right: 1.25em;
+  max-width: calc((100% - 2 * #{$item-margin-right}) / 3);
+
+  @include media-laptop {
+    $ratio: calc( ( 20 - 14.53 ) / ( 1020 - 768 ));
+    $item-margin-right: calc( 20px - ( 1020px - 100vw ) * #{$ratio});
+    max-width: calc( ( 100% - 2 * #{$item-margin-right} ) / 3 );
+  }
+
+  @include media-tablet {
+    $item-margin-right: 14.53px;
+    max-width: calc( ( 100% - 2 * #{$item-margin-right} ) / 3 );
+  }
+
+  @include media-mobile-landscape {
+    max-width: 100%;
+  }
+}
+
+.employees-list__item + .employees-list__item {
+  @include media-mobile-landscape {
+    margin-top: 2.125em;
+  }
 }

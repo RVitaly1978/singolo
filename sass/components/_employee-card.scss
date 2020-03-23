@@ -1,11 +1,12 @@
 
+.employee-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .employee-card__img {
   width: 100%;
   height: auto;
-
-  &.pixel-perfect {
-    transform: translate(-1px, 0);
-  }
 }
 
 .employee-card__title {
@@ -17,9 +18,9 @@
 }
 
 .employee-card__text {
+  flex-grow: 1;
   margin-top: 0.83em;
   margin-left: -0.045em;
-  max-height: 3.5em;
   @include font ($size: 0.75rem, $height: 1.82, $weight: 400);
   color: $color-aboutUs-text;
 }
@@ -27,7 +28,7 @@
 .employee-card__socials {
   margin-top: 1.49em;
 
-  &.pixel-perfect {
-    margin-left: 1px;
+  @include media-laptop {
+    margin-top: 0.75em;
   }
 }

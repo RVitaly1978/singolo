@@ -1,6 +1,22 @@
 
 .contacts {
-  width: 18.75em;
+  flex-basis: calc( 300 / 940 * 100%);
+  flex-shrink: 2;
+  margin-left: 20px;
+
+  @include media-laptop {
+    $ratio: calc( ( 29 - 20 ) / ( 1020 - 768 ) );
+    margin-left: calc( 20px + ( 1020px - 100vw ) * #{$ratio});
+  }
+
+  @include media-tablet {
+    margin-left: 29px;
+  }
+
+  @include media-mobile-landscape {
+    margin-left: 0;
+    margin-top: 32px;
+  }
 }
 
 .contacts__title {
@@ -68,8 +84,10 @@
     background-image: url(./assets/images/mail.svg);
   }
   
-  &:hover {
-    text-decoration: underline;
+  @include media-hover {
+    &:hover {
+      text-decoration: underline;
+    }
   }
   
   &:active {

@@ -1,15 +1,12 @@
 
 .slider {
+  height: 600px;
+  padding: 54px 0 27px 0;
+  border-bottom-width: 6px;
   background-color: $color-slider-background;
   border-bottom-style: solid;
   border-bottom-color: $color-slider-border;
-  scroll-margin-top: $header-height;
-  
-  @include media-laptop-max {
-    height: 600px;
-    padding: 54px 0 27px 0;
-    border-bottom-width: 6px;
-  }
+  scroll-margin-top: calc( #{$header-height} - 5px );
 
   @include media-laptop {
     height: calc(100vw * 600 / 1020);
@@ -54,9 +51,7 @@
   animation: 1s ease-in-out;
 
   &:first-child {
-    @include media-laptop-max {
-      padding-bottom: 30px;
-    }
+    padding-bottom: 30px;
 
     @include media-laptop {
       padding-bottom: calc(100vw * 30 / 1020);
@@ -118,9 +113,7 @@
 }
 
 .phone-container + .phone-container {
-  @include media-laptop-max {
-    margin-left: 72px;
-  }
+  margin-left: 72px;
   
   @include media-laptop {
     margin-left: calc(100vw * 72 / 1020);
@@ -139,10 +132,8 @@
   object-fit: contain;
 
   &.phone-vertical {
-    @include media-laptop-max {
-      width: 240px;
-      height: 483px;
-    }
+    width: 240px;
+    height: 483px;
     
     @include media-laptop {
       width: calc(100vw * 240 / 1020);
@@ -151,10 +142,8 @@
   }
 
   &.phone-horizontal {
-    @include media-laptop-max {
-      width: 483px;
-      height: 240px;
-    }
+    width: 483px;
+    height: 240px;
     
     @include media-laptop {
       width: calc(100vw * 483 / 1020);
@@ -163,10 +152,8 @@
   }
 
   &.phones-vertical {
-    @include media-laptop-max {
-      width: 517px;
-      height: 513px;
-    }
+    width: 517px;
+    height: 513px;
     
     @include media-laptop {
       width: calc(100vw * 517 / 1020);

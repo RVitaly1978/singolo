@@ -2,6 +2,10 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+
+  @include media-mobile-landscape {
+    display: none;
+  }
 }
 
 .navbar__item {
@@ -35,8 +39,10 @@
   user-select: none;
   @extend %transition-color-150-linear;
 
-  &:hover {
-    color: rgb(150, 150, 150);
+  @include media-hover {
+    &:hover {
+      color: rgb(150, 150, 150);
+    }
   }
 
   &:active {
@@ -47,7 +53,9 @@
     color: $color-slider-background;
   }
 
-  &--active:hover {
-    color: $color-slider-background;
+  @include media-hover {
+    &--active:hover {
+      color: $color-slider-background;
+    }
   }
 }

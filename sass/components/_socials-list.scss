@@ -23,13 +23,17 @@
   color: #000;
   @extend %transition-all-400-linear;
 
-  &:hover {
-    background-color: #929ebe;
+  @include media-hover {
+    &:hover {
+      background-color: #929ebe;
+      border-color: #929ebe;
+    }
   }
 
   &:active {
     background-color: $color-outline;
-    @extend %transition-bgColor-150-linear;
+    border-color: $color-outline;
+    @extend %transition-all-150-linear;
   }
 
   &--facebook {

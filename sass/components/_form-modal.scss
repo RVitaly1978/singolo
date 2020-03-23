@@ -18,10 +18,26 @@
 
 .modal__message {
   padding: 2em 2.5em;
-  max-width: 40vw;
+  max-width: 50vw;
   border-radius: 5px;
   border: 1px solid $color-quote-text;
   background-color: $color-quote-background;
+  
+  @include media-laptop {
+    max-width: 60vw;
+  }
+
+  @include media-tablet {
+    max-width: 70vw;
+  }
+
+  @include media-mobile-landscape {
+    max-width: 80vw;
+  }
+
+  @include media-mobile {
+    max-width: 90vw;
+  }
 }
 
 .message__title {
@@ -75,6 +91,7 @@
   color: #886A30;
   text-transform: uppercase;
   overflow: hidden;
+  @extend %transition-bgColor-color-400-linear;
   cursor: pointer;
 
   &:active {
@@ -82,11 +99,12 @@
     @extend %transition-borderColor-150-linear;
     outline: none;
   }
-  
-  &:hover {
-    color: $color-quote-text;
-    background-color: $color-footer-background;
-    @extend %transition-bgColor-color-400-linear;
-    outline: none;
+
+  @include media-hover {
+    &:hover {
+      color: $color-quote-text;
+      background-color: $color-footer-background;
+      outline: none;
+    }
   }
 }

@@ -5,7 +5,8 @@
   padding: 0 $content-padding-side;
 
   @include media-tablet {
-    padding: 0 calc( #{$content-padding-side} - 10 * ( 768px - 100vw) / 393 );
+    $ratio: calc(( 40 - 30 ) / ( 768 - 375 ));
+    padding: 0 calc( #{$content-padding-side} - ( 768px - 100vw) * #{$ratio} );
   }
 
   @include media-mobile {

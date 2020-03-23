@@ -6,10 +6,20 @@
   background-color: $color-header-background;
   border-bottom: 6px solid $color-header-border;
   z-index: $z-index-header;
+  
+  @include media-mobile-landscape {
+    padding-top: 26px;
+    padding-bottom: 19px;
+    border-bottom-color: $color-header-background;
+  }
 }
 
 .header__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  
+  @include media-mobile-landscape {
+    justify-content: center;
+  }
 }

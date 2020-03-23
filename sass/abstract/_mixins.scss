@@ -6,22 +6,30 @@
   font-style: $style;
 }
 
-@mixin media-laptop-max {
-  @media (min-width: $content-width) { @content; }
-}
-
 @mixin media-laptop {
-  @media (max-width: $content-width) { @content; }
+  @media (max-width: calc(#{$content-width} - 1px)) { @content; }
 }
 
 @mixin media-tablet {
-  @media (max-width: $content-width-tablet) { @content; }
+  @media (max-width: calc(#{$content-width-tablet} - 1px)) { @content; }
+}
+
+@mixin media-mobile-landscape {
+  @media (max-width: calc(#{$content-width-mobile-landscape} - 1px)) { @content; }
+}
+
+@mixin media-mobile-landscape-small {
+  @media (max-width: calc(#{$content-width-mobile-landscape-small} - 1px)) { @content; }
 }
 
 @mixin media-mobile {
-  @media (max-width: $content-width-mobile) { @content; }
+  @media (max-width: calc(#{$content-width-mobile} - 1px)) { @content; }
 }
 
 @mixin media-mobile-small {
   @media (max-width: $content-width-mobile-small) { @content; }
+}
+
+@mixin media-hover {
+  @media (hover: hover) { @content; }
 }
