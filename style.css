@@ -222,6 +222,9 @@ img {
   transform: rotate(90deg);
   outline: none;
 }
+.hamburger--active:focus {
+  outline: none;
+}
 
 .wrapper {
   max-width: 1020px;
@@ -401,6 +404,9 @@ img {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
+}
+.side-menu--hidden {
+  display: none;
 }
 
 .side-menu__content {

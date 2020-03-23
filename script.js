@@ -1,7 +1,12 @@
 
 window.addEventListener('load', () => {
   const NAVBAR = document.querySelector('#navbar');
+  const NAVBAR_ASIDE = document.querySelector('#navbar-side-menu');
   addNavLinksClickHandler(NAVBAR);
+  addNavLinksClickHandler(NAVBAR_ASIDE);
+  
+  const HEADER_HAMBURGER = document.querySelector('#header-hamburger');
+  addHamburgerClickHandler(HEADER_HAMBURGER);
 
   const LEFT_CONTROL = document.querySelector('.slider__button.slider__button--left');
   const RIGHT_CONTROL = document.querySelector('.slider__button.slider__button--right');
@@ -82,6 +87,26 @@ function addNavLinksClickHandler(navbar) {
           anchor.classList.remove('navbar__link--active');
       };
     })
+  }
+}
+
+function addHamburgerClickHandler(button) {
+  button.addEventListener('click', hamburgerClickHandler);
+
+  function hamburgerClickHandler(event) {
+    // isNavLinksClick = true;
+    const button = event.target.closest('BUTTON');
+    const asideMenu = document.querySelector('#aside-menu');
+    
+    if (button.classList.contains('hamburger--active')) {
+      button.classList.remove('hamburger--active');
+      asideMenu.classList.add('side-menu--hidden');
+    } else {
+      button.classList.add('hamburger--active');
+      asideMenu.classList.remove('side-menu--hidden');
+    }
+
+    // removeFlagAfterScrollEnd(event);
   }
 }
 

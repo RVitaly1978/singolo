@@ -7,6 +7,10 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
+
+  &--hidden {
+    display: none;
+  }
 }
 
 .side-menu__content {

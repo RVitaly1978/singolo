@@ -50,6 +50,10 @@
     transform: rotate(90deg);
     outline: none;
   }
+
+  &--active:focus {
+    outline: none;
+  }
 }
 
 .hamburger__line {
