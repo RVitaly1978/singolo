@@ -22,6 +22,7 @@
     padding-top: 33px;
     padding-bottom: 39px;
     border-bottom-color: $color-aboutUs-background;
+    scroll-margin-top: calc( #{$header-height-mobile} - 5px );
   }
 }
 

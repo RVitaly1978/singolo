@@ -49,10 +49,14 @@
 
 // Z-index
   $z-index-header: 50;
+  $z-index-side-menu-overlay: 60;
+  $z-index-side-menu: 70;
+  $z-index-side-menu-hamburger: 80;
   $z-index-slider-button: 20;
   $z-index-iphone-base: 5;
   $z-index-iphone-screen: 10;
   $z-index-form-modal: 100;
 
 // Other
-  $header-height: calc(2em + 1.5625rem + 2em + 6px);
+  $header-height: 95px;
+  $header-height-mobile: 71px;

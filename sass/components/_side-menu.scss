@@ -1,0 +1,26 @@
+
+.side-menu {
+  position: absolute;
+  z-index: $z-index-side-menu-overlay;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.side-menu__content {
+  position: relative;
+  width: 278px;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  padding: 24px 20px 20px 71px;
+  background:$color-header-background;
+  box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+  z-index: $z-index-side-menu;
+}
+
+.side-menu__navbar {
+  margin-top: calc( 28.5vh - 50px);
+}

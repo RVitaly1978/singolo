@@ -9,6 +9,7 @@
 @import "./sass/base/base";
 @import "./sass/base/logo";
 @import "./sass/base/copyright";
+@import "./sass/base/hamburger";
 
 // Layouts
 @import "./sass/layouts/wrapper";
@@ -17,6 +18,7 @@
 
 // Components
 @import "./sass/components/navbar";
+@import "./sass/components/side-menu";
 @import "./sass/components/slider";
 @import "./sass/components/slider-button";
 @import "./sass/components/services";

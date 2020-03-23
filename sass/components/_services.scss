@@ -25,6 +25,7 @@
     padding-top: 25.41px;
     padding-bottom: 0;
     border-bottom-color: $color-services-background;
+    scroll-margin-top: calc( #{$header-height-mobile} - 5px );
   }
 }
 

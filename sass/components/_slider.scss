@@ -14,6 +14,10 @@
     padding-bottom: calc(100vw * 27 / 1020);
     border-bottom-width: calc(100vw * 6 / 1020);
   }
+
+  @include media-mobile-landscape {
+    scroll-margin-top: calc( #{$header-height-mobile} - 5px );
+  }
 }
 
 .slider__item1 {

@@ -1,9 +1,15 @@
 
 .logo {
-  display: block;
+  display: inline-block;
   position: relative;
+  @include font ($size: 1.5625rem, $height: 1, $weight: 700);
+  text-transform: uppercase;
   color: $color-header-text-color;
   letter-spacing: -0.02em;
+
+  @include media-mobile-landscape {
+    font-size: 20px;
+  }
 
   &::after {
     content: "*";
@@ -13,4 +19,3 @@
     color: $color-slider-background;
   }
 }
-

@@ -1,10 +1,10 @@
 
 .navbar {
-  display: flex;
   justify-content: space-between;
 
-  @include media-mobile-landscape {
-    display: none;
+  &--aside {
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
 
@@ -14,6 +14,19 @@
 
   &:last-child {
     margin-right: -0.75em;
+  }
+
+  &--aside {
+    margin: 0;
+    margin-bottom: 27px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &--aside::before {
+    display: none;
   }
 }
 
@@ -38,6 +51,15 @@
   letter-spacing: -0.0275em;
   user-select: none;
   @extend %transition-color-150-linear;
+  
+  &--aside {
+    padding: 0;
+    font-size: 24px;
+    line-height: 29px;
+    color: $color-light;
+    letter-spacing: -0.035em;
+  }
+
 
   @include media-hover {
     &:hover {

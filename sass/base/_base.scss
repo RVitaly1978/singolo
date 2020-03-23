@@ -25,8 +25,8 @@ body {
 h1 {
   margin: 0;
   padding: 0;
-  @include font ($size: 1.5625rem, $height: 1, $weight: 700);
-  text-transform: uppercase;
+  font-size: 0;
+  line-height: 0;
 }
 
 h2 {

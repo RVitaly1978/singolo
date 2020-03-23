@@ -23,3 +23,31 @@
     justify-content: center;
   }
 }
+
+.header__hamburger {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 26px;
+  z-index: $z-index-side-menu-hamburger;
+
+  @include media-mobile-landscape {
+    display: flex;
+  }
+}
+
+.header__navbar {
+  display: flex;
+
+  @include media-mobile-landscape {
+    display: none;
+  }
+}
+
+.header__side-menu {
+  display: none;
+
+  @include media-mobile-landscape {
+    display: block;
+  }
+}
