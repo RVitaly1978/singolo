@@ -39,7 +39,7 @@
   @include media-hover {
     &:hover {
       > .hamburger__line, &::before, &::after {
-        background-color: $color-outline;
+        background-color: $color-slider-background;
       }
       outline: none;
     }

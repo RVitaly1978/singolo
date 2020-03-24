@@ -1,6 +1,7 @@
 
 .logo {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   position: relative;
   @include font ($size: 1.5625rem, $height: 1, $weight: 700);
   text-transform: uppercase;

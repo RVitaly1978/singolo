@@ -1,16 +1,20 @@
 
 .side-menu {
   position: absolute;
-  z-index: $z-index-side-menu-overlay;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: $z-index-side-menu-overlay;
 
   &--hidden {
     display: none;
   }
+}
+
+.side-menu__logo {
+  margin-bottom: 25px;
 }
 
 .side-menu__content {
@@ -19,12 +23,37 @@
   height: 100vh;
   left: 0;
   top: 0;
-  padding: 24px 20px 20px 71px;
+  padding: 24px 10px 30px 71px;
   background:$color-header-background;
   box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
   z-index: $z-index-side-menu;
+  animation: 0.4s ease-in-out;
+}
+
+.side-menu__nav {
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $color-light;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 3px;
+  }
 }
 
 .side-menu__navbar {
-  margin-top: calc( 28.5vh - 50px);
+  margin-top: 160px;
+  height: calc(100vh - 160px - 30px - #{$header-height-mobile});
+
+  @media (max-width: calc(#{$content-width-mobile-landscape} - 1px)) and (orientation: landscape) {
+    margin-top: 50px;
+    height: calc(100vh - 50px - 30px - #{$header-height-mobile});
+  }
 }

@@ -19,10 +19,6 @@ body {
   transition: color 0.15s linear;
 }
 
-.message__btn:active {
-  transition: border-color 0.15s linear;
-}
-
 .slider__button {
   transition: background-color 0.4s linear;
 }
@@ -147,7 +143,8 @@ img {
 }
 
 .logo {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   position: relative;
   font-size: 1.5625rem;
   line-height: 1;
@@ -215,7 +212,7 @@ img {
     outline: none;
   }
   .hamburger:hover > .hamburger__line, .hamburger:hover::before, .hamburger:hover::after {
-    background-color: #FBC65F;
+    background-color: #f06c64;
   }
 }
 .hamburger:active, .hamburger--active {
@@ -340,6 +337,7 @@ img {
 .navbar__item--aside {
   margin: 0;
   margin-bottom: 27px;
+  padding-right: 5px;
 }
 .navbar__item--aside:last-child {
   margin: 0;
@@ -398,15 +396,19 @@ img {
 
 .side-menu {
   position: absolute;
-  z-index: 60;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 60;
 }
 .side-menu--hidden {
   display: none;
+}
+
+.side-menu__logo {
+  margin-bottom: 25px;
 }
 
 .side-menu__content {
@@ -415,14 +417,37 @@ img {
   height: 100vh;
   left: 0;
   top: 0;
-  padding: 24px 20px 20px 71px;
+  padding: 24px 10px 30px 71px;
   background: #2d303a;
   box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
   z-index: 70;
+  animation: 0.4s ease-in-out;
+}
+
+.side-menu__nav {
+  overflow-y: scroll;
+}
+.side-menu__nav::-webkit-scrollbar {
+  width: 6px;
+}
+.side-menu__nav::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+.side-menu__nav::-webkit-scrollbar-track {
+  background-color: inherit;
+  border-radius: 3px;
 }
 
 .side-menu__navbar {
-  margin-top: calc( 28.5vh - 50px);
+  margin-top: 160px;
+  height: calc(100vh - 160px - 30px - 71px);
+}
+@media (max-width: calc(640px - 1px)) and (orientation: landscape) {
+  .side-menu__navbar {
+    margin-top: 50px;
+    height: calc(100vh - 50px - 30px - 71px);
+  }
 }
 
 .slider {
@@ -1328,6 +1353,7 @@ img {
   padding-bottom: 1.6em;
   width: 100%;
   max-height: 17em;
+  word-wrap: break-word;
   overflow-y: scroll;
   resize: none;
   cursor: auto;
@@ -1495,8 +1521,8 @@ img {
   padding: 2em 2.5em;
   max-width: 50vw;
   border-radius: 5px;
-  border: 1px solid #f0d8d9;
-  background-color: #f06c64;
+  border: 2px solid #666d89;
+  background-color: #f2f2f2;
 }
 @media (max-width: calc(1020px - 1px)) {
   .modal__message {
@@ -1522,7 +1548,7 @@ img {
 .message__title {
   padding-right: 1em;
   margin-bottom: 1.5em;
-  color: #f0d8d9;
+  color: #666d89;
   text-transform: uppercase;
   word-spacing: 0.5em;
 }
@@ -1533,7 +1559,7 @@ img {
   line-height: 1.4;
   font-weight: 400;
   font-style: normal;
-  color: #f0d8d9;
+  color: #767e9e;
   word-wrap: break-word;
   cursor: auto;
 }
@@ -1547,7 +1573,7 @@ img {
 }
 .message__text--limit-height::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #f0d8d9;
+  background-color: #767e9e;
 }
 .message__text--limit-height::-webkit-scrollbar-track {
   background-color: inherit;
@@ -1569,18 +1595,18 @@ img {
   line-height: 1;
   font-weight: 700;
   font-style: normal;
-  color: #886A30;
+  color: #666d89;
   text-transform: uppercase;
   overflow: hidden;
   cursor: pointer;
 }
 .message__btn:active {
-  border-color: #f0d8d9;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
   outline: none;
 }
 @media (hover: hover) {
   .message__btn:hover {
-    color: #f0d8d9;
+    color: #f2f2f2;
     background-color: #2d303a;
     outline: none;
   }

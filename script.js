@@ -1,9 +1,7 @@
 
 window.addEventListener('load', () => {
   const NAVBAR = document.querySelector('#navbar');
-  const NAVBAR_ASIDE = document.querySelector('#navbar-side-menu');
   addNavLinksClickHandler(NAVBAR);
-  addNavLinksClickHandler(NAVBAR_ASIDE);
   
   const HEADER_HAMBURGER = document.querySelector('#header-hamburger');
   addHamburgerClickHandler(HEADER_HAMBURGER);
@@ -37,11 +35,10 @@ function addNavLinksClickHandler(navbar) {
     isNavLinksClick = true;
   
     this.querySelectorAll('a').forEach(elem => {
-      elem.classList.remove('navbar__link--active');
+      removeClassName(elem, 'navbar__link--active');
     });
   
-    event.target.classList.add('navbar__link--active');
-
+    addClassName(event.target, 'navbar__link--active');
     removeFlagAfterScrollEnd(event);
   }
   
@@ -64,49 +61,97 @@ function addNavLinksClickHandler(navbar) {
       }, 100);
     });
   }
+}
 
-  function scrollHandler() {
-    if (isNavLinksClick) return;
+function scrollHandler() {
+  if (isNavLinksClick) return;
 
-    const headerHeight = document.querySelector('header').getBoundingClientRect().height;
-    const anchors = document.querySelectorAll('a.navbar__link');
-    
-    anchors.forEach((anchor) => {
-      const blockID = anchor.getAttribute('href').substr(1);
-      const elem = document.querySelector(`#${blockID}`);
-    
-      if ((elem.getBoundingClientRect().top <= headerHeight + 1)
-        && (elem.getBoundingClientRect().bottom >= headerHeight + 1)) {
-        if (!anchor.classList.contains('navbar__link--active')) {
-          anchor.classList.add('navbar__link--active');
-        }
-      };
-    
-      if ((elem.getBoundingClientRect().top > headerHeight + 1)
-        || (elem.getBoundingClientRect().bottom < headerHeight + 1)) {
-          anchor.classList.remove('navbar__link--active');
-      };
-    })
-  }
+  const headerHeight = document.querySelector('header').getBoundingClientRect().height;
+  const anchors = document.querySelectorAll('a.navbar__link');
+  
+  anchors.forEach((anchor) => {
+    const blockID = anchor.getAttribute('href').substr(1);
+    const elem = document.querySelector(`#${blockID}`);
+  
+    if ((elem.getBoundingClientRect().top <= headerHeight + 1)
+      && (elem.getBoundingClientRect().bottom >= headerHeight + 1)) {
+      if (!anchor.classList.contains('navbar__link--active')) {
+        addClassName(anchor, 'navbar__link--active');
+      }
+    };
+  
+    if ((elem.getBoundingClientRect().top > headerHeight + 1)
+      || (elem.getBoundingClientRect().bottom < headerHeight + 1)) {
+      removeClassName(anchor, 'navbar__link--active');
+    };
+  })
 }
 
 function addHamburgerClickHandler(button) {
   button.addEventListener('click', hamburgerClickHandler);
+  
+  const NAVBAR_ASIDE = document.querySelector('#navbar-side-menu');
+  NAVBAR_ASIDE.addEventListener('click', asideNavLinksClickHandler);
 
-  function hamburgerClickHandler(event) {
-    // isNavLinksClick = true;
-    const button = event.target.closest('BUTTON');
-    const asideMenu = document.querySelector('#aside-menu');
-    
-    if (button.classList.contains('hamburger--active')) {
-      button.classList.remove('hamburger--active');
-      asideMenu.classList.add('side-menu--hidden');
+  const ASIDE_MENU = document.querySelector('#aside-menu');
+  ASIDE_MENU.addEventListener('click', asideMenuClickHandler);
+  
+  const ASIDE_MENU_CONTENT = document.querySelector('.side-menu__content');
+
+  function asideNavLinksClickHandler(event) {
+    if (event.target.tagName !== 'A') return;
+  
+    this.querySelectorAll('a').forEach(elem => {
+      removeClassName(elem, 'navbar__link--active');
+    });
+  
+    addClassName(event.target, 'navbar__link--active');
+    disableAsideMenu();
+  }
+
+  function asideMenuClickHandler(event) {
+    if (event.target.id !== 'aside-menu') return;
+    disableAsideMenu();
+  }
+
+  function hamburgerClickHandler() {
+    if (event.target.closest('BUTTON').classList.contains('hamburger--active')) {
+      disableAsideMenu();
     } else {
-      button.classList.add('hamburger--active');
-      asideMenu.classList.remove('side-menu--hidden');
+      activateAsideMenu();
     }
+  }
 
-    // removeFlagAfterScrollEnd(event);
+  function disableAsideMenu() {
+    removeClassName(button, 'hamburger--active');
+    hideAsideMenu();
+    addScrollInBody();
+  }
+
+  function activateAsideMenu() {
+    addClassName(button, 'hamburger--active');
+    showAsideMenu();
+    removeScrollInBody();
+  }
+
+  function showAsideMenu() {
+    removeClassName(ASIDE_MENU, 'side-menu--hidden');
+    addClassName(ASIDE_MENU_CONTENT, 'from-left');
+    
+    ASIDE_MENU_CONTENT.addEventListener('animationend', function animationendHandler() {
+      removeClassName(this, 'from-left');
+      this.removeEventListener('animationend', animationendHandler);
+    });
+  }
+
+  function hideAsideMenu() {
+    addClassName(ASIDE_MENU_CONTENT, 'to-left');
+    
+    ASIDE_MENU_CONTENT.addEventListener('animationend', function animationendHandler() {
+      addClassName(ASIDE_MENU, 'side-menu--hidden');
+      removeClassName(this, 'to-left');
+      this.removeEventListener('animationend', animationendHandler);
+    });
   }
 }
 
@@ -192,7 +237,7 @@ function addImagesListClickHandler(imagesList) {
     if (event.target.tagName !== 'IMG') return;
   
     this.querySelectorAll('li').forEach(elem => {
-      elem.classList.remove('images-list__item--active');
+      removeClassName(elem, 'images-list__item--active');
     });
   
     event.target.closest('li').classList.add('images-list__item--active');
@@ -206,10 +251,10 @@ function addTabsImagesClickHandler(tabsList, images) {
     if (event.target.tagName !== 'BUTTON') return;
   
     this.querySelectorAll('button').forEach(elem => {
-      elem.classList.remove('portfolio-tab--active');
+      removeClassName(elem, 'portfolio-tab--active');
     });
   
-    event.target.classList.add('portfolio-tab--active');
+    addClassName(event.target, 'portfolio-tab--active');
   
     const imagesList = [...images.querySelectorAll('li')];
     const random = getRandomInRange(imagesList.length);
@@ -283,28 +328,30 @@ function addFormSubmitHandler(form, modalButton) {
     clearFormData();
   }
 
-  function removeScrollInBody() {
-    const bodyClientWidthBefore = document.body.clientWidth;
-    document.body.style.overflow = 'hidden';
-    const bodyClientWidthAfter = document.body.clientWidth;
-
-    if (bodyClientWidthAfter - bodyClientWidthBefore) {
-      document.body.style.paddingRight = `${bodyClientWidthAfter - bodyClientWidthBefore}px`;
-    }
-  }
-
-  function addScrollInBody() {
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '0';
-  }
-
   function clearFormData() {
     form.reset();
-    // form.querySelectorAll('input, textarea').forEach((elem) => {
-    //   if ((elem.getAttribute('type') !== 'submit')
-    //     || (elem.tagName === 'TEXTAREA')) {
-    //     elem.value = '';
-    //   }
-    // });
   }
+}
+
+function removeScrollInBody() {
+  const bodyClientWidthBefore = document.body.clientWidth;
+  document.body.style.overflow = 'hidden';
+  const bodyClientWidthAfter = document.body.clientWidth;
+
+  if (bodyClientWidthAfter - bodyClientWidthBefore) {
+    document.body.style.paddingRight = `${bodyClientWidthAfter - bodyClientWidthBefore}px`;
+  }
+}
+
+function addScrollInBody() {
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '0';
+}
+
+function removeClassName(elem, className) {
+  elem.classList.remove(className);
+}
+
+function addClassName(elem, className) {
+  elem.classList.add(className);
 }
