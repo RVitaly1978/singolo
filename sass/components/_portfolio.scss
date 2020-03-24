@@ -164,7 +164,7 @@
   @include media-hover {
     &:hover {
       outline: 1px solid $color-slider-background;
-      outline-offset: -1px;
+      outline-offset: -2px;
       transition: outline 0.4s linear;
     }
   }

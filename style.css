@@ -1043,7 +1043,7 @@ img {
 @media (hover: hover) {
   .images-list__item:hover {
     outline: 1px solid #f06c64;
-    outline-offset: -1px;
+    outline-offset: -2px;
     transition: outline 0.4s linear;
   }
 }
@@ -1521,7 +1521,7 @@ img {
   padding: 2em 2.5em;
   max-width: 50vw;
   border-radius: 5px;
-  border: 2px solid #666d89;
+  border: 2px solid #2d303a;
   background-color: #f2f2f2;
 }
 @media (max-width: calc(1020px - 1px)) {
@@ -1548,7 +1548,7 @@ img {
 .message__title {
   padding-right: 1em;
   margin-bottom: 1.5em;
-  color: #666d89;
+  color: #2d303a;
   text-transform: uppercase;
   word-spacing: 0.5em;
 }
@@ -1559,7 +1559,7 @@ img {
   line-height: 1.4;
   font-weight: 400;
   font-style: normal;
-  color: #767e9e;
+  color: #2d303a;
   word-wrap: break-word;
   cursor: auto;
 }
@@ -1573,7 +1573,7 @@ img {
 }
 .message__text--limit-height::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #767e9e;
+  background-color: #2d303a;
 }
 .message__text--limit-height::-webkit-scrollbar-track {
   background-color: inherit;
@@ -1595,7 +1595,7 @@ img {
   line-height: 1;
   font-weight: 700;
   font-style: normal;
-  color: #666d89;
+  color: #2d303a;
   text-transform: uppercase;
   overflow: hidden;
   cursor: pointer;
