@@ -17,7 +17,7 @@
 }
 
 .modal__message {
-  padding: 2em 2.5em;
+  padding: 1.5em 2em;
   max-width: 50vw;
   border-radius: 5px;
   border: 2px solid $color-footer-background;
@@ -43,10 +43,11 @@
 
 .message__title {
   padding-right: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   color: $color-footer-background;
   text-transform: uppercase;
-  word-spacing: 0.5em;
+  word-spacing: 0.4em;
+  white-space: normal;
 }
 
 .message__text {
@@ -58,17 +59,17 @@
 
   &--limit-height {
     max-height: 30vh;
-    padding-right: calc(1em - 8px);
+    padding-right: calc(1em - 6px);
     overflow-y: scroll;
   }
   
   &--limit-height::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   &--limit-height::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: $color-footer-background;
+    border-radius: 3px;
+    background-color: $color-slider-background;
   }
   
   &--limit-height::-webkit-scrollbar-track {
@@ -77,13 +78,13 @@
 }
 
 .message__text + .message__text {
-  margin-top: 1.3em;
+  margin-top: 1em;
 }
 
 .message__btn {
   float: right;
-  margin-top: 3em;
-  margin-right: 1.2857em;
+  margin-top: 1.5em;
+  margin-right: 1.1428em;
   padding: 0.75em 2.5em;
   border-radius: 5px;
   border: 1px solid transparent;

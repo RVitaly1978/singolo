@@ -250,7 +250,10 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
       startY = e.pageY;
       startTime = new Date().getTime();
       
-      e.preventDefault();
+      // if (e.target.tagName !== 'IMG' || e.target.classList.contains('phone__shadow')) {
+      //   e.preventDefault();
+      // }
+      // e.preventDefault();
     }, false);
   
     surface.addEventListener('mouseup', function(e){
@@ -272,7 +275,7 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
         }
       }
   
-      e.preventDefault();
+      // e.preventDefault();
     }, false);
   
     surface.addEventListener('touchstart', function(e){
@@ -293,11 +296,14 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
       startY = touchObj.pageY;
       startTime = new Date().getTime();
   
-      e.preventDefault();
+      // if (e.target.tagName !== 'IMG' || e.target.classList.contains('phone__shadow')) {
+      //   e.preventDefault();
+      // }
+      // e.preventDefault();
     }, false);
   
     surface.addEventListener('touchmove', function(e){
-      e.preventDefault();
+      // e.preventDefault();
     }, false);
   
     surface.addEventListener('touchend', function(e){
@@ -320,7 +326,7 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
         }
       }
   
-      e.preventDefault();
+      // e.preventDefault();
     }, false);
   }
 }
