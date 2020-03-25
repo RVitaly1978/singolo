@@ -249,7 +249,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100vw;
   padding: 2em 0 2em 0;
   background-color: #2d303a;
   border-bottom: 6px solid #323746;
@@ -511,7 +511,7 @@ img {
   width: 100%;
   justify-content: center;
   align-items: center;
-  animation: 1s ease-in-out;
+  animation: 0.8s ease-in-out;
 }
 .slider-list__item:first-child {
   padding-bottom: 30px;

@@ -392,7 +392,11 @@ function addFormSubmitHandler(form, modalButton) {
   const MODAL = document.querySelector('#modal');
   MODAL.addEventListener('click', modalClickHandler);
   MODAL.addEventListener('touchmove', function(e) {
-    if (event.target.classList.contains('message__text--limit-height')) return;
+    if (event.target.classList.contains('message__text--limit-height')
+      && (!isScrollAtStart(this) || !isScrollAtEnd(this))) {
+      return;
+    }
+
     e.preventDefault();
   });
 
@@ -472,4 +476,14 @@ function removeClassName(elem, className) {
 
 function addClassName(elem, className) {
   elem.classList.add(className);
+}
+
+function isScrollAtStart(elem) {
+  if (elem.scrollTop === 0) return true;
+  return false;
+}
+
+function isScrollAtEnd(elem) {
+  if (elem.scrollTop + elem.clientHeight === elem.scrollHeight) return true;
+  return false;
 }
