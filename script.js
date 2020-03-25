@@ -290,7 +290,7 @@ function addFormSubmitHandler(form, modalButton) {
   const MODAL = document.querySelector('#modal');
   MODAL.addEventListener('click', modalClickHandler);
   MODAL.addEventListener('touchmove', function(e) {
-    if (event.target.id !== 'modal') return;
+    // if (event.target.id !== 'modal') return;
     e.preventDefault();
   });
 
