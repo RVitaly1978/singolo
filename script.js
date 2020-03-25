@@ -89,6 +89,7 @@ function scrollHandler() {
 
 function addHamburgerClickHandler(button) {
   button.addEventListener('click', hamburgerClickHandler);
+  button.addEventListener('touchstart', hamburgerClickHandler);
   
   const NAVBAR_ASIDE = document.querySelector('#navbar-side-menu');
   NAVBAR_ASIDE.addEventListener('click', asideNavLinksClickHandler);
@@ -226,6 +227,102 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
     const SLIDER_SECTION = document.querySelector('#slider');
     SLIDER_SECTION.className = 'slider';
     SLIDER_SECTION.classList.add(style);
+  }
+
+  const SLIDER = document.querySelector('#slider-container');
+  swipeDetect(SLIDER);
+
+  function swipeDetect(el) {
+    let surface = el;
+    let startX = 0;
+    let startY = 0;
+    let distX = 0;
+    let distY = 0;
+    let startTime = 0;
+    let elapsedTime = 0;
+  
+    let threshold = 200;
+    let restraint = 200;
+    let allowedTime = 5000;
+  
+    surface.addEventListener('mousedown', function(e){
+      startX = e.pageX;
+      startY = e.pageY;
+      startTime = new Date().getTime();
+      
+      e.preventDefault();
+    }, false);
+  
+    surface.addEventListener('mouseup', function(e){
+      distX = e.pageX - startX;
+      distY = e.pageY - startY;
+      elapsedTime = new Date().getTime() - startTime;
+  
+      if (elapsedTime <= allowedTime){
+        if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){
+          if (distX > 0) {
+            if (isEnabled) {
+              previousItem(currentItem);
+            }
+          } else {
+            if (isEnabled) {
+              nextItem(currentItem);
+            }
+          }
+        }
+      }
+  
+      e.preventDefault();
+    }, false);
+  
+    surface.addEventListener('touchstart', function(e){
+      // if (e.target.classList.contains('arrow') || e.target.classList.contains('control')) {
+      if (e.target.tagName === 'BUTTON') {
+        if (e.target.classList.contains('slider__button--left')) {
+          if (isEnabled) {
+            previousItem(currentItem);
+          }
+        } else {
+          if (isEnabled) {
+            nextItem(currentItem);
+          }
+        }
+      }
+  
+      let touchObj = e.changedTouches[0];
+      startX = touchObj.pageX;
+      startY = touchObj.pageY;
+      startTime = new Date().getTime();
+  
+      e.preventDefault();
+    }, false);
+  
+    surface.addEventListener('touchmove', function(e){
+      e.preventDefault();
+    }, false);
+  
+    surface.addEventListener('touchend', function(e){
+      let touchObj = e.changedTouches[0];
+      distX = touchObj.pageX - startX;
+      distY = touchObj.pageY - startY;
+      elapsedTime = new Date().getTime() - startTime;
+  
+      if (elapsedTime <= allowedTime){
+        if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){
+          if (distX > 0) {
+            if (isEnabled) {
+              previousItem(currentItem);
+            }
+          } else {
+            if (isEnabled) {
+              nextItem(currentItem);
+            }
+          }
+        }
+      }
+  
+      e.preventDefault();
+    }, false);
   }
 }
 
