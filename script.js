@@ -97,7 +97,7 @@ function addHamburgerClickHandler(button) {
   const ASIDE_MENU = document.querySelector('#aside-menu');
   ASIDE_MENU.addEventListener('click', asideMenuClickHandler);
   ASIDE_MENU.addEventListener('touchmove', function(e) {
-    if (event.target.tagName !== 'nav') return;
+    if (event.target.closest('NAV')) return;
     e.preventDefault();
   });
   
@@ -241,9 +241,9 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
     let startTime = 0;
     let elapsedTime = 0;
   
-    let threshold = 200;
-    let restraint = 200;
-    let allowedTime = 5000;
+    let threshold = 100;
+    let restraint = 100;
+    let allowedTime = 500;
   
     surface.addEventListener('mousedown', function(e){
       startX = e.pageX;
@@ -276,7 +276,6 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
     }, false);
   
     surface.addEventListener('touchstart', function(e){
-      // if (e.target.classList.contains('arrow') || e.target.classList.contains('control')) {
       if (e.target.tagName === 'BUTTON') {
         if (e.target.classList.contains('slider__button--left')) {
           if (isEnabled) {
@@ -387,7 +386,7 @@ function addFormSubmitHandler(form, modalButton) {
   const MODAL = document.querySelector('#modal');
   MODAL.addEventListener('click', modalClickHandler);
   MODAL.addEventListener('touchmove', function(e) {
-    // if (event.target.id !== 'modal') return;
+    if (event.target.classList.contains('message__text--limit-height')) return;
     e.preventDefault();
   });
 

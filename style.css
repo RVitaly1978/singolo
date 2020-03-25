@@ -207,7 +207,7 @@ img {
   outline: 1px solid #FBC65F;
   outline-offset: 2px;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .hamburger:hover {
     outline: none;
   }
@@ -377,7 +377,7 @@ img {
   color: #ffffff;
   letter-spacing: -0.035em;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .navbar__link:hover {
     color: #969696;
   }
@@ -388,7 +388,7 @@ img {
 .navbar__link--active {
   color: #f06c64;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .navbar__link--active:hover {
     color: #f06c64;
   }
@@ -732,7 +732,7 @@ img {
     right: calc( 1px - 30px );
   }
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .slider__button:hover {
     background-color: rgba(255, 255, 255, 0.25);
     outline: none;
@@ -966,7 +966,7 @@ img {
   outline: 1px solid #FBC65F;
   outline-offset: 1px;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .portfolio-tab:hover {
     border-color: #c5c5c5;
     outline: none;
@@ -1040,7 +1040,7 @@ img {
   outline: 1px solid #FBC65F;
   outline-offset: -1px;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .images-list__item:hover {
     outline: 1px solid #f06c64;
     outline-offset: -2px;
@@ -1084,7 +1084,7 @@ img {
   font-style: normal;
   color: #000;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .social-link:hover {
     background-color: #929ebe;
     border-color: #929ebe;
@@ -1313,7 +1313,7 @@ img {
 .form__input::placeholder {
   color: inherit;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .form__input:hover {
     background-color: #ad423d;
   }
@@ -1396,7 +1396,7 @@ img {
   border-color: #f0d8d9;
   outline: none;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .form__submit:hover {
     color: #f0d8d9;
     background-color: #2d303a;
@@ -1491,7 +1491,7 @@ img {
   height: 8px;
   background-image: url(./assets/images/mail.svg);
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .contact-link:hover {
     text-decoration: underline;
   }
@@ -1604,7 +1604,7 @@ img {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
   outline: none;
 }
-@media (hover: hover) {
+@media (pointer: fine) {
   .message__btn:hover {
     color: #f2f2f2;
     background-color: #2d303a;

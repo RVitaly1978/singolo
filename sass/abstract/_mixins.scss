@@ -31,5 +31,5 @@
 }
 
 @mixin media-hover {
-  @media (hover: hover) { @content; }
+  @media (pointer: fine) { @content; }
 }
