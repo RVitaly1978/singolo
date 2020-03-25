@@ -215,7 +215,7 @@ img {
     background-color: #f06c64;
   }
 }
-.hamburger:active, .hamburger--active {
+.hamburger--active {
   transform: rotate(90deg);
   outline: none;
 }

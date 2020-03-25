@@ -95,8 +95,14 @@ function addHamburgerClickHandler(button) {
 
   const ASIDE_MENU = document.querySelector('#aside-menu');
   ASIDE_MENU.addEventListener('click', asideMenuClickHandler);
+  ASIDE_MENU.addEventListener('touchmove', function(e) {
+    if (event.target.tagName !== 'nav') return;
+    e.preventDefault();
+  });
   
   const ASIDE_MENU_CONTENT = document.querySelector('.side-menu__content');
+
+  let isEnabled = true;
 
   function asideNavLinksClickHandler(event) {
     if (event.target.tagName !== 'A') return;
@@ -115,10 +121,12 @@ function addHamburgerClickHandler(button) {
   }
 
   function hamburgerClickHandler() {
-    if (event.target.closest('BUTTON').classList.contains('hamburger--active')) {
-      disableAsideMenu();
-    } else {
-      activateAsideMenu();
+    if (isEnabled) {
+      if (event.target.closest('BUTTON').classList.contains('hamburger--active')) {
+        disableAsideMenu();
+      } else {
+        activateAsideMenu();
+      }
     }
   }
 
@@ -137,20 +145,24 @@ function addHamburgerClickHandler(button) {
   function showAsideMenu() {
     removeClassName(ASIDE_MENU, 'side-menu--hidden');
     addClassName(ASIDE_MENU_CONTENT, 'from-left');
+    isEnabled = false;
     
     ASIDE_MENU_CONTENT.addEventListener('animationend', function animationendHandler() {
       removeClassName(this, 'from-left');
       this.removeEventListener('animationend', animationendHandler);
+      isEnabled = true;
     });
   }
 
   function hideAsideMenu() {
     addClassName(ASIDE_MENU_CONTENT, 'to-left');
+    isEnabled = false;
     
     ASIDE_MENU_CONTENT.addEventListener('animationend', function animationendHandler() {
       addClassName(ASIDE_MENU, 'side-menu--hidden');
       removeClassName(this, 'to-left');
       this.removeEventListener('animationend', animationendHandler);
+      isEnabled = true;
     });
   }
 }
@@ -277,6 +289,10 @@ function addFormSubmitHandler(form, modalButton) {
   
   const MODAL = document.querySelector('#modal');
   MODAL.addEventListener('click', modalClickHandler);
+  MODAL.addEventListener('touchmove', function(e) {
+    if (event.target.id !== 'modal') return;
+    e.preventDefault();
+  });
 
   let isModal = false;
 
