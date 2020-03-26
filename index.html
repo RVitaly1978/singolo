@@ -300,7 +300,7 @@
               form="quote-form"
               required
               autocomplete="off"
-              maxlength="110"
+              maxlength="80"
               title="Enter your name"
               placeholder="Name (Required)">
 
@@ -311,7 +311,7 @@
               form="quote-form"
               required
               autocomplete="off"
-              maxlength="110"
+              maxlength="80"
               title="Enter your email in format: username@domain"
               placeholder="Email (Required)">
 
@@ -322,7 +322,7 @@
               name="subject"
               form="quote-form"
               autocomplete="off"
-              maxlength="110"
+              maxlength="80"
               placeholder="Subject">
 
             <textarea
@@ -399,7 +399,8 @@
     <div class="modal__message">
       <h3 class="message__title">Письмо отправлено</h3>
       <p id="message-subject" class="message__text">Без темы</p>
-      <p id="message-describe" class="message__text message__text--limit-height">Без описания</p>
+      <p id="message-describe-empty" class="message__text">Без описания</p>
+      <p id="message-describe" class="message__text message__text--limit-height"></p>
       <button id="message-btn" class="message__btn">Ok</button>
     </div>
   </div>

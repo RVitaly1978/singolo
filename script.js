@@ -1,45 +1,48 @@
 
 window.addEventListener('load', () => {
-  const NAVBAR = document.querySelector('#navbar');
-  addNavLinksClickHandler(NAVBAR);
-  
-  const HEADER_HAMBURGER = document.querySelector('#header-hamburger');
-  addHamburgerClickHandler(HEADER_HAMBURGER);
-
-  const LEFT_CONTROL = document.querySelector('.slider__button.slider__button--left');
-  const RIGHT_CONTROL = document.querySelector('.slider__button.slider__button--right');
-  addSliderControlsClickHandler(LEFT_CONTROL, RIGHT_CONTROL);
-
-  const SLIDER_LIST = document.querySelector('#slider-list');
-  addPhonesScreenClickHandler(SLIDER_LIST);
-  
-  const IMAGES_LIST = document.querySelector('#images-list');
-  addImagesListClickHandler(IMAGES_LIST);
-  
-  const TABS_LIST = document.querySelector('#tabs-list');
-  addTabsImagesClickHandler(TABS_LIST, IMAGES_LIST);
-  
-  const QUOTE_FORM = document.querySelector('#quote-form');
-  const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
-  addFormSubmitHandler(QUOTE_FORM, MODAL_MESSAGE_BTN);
+  doNavigation();
+  doSlider();
+  doPortfolioAction();
+  doFormAction();
 });
 
-function addNavLinksClickHandler(navbar) {
-  navbar.addEventListener('click', navbarHandler);
+function doNavigation() {
   document.addEventListener('scroll', scrollHandler);
 
-  isNavLinksClick = false;
-
-  function navbarHandler(event) {
-    if (event.target.tagName !== 'A') return;
-    isNavLinksClick = true;
+  const HEADER_NAVBAR = document.querySelector('#navbar');
+  addHeaderNavbarHandlers();
   
-    this.querySelectorAll('a').forEach(elem => {
+  const HEADER_HAMBURGER = document.querySelector('#header-hamburger');
+  addHamburgerHandlers();
+  
+  const ASIDE_MENU = document.querySelector('#aside-menu');
+  addAsideMenuHandlers();
+
+  let isNavLinksClick = false;
+  let isAsideEnable = true;
+
+  function addHeaderNavbarHandlers() {
+    HEADER_NAVBAR.addEventListener('click', headerNavbarClickHandler);
+  }
+  
+  function headerNavbarClickHandler(event) {
+    if (event.target.tagName !== 'A') return;
+
+    isNavLinksClick = true;
+    navLinksClickHandler(event);
+    removeFlagAfterScrollEnd(event);
+  }
+
+  function navLinksClickHandler(event) {
+    if (event.target.tagName !== 'A') return;
+
+    const navbar = event.target.closest('ul');
+  
+    navbar.querySelectorAll('a').forEach(elem => {
       removeClassName(elem, 'navbar__link--active');
     });
   
     addClassName(event.target, 'navbar__link--active');
-    removeFlagAfterScrollEnd(event);
   }
   
   function removeFlagAfterScrollEnd(event) {
@@ -51,7 +54,7 @@ function addNavLinksClickHandler(navbar) {
       }
     
       timeout = setTimeout(function() {
-        const headerHeight = document.querySelector('header').getBoundingClientRect().height;
+        const headerHeight = document.querySelector('header').offsetHeight;
         const blockID = event.target.getAttribute('href').substr(1);
         const elem = document.querySelector(`#${blockID}`);
   
@@ -61,131 +64,220 @@ function addNavLinksClickHandler(navbar) {
       }, 100);
     });
   }
-}
-
-function scrollHandler() {
-  if (isNavLinksClick) return;
-
-  const headerHeight = document.querySelector('header').getBoundingClientRect().height;
-  const anchors = document.querySelectorAll('a.navbar__link');
   
-  anchors.forEach((anchor) => {
-    const blockID = anchor.getAttribute('href').substr(1);
-    const elem = document.querySelector(`#${blockID}`);
+  function addHamburgerHandlers() {
+    HEADER_HAMBURGER.addEventListener('click', hamburgerClickHandler);
+    HEADER_HAMBURGER.addEventListener('touchstart', hamburgerClickHandler);
+  }
   
-    if ((elem.getBoundingClientRect().top <= headerHeight + 1)
-      && (elem.getBoundingClientRect().bottom >= headerHeight + 1)) {
-      if (!anchor.classList.contains('navbar__link--active')) {
-        addClassName(anchor, 'navbar__link--active');
-      }
-    };
-  
-    if ((elem.getBoundingClientRect().top > headerHeight + 1)
-      || (elem.getBoundingClientRect().bottom < headerHeight + 1)) {
-      removeClassName(anchor, 'navbar__link--active');
-    };
-  })
-}
+  function addAsideMenuHandlers() {
+    ASIDE_MENU.addEventListener('click', asideMenuClickHandler);
+  }
 
-function addHamburgerClickHandler(button) {
-  button.addEventListener('click', hamburgerClickHandler);
-  button.addEventListener('touchstart', hamburgerClickHandler);
-  
-  const NAVBAR_ASIDE = document.querySelector('#navbar-side-menu');
-  NAVBAR_ASIDE.addEventListener('click', asideNavLinksClickHandler);
+  function asideMenuClickHandler(event) {
+    if (event.target.closest('ul')) {
+      asideNavLinksClickHandler(event);
+    }
 
-  const ASIDE_MENU = document.querySelector('#aside-menu');
-  ASIDE_MENU.addEventListener('click', asideMenuClickHandler);
-  ASIDE_MENU.addEventListener('touchmove', function(e) {
-    if (event.target.closest('NAV')) return;
-    e.preventDefault();
-  });
-  
-  const ASIDE_MENU_CONTENT = document.querySelector('.side-menu__content');
+    if (event.target.id !== 'aside-menu') return;
 
-  let isEnabled = true;
+    disableAsideMenu();
+  }
 
   function asideNavLinksClickHandler(event) {
     if (event.target.tagName !== 'A') return;
   
-    this.querySelectorAll('a').forEach(elem => {
-      removeClassName(elem, 'navbar__link--active');
-    });
-  
-    addClassName(event.target, 'navbar__link--active');
+    navLinksClickHandler(event);
     disableAsideMenu();
   }
 
-  function asideMenuClickHandler(event) {
-    if (event.target.id !== 'aside-menu') return;
-    disableAsideMenu();
-  }
-
-  function hamburgerClickHandler() {
-    if (isEnabled) {
+  function hamburgerClickHandler(event) {
+    if (isAsideEnable) {
       if (event.target.closest('BUTTON').classList.contains('hamburger--active')) {
         disableAsideMenu();
       } else {
-        activateAsideMenu();
+        enableAsideMenu();
       }
     }
   }
 
   function disableAsideMenu() {
-    removeClassName(button, 'hamburger--active');
+    removeClassName(HEADER_HAMBURGER, 'hamburger--active');
     hideAsideMenu();
-    addScrollInBody();
   }
 
-  function activateAsideMenu() {
-    addClassName(button, 'hamburger--active');
+  function enableAsideMenu() {
+    addClassName(HEADER_HAMBURGER, 'hamburger--active');
     showAsideMenu();
-    removeScrollInBody();
   }
 
   function showAsideMenu() {
+    const asideMenuContent = ASIDE_MENU.firstElementChild;
+
     removeClassName(ASIDE_MENU, 'side-menu--hidden');
-    addClassName(ASIDE_MENU_CONTENT, 'from-left');
-    isEnabled = false;
+    addClassName(asideMenuContent, 'from-left');
+    isAsideEnable = false;
     
-    ASIDE_MENU_CONTENT.addEventListener('animationend', function animationendHandler() {
+    asideMenuContent.addEventListener('animationend', function () {
       removeClassName(this, 'from-left');
-      this.removeEventListener('animationend', animationendHandler);
-      isEnabled = true;
-    });
+      isAsideEnable = true;
+    }, { once: true });
   }
 
   function hideAsideMenu() {
-    addClassName(ASIDE_MENU_CONTENT, 'to-left');
-    isEnabled = false;
+    const asideMenuContent = ASIDE_MENU.firstElementChild;
+
+    addClassName(asideMenuContent, 'to-left');
+    isAsideEnable = false;
     
-    ASIDE_MENU_CONTENT.addEventListener('animationend', function animationendHandler() {
+    asideMenuContent.addEventListener('animationend', function () {
       addClassName(ASIDE_MENU, 'side-menu--hidden');
       removeClassName(this, 'to-left');
-      this.removeEventListener('animationend', animationendHandler);
-      isEnabled = true;
-    });
+      isAsideEnable = true;
+    }, { once: true });
+  }
+
+  function scrollHandler() {
+    if (isNavLinksClick) return;
+  
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const anchors = document.querySelectorAll('a.navbar__link');
+    
+    anchors.forEach((anchor) => {
+      const blockID = anchor.getAttribute('href').substr(1);
+      const elem = document.querySelector(`#${blockID}`);
+    
+      if ((elem.getBoundingClientRect().top <= headerHeight + 1)
+        && (elem.getBoundingClientRect().bottom >= headerHeight + 1)) {
+        if (!anchor.classList.contains('navbar__link--active')) {
+          addClassName(anchor, 'navbar__link--active');
+        }
+      };
+    
+      if ((elem.getBoundingClientRect().top > headerHeight + 1)
+        || (elem.getBoundingClientRect().bottom < headerHeight + 1)) {
+        removeClassName(anchor, 'navbar__link--active');
+      };
+    })
   }
 }
 
-function addSliderControlsClickHandler(prevButton, nextButton) {
-  prevButton.addEventListener('click', leftControlClickHandler);
-  nextButton.addEventListener('click', rightControlClickHandler);
+function doSlider() {
+  const SLIDER = document.querySelector('#slider-container');
+  addSliderHandlers();
+  
+  const items = SLIDER.querySelectorAll('.slider-list__item');
 
-  const SLIDER_LIST = document.querySelector('#slider-list');
-  const items = SLIDER_LIST.querySelectorAll('.slider-list__item');
   let currentItem = 0;
   let isEnabled = true;
 
-  function leftControlClickHandler() {
-    if (isEnabled) {
-      previousItem(currentItem);
+  let startX = 0;
+  let startY = 0;
+  let distX = 0;
+  let distY = 0;
+  let startTime = 0;
+  let elapsedTime = 0;
+
+  let threshold = 100;
+  let restraint = 100;
+  let allowedTime = 500;
+
+  function addSliderHandlers() {
+    SLIDER.addEventListener('click', sliderClickHandler);
+    SLIDER.addEventListener('mousedown', sliderMouseDownHandler);
+    SLIDER.addEventListener('mouseup', sliderMouseUpHandler);
+    SLIDER.addEventListener('touchstart', sliderTouchStartHandler);
+    SLIDER.addEventListener('touchend', sliderTouchEndHandler);
+  }
+
+  function sliderClickHandler(e) {
+    if (e.target.tagName === 'BUTTON') {
+      sliderControlClickHandler(e);
+    }
+
+    if ((e.target.tagName === 'IMG')
+      && (!e.target.classList.contains('phone__shadow'))) {
+      phonesDisplayClickHandler(e);
     }
   }
+
+  function sliderMouseDownHandler(e) {
+    startX = e.pageX;
+    startY = e.pageY;
+    startTime = new Date().getTime();
+    
+    // e.preventDefault();
+  }
+
+  function sliderMouseUpHandler(e) {
+    distX = e.pageX - startX;
+    distY = e.pageY - startY;
+    elapsedTime = new Date().getTime() - startTime;
+
+    if (elapsedTime <= allowedTime){
+      if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){
+        if (distX > 0) {
+          if (isEnabled) {
+            previousItem(currentItem);
+          }
+        } else {
+          if (isEnabled) {
+            nextItem(currentItem);
+          }
+        }
+      }
+    }
+
+    // e.preventDefault();
+  }
+
+  function sliderTouchStartHandler(e) {
+    if (e.target.tagName === 'BUTTON') {
+      sliderControlClickHandler(e);
+    }
+
+    let touchObj = e.changedTouches[0];
+    startX = touchObj.pageX;
+    startY = touchObj.pageY;
+    startTime = new Date().getTime();
+
+    // e.preventDefault();
+  }
+
+  function sliderTouchEndHandler(e) {
+    let touchObj = e.changedTouches[0];
+    distX = touchObj.pageX - startX;
+    distY = touchObj.pageY - startY;
+    elapsedTime = new Date().getTime() - startTime;
+
+    if (elapsedTime <= allowedTime){
+      if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){
+        if (distX > 0) {
+          if (isEnabled) {
+            previousItem(currentItem);
+          }
+        } else {
+          if (isEnabled) {
+            nextItem(currentItem);
+          }
+        }
+      }
+    }
+
+    // e.preventDefault();
+  }
   
-  function rightControlClickHandler() {
-    if (isEnabled) {
-      nextItem(currentItem);
+  function sliderControlClickHandler(e) {
+    if (e.target.tagName !== 'BUTTON') return;
+
+    if (e.target.classList.contains('slider__button--left')) {
+      if (isEnabled) {
+        previousItem(currentItem);
+      }
+    } else {
+      if (isEnabled) {
+        nextItem(currentItem);
+      }
     }
   }
 
@@ -208,19 +300,21 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
   function hideItem(direction) {
     isEnabled = false;
     items[currentItem].classList.add(direction);
+
     items[currentItem].addEventListener('animationend', function() {
       this.classList.remove('slider--active', direction);
-    });
+    }, { once: true });
   }
 
   function showItem(direction) {
     items[currentItem].classList.add('slider--next', direction);
     setBackgroundToSliderSection(items[currentItem].dataset.bg_style);
+
     items[currentItem].addEventListener('animationend', function() {
       this.classList.remove('slider--next', direction);
       this.classList.add('slider--active');
       isEnabled = true;
-    });
+    }, { once: true });
   }
 
   function setBackgroundToSliderSection(style) {
@@ -229,153 +323,63 @@ function addSliderControlsClickHandler(prevButton, nextButton) {
     SLIDER_SECTION.classList.add(style);
   }
 
-  const SLIDER = document.querySelector('#slider-container');
-  swipeDetect(SLIDER);
-
-  function swipeDetect(el) {
-    let surface = el;
-    let startX = 0;
-    let startY = 0;
-    let distX = 0;
-    let distY = 0;
-    let startTime = 0;
-    let elapsedTime = 0;
-  
-    let threshold = 100;
-    let restraint = 100;
-    let allowedTime = 500;
-  
-    surface.addEventListener('mousedown', function(e){
-      startX = e.pageX;
-      startY = e.pageY;
-      startTime = new Date().getTime();
-      
-      // if (e.target.tagName !== 'IMG' || e.target.classList.contains('phone__shadow')) {
-      //   e.preventDefault();
-      // }
-      // e.preventDefault();
-    }, false);
-  
-    surface.addEventListener('mouseup', function(e){
-      distX = e.pageX - startX;
-      distY = e.pageY - startY;
-      elapsedTime = new Date().getTime() - startTime;
-  
-      if (elapsedTime <= allowedTime){
-        if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){
-          if (distX > 0) {
-            if (isEnabled) {
-              previousItem(currentItem);
-            }
-          } else {
-            if (isEnabled) {
-              nextItem(currentItem);
-            }
-          }
-        }
-      }
-  
-      // e.preventDefault();
-    }, false);
-  
-    surface.addEventListener('touchstart', function(e){
-      if (e.target.tagName === 'BUTTON') {
-        if (e.target.classList.contains('slider__button--left')) {
-          if (isEnabled) {
-            previousItem(currentItem);
-          }
-        } else {
-          if (isEnabled) {
-            nextItem(currentItem);
-          }
-        }
-      }
-  
-      let touchObj = e.changedTouches[0];
-      startX = touchObj.pageX;
-      startY = touchObj.pageY;
-      startTime = new Date().getTime();
-  
-      // if (e.target.tagName !== 'IMG' || e.target.classList.contains('phone__shadow')) {
-      //   e.preventDefault();
-      // }
-      // e.preventDefault();
-    }, false);
-  
-    surface.addEventListener('touchmove', function(e){
-      // e.preventDefault();
-    }, false);
-  
-    surface.addEventListener('touchend', function(e){
-      let touchObj = e.changedTouches[0];
-      distX = touchObj.pageX - startX;
-      distY = touchObj.pageY - startY;
-      elapsedTime = new Date().getTime() - startTime;
-  
-      if (elapsedTime <= allowedTime){
-        if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){
-          if (distX > 0) {
-            if (isEnabled) {
-              previousItem(currentItem);
-            }
-          } else {
-            if (isEnabled) {
-              nextItem(currentItem);
-            }
-          }
-        }
-      }
-  
-      // e.preventDefault();
-    }, false);
-  }
-}
-
-function addPhonesScreenClickHandler(sliderList) {
-  sliderList.addEventListener('click', sliderScreenClickHandler);
-
-  function sliderScreenClickHandler(event) {
+  function phonesDisplayClickHandler(event) {
     if (event.target.tagName !== 'IMG') return;
     if (event.target.classList.contains('phone__shadow')) return;
   
     const phone = event.target.closest('div');
-  
     phone.querySelector('img.phone__display').classList.toggle('phone__display--off');
   }
 }
 
-function addImagesListClickHandler(imagesList) {
-  imagesList.addEventListener('click', imagesClickHandler);
+function doPortfolioAction() {
+  const IMAGES_LIST = document.querySelector('#images-list');
+  const TABS_LIST = document.querySelector('#tabs-list');
+  addPortfolioHandlers();
+
+  function addPortfolioHandlers() {
+    const section = document.querySelector('#portfolio');
+
+    section.addEventListener('click', (e) => {
+      if (e.target.closest('.tabs-list')) {
+        tabsClickHandler(e);
+      }
+
+      if (e.target.closest('.images-list')) {
+        imagesClickHandler(e);
+      }
+    });
+  }
 
   function imagesClickHandler(event) {
     if (event.target.tagName !== 'IMG') return;
   
-    this.querySelectorAll('li').forEach(elem => {
+    IMAGES_LIST.querySelectorAll('li').forEach(elem => {
       removeClassName(elem, 'images-list__item--active');
     });
   
     event.target.closest('li').classList.add('images-list__item--active');
   }
-}
-
-function addTabsImagesClickHandler(tabsList, images) {
-  tabsList.addEventListener('click', tabsClickHandler);
 
   function tabsClickHandler(event) {
     if (event.target.tagName !== 'BUTTON') return;
   
-    this.querySelectorAll('button').forEach(elem => {
+    TABS_LIST.querySelectorAll('button').forEach(elem => {
       removeClassName(elem, 'portfolio-tab--active');
     });
   
     addClassName(event.target, 'portfolio-tab--active');
-  
-    const imagesList = [...images.querySelectorAll('li')];
+
+    sortImages();
+  }
+
+  function sortImages() {
+    const imagesList = [...IMAGES_LIST.querySelectorAll('li')];
     const random = getRandomInRange(imagesList.length);
   
     for (let i = 0; i < imagesList.length; i += 1) {
       if (i >= random) {
-        images.prepend(imagesList[i]);
+        IMAGES_LIST.prepend(imagesList[i]);
       }
     }
   }
@@ -385,51 +389,18 @@ function addTabsImagesClickHandler(tabsList, images) {
   }
 }
 
-function addFormSubmitHandler(form, modalButton) {
-  form.addEventListener('submit', formSubmitHandler);
-  modalButton.addEventListener('click', modalMessageButtonHandler);
-  
+function doFormAction() {
+  const QUOTE_FORM = document.querySelector('#quote-form');
   const MODAL = document.querySelector('#modal');
-  MODAL.addEventListener('click', modalClickHandler);
-
-  MODAL.addEventListener('touchmove', function(e) {
-    if (event.target.classList.contains('message__text--limit-height')) {
-      return;
-    }
-    
-    // if (event.target.classList.contains('message__text--limit-height')
-    //   && (!isScrollAtStart(this) || !isScrollAtEnd(this))) {
-    //   return;
-    // }
-
-    e.preventDefault();
-  });
+  const MODAL_MESSAGE_BTN = document.querySelector('#message-btn');
+  addFormHandlers();
 
   let isModal = false;
 
-  function formSubmitHandler(event) {
-    this.checkValidity();
-    event.preventDefault();
-  
-    const subjectInput = this.querySelector('#input-subject');
-    const describeTextarea = this.querySelector('#input-description');
-    
-    if (subjectInput.value.toString() !== '') {
-      MODAL.querySelector('#message-subject').innerText = `Тема: ${subjectInput.value}`;
-    } else {
-      MODAL.querySelector('#message-subject').innerText = 'Без темы';
-    }
-  
-    if (describeTextarea.value.toString() !== '') {
-      MODAL.querySelector('#message-describe').innerText = `Описание: ${describeTextarea.value}`;
-    } else {
-      MODAL.querySelector('#message-describe').innerText = 'Без описания';
-    }
-  
-    MODAL.className = 'modal--visible';
-    isModal = true;
-    removeScrollInBody();
-    modalButton.focus();
+  function addFormHandlers() {
+    QUOTE_FORM.addEventListener('submit', formSubmitHandler);
+    MODAL.addEventListener('click', modalClickHandler);
+    MODAL.addEventListener('touchmove', modalTouchMoveHandler);
 
     document.addEventListener('keydown', (event) => {
       if (isModal) {
@@ -442,10 +413,50 @@ function addFormSubmitHandler(form, modalButton) {
       }
     });
   }
+  
+  function modalTouchMoveHandler(e) {
+    if (event.target.classList.contains('message__text--limit-height')) {
+      return;
+    }
+
+    e.preventDefault();
+  }
+
+  function formSubmitHandler(event) {
+    this.checkValidity();
+    event.preventDefault();
+  
+    const subjectInput = this.querySelector('#input-subject');
+    const describeTextarea = this.querySelector('#input-description');
+    
+    if (subjectInput.value.toString() !== '') {
+      MODAL.querySelector('#message-subject').innerText = `Тема: ${subjectInput.value.toString()}`;
+    } else {
+      MODAL.querySelector('#message-subject').innerText = 'Без темы';
+    }
+  
+    if (describeTextarea.value.toString() !== '') {
+      MODAL.querySelector('#message-describe-empty').innerText = `Описание:`;
+      MODAL.querySelector('#message-describe').innerText = `${describeTextarea.value.toString()}`;
+    } else {
+      MODAL.querySelector('#message-describe-empty').innerText = 'Без описания';
+      MODAL.querySelector('#message-describe').innerText = '';
+    }
+  
+    MODAL.className = 'modal--visible';
+    isModal = true;
+    removeScrollInBody();
+    MODAL_MESSAGE_BTN.focus();
+  }
 
   function modalClickHandler(event) {
-    if (event.target.id !== 'modal') return;
-    modalMessageButtonHandler();
+    if (event.target.id === 'modal') {
+      modalMessageButtonHandler();
+    }
+
+    if (event.target.id === 'message-btn') {
+      modalMessageButtonHandler();
+    }
   }
   
   function modalMessageButtonHandler() {
@@ -456,9 +467,11 @@ function addFormSubmitHandler(form, modalButton) {
   }
 
   function clearFormData() {
-    form.reset();
+    QUOTE_FORM.reset();
   }
 }
+
+// Common ------------------------------------------------------
 
 function removeScrollInBody() {
   const bodyClientWidthBefore = document.body.clientWidth;
@@ -481,14 +494,4 @@ function removeClassName(elem, className) {
 
 function addClassName(elem, className) {
   elem.classList.add(className);
-}
-
-function isScrollAtStart(elem) {
-  if (elem.scrollTop === 0) return true;
-  return false;
-}
-
-function isScrollAtEnd(elem) {
-  if (elem.scrollTop + elem.clientHeight === elem.scrollHeight) return true;
-  return false;
 }

@@ -1533,7 +1533,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 }
 
@@ -1543,6 +1543,7 @@ img {
   border-radius: 5px;
   border: 2px solid #2d303a;
   background-color: #f2f2f2;
+  box-shadow: 0px 0px 6px black;
 }
 @media (max-width: calc(1020px - 1px)) {
   .modal__message {
@@ -1576,6 +1577,7 @@ img {
 
 .message__text {
   padding-right: 1em;
+  margin-bottom: 1em;
   font-size: 1.125rem;
   line-height: 1.4;
   font-weight: 400;
@@ -1587,6 +1589,7 @@ img {
 .message__text--limit-height {
   max-height: 30vh;
   padding-right: calc(1em - 6px);
+  border-top: 1px solid #2d303a;
   overflow-y: scroll;
 }
 .message__text--limit-height::-webkit-scrollbar {
@@ -1601,7 +1604,7 @@ img {
 }
 
 .message__text + .message__text {
-  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .message__btn {

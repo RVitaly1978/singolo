@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: $z-index-form-modal;
 }
 
@@ -22,7 +22,7 @@
   border-radius: 5px;
   border: 2px solid $color-footer-background;
   background-color: $color-services-background;
-
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
   
   @include media-laptop {
     max-width: 60vw;
@@ -52,6 +52,7 @@
 
 .message__text {
   padding-right: 1em;
+  margin-bottom: 1em;
   @include font ($size: 1.125rem, $height: 1.4, $weight: 400);
   color: $color-footer-background;
   word-wrap: break-word;
@@ -60,6 +61,7 @@
   &--limit-height {
     max-height: 30vh;
     padding-right: calc(1em - 6px);
+    border-top: 1px solid $color-footer-background;
     overflow-y: scroll;
   }
   
@@ -78,7 +80,7 @@
 }
 
 .message__text + .message__text {
-  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .message__btn {
