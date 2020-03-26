@@ -391,11 +391,16 @@ function addFormSubmitHandler(form, modalButton) {
   
   const MODAL = document.querySelector('#modal');
   MODAL.addEventListener('click', modalClickHandler);
+
   MODAL.addEventListener('touchmove', function(e) {
-    if (event.target.classList.contains('message__text--limit-height')
-      && (!isScrollAtStart(this) || !isScrollAtEnd(this))) {
+    if (event.target.classList.contains('message__text--limit-height')) {
       return;
     }
+    
+    // if (event.target.classList.contains('message__text--limit-height')
+    //   && (!isScrollAtStart(this) || !isScrollAtEnd(this))) {
+    //   return;
+    // }
 
     e.preventDefault();
   });

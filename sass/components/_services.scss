@@ -125,7 +125,12 @@
 
 .feature-tile__text {
   max-height: 5.5em;
+  min-height: calc(0.75rem * 1.84 * 2 + 1px);
   margin-top: 0.75em;
   @include font ($size: 0.75rem, $height: 1.84, $weight: 400);
   color: $color-services-text;
+
+  @include media-mobile-landscape {
+    max-height: none;
+  }
 }

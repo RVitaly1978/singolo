@@ -17,6 +17,11 @@
   color: $color-quote-input-text;
   overflow: hidden;
   @extend %transition-bgColor-color-400-linear;
+  scroll-margin-top: calc( #{$header-height} + 5px );
+
+  @include media-mobile-landscape {
+    scroll-margin-top: calc( #{$header-height-mobile} + 5px );
+  }
 
   &::-ms-input-placeholder {
     color: inherit;
