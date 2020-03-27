@@ -3,7 +3,7 @@
   padding: 59px 0 58px 0;
   background-color: $color-quote-background;
   border-bottom: 6px solid $color-quote-border;
-  scroll-margin-top: calc( #{$header-height} - 5px );
+  scroll-margin-top: calc( #{$header-height} - 1px );
 
   @include media-laptop {
     $ratio-padding-top: calc(( 59 - 53 ) / ( 1020 - 768 ));
@@ -19,13 +19,14 @@
 
     padding-top: calc( 53px - ( 768px - 100vw ) * #{$ratio-padding-top} );
     padding-bottom: calc( 39px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
+
+    scroll-margin-top: calc( #{$header-height-mobile} - 1px );
   }
 
   @include media-mobile-landscape {
     padding-top: 44px;
     padding-bottom: 36px;
     border-bottom-color: $color-quote-background;
-    scroll-margin-top: calc( #{$header-height-mobile} - 5px );
   }
 }
 

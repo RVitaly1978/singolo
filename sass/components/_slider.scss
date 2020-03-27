@@ -6,17 +6,17 @@
   background-color: $color-slider-background;
   border-bottom-style: solid;
   border-bottom-color: $color-slider-border;
-  scroll-margin-top: calc( #{$header-height} - 5px );
+  scroll-margin-top: calc( #{$header-height} - 1px );
 
   @include media-laptop {
-    height: calc(100vw * 600 / 1020);
-    padding-top: calc(100vw * 54 / 1020);
-    padding-bottom: calc(100vw * 27 / 1020);
-    border-bottom-width: calc(100vw * 6 / 1020);
+    height: calc(100vw * 451.76 / 768);
+    padding-top: calc(100vw * 40.97 / 768);
+    padding-bottom: calc(100vw * 19.95 / 768);
+    border-bottom-width: calc(100vw * 4.52 / 768);
   }
 
-  @include media-mobile-landscape {
-    scroll-margin-top: calc( #{$header-height-mobile} - 5px );
+  @include media-tablet {
+    scroll-margin-top: calc( #{$header-height-mobile} - 1px );
   }
 }
 
@@ -58,7 +58,7 @@
     padding-bottom: 30px;
 
     @include media-laptop {
-      padding-bottom: calc(100vw * 30 / 1020);
+      padding-bottom: calc(100vw * 22.58 / 768);
     }
   }
 }

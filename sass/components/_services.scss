@@ -3,11 +3,11 @@
   padding: 3.7125em 0 1.875em 0;
   background-color: $color-services-background;
   border-bottom: 6px solid $color-services-border;
-  scroll-margin-top: calc( #{$header-height} - 5px );
+  scroll-margin-top: calc( #{$header-height} - 1px );
 
   @include media-laptop {
     $ratio-padding-top: calc(( 59.4 - 39.24 ) / ( 1020 - 768 ));
-    $ratio-padding-bottom: calc(( 30 - 42 ) / ( 1020 - 768 ));
+    $ratio-padding-bottom: calc(( 30 - 19 ) / ( 1020 - 768 ));
 
     padding-top: calc( 59.4px - ( 1020px - 100vw ) * #{$ratio-padding-top} );
     padding-bottom: calc( 30px - ( 1020px - 100vw ) * #{$ratio-padding-bottom} );
@@ -19,13 +19,14 @@
 
     padding-top: calc( 39.24px - ( 768px - 100vw ) * #{$ratio-padding-top} );
     padding-bottom: calc( 42px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
+
+    scroll-margin-top: calc( #{$header-height-mobile} - 1px );
   }
 
   @include media-mobile-landscape {
     padding-top: 25.41px;
     padding-bottom: 0;
     border-bottom-color: $color-services-background;
-    scroll-margin-top: calc( #{$header-height-mobile} - 5px );
   }
 }
 
@@ -43,6 +44,11 @@
 
 .services__features {
   margin-top: 2.85em;
+  
+  @include media-laptop {
+    $ratio: calc( ( 45.6 - 38 ) / ( 1020 - 768 ) );
+    margin-top: calc( 45.6px - ( 1020px - 100vw ) * #{$ratio} );
+  }
 }
 
 .features-list {
@@ -58,18 +64,19 @@
 
 .features-list__item {
   $margin-right-features-list__item: 1.25em;
-  max-width: calc((100% - 2 * #{$margin-right-features-list__item}) / 3);
+  width: calc((100% - 2 * #{$margin-right-features-list__item}) / 3);
 
   @include media-laptop {
-    max-width: calc((100% - 2 * #{$margin-right-features-list__item}) / 2);
+    width: calc((100% - #{$margin-right-features-list__item}) / 2);
+    padding-right: 34px;
   }
 
   @include media-mobile-landscape {
-    max-width: 80%;
+    width: 80%;
   }
 
   @include media-mobile {
-    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -77,6 +84,11 @@
   margin-bottom: 1.875em;
   padding-left: 5em;
   position: relative;
+
+  @include media-laptop {
+    $ratio: calc( ( 50 - 30 ) / ( 1020 - 768 ) );
+    margin-bottom: calc( 30px + ( 1020px - 100vw ) * #{$ratio} );
+  }
 
   &::before {
     content: '';
