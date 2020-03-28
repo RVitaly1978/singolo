@@ -1,31 +1,31 @@
 
 .quote {
-  padding: 59px 0 58px 0;
+  padding: 59px 0 59px 0;
   background-color: $color-quote-background;
   border-bottom: 6px solid $color-quote-border;
   scroll-margin-top: calc( #{$header-height} - 1px );
 
   @include media-laptop {
     $ratio-padding-top: calc(( 59 - 53 ) / ( 1020 - 768 ));
-    $ratio-padding-bottom: calc(( 58 - 39 ) / ( 1020 - 768 ));
-
     padding-top: calc( 59px - ( 1020px - 100vw ) * #{$ratio-padding-top} );
-    padding-bottom: calc( 58px - ( 1020px - 100vw ) * #{$ratio-padding-top} );
+    
+    $ratio-padding-bottom: calc(( 59 - 40 ) / ( 1020 - 768 ));
+    padding-bottom: calc( 59px - ( 1020px - 100vw ) * #{$ratio-padding-bottom} );
   }
 
   @include media-tablet {
     $ratio-padding-top: calc(( 53 - 44 ) / ( 768 - 640 ));
-    $ratio-padding-bottom: calc(( 39 - 36 ) / ( 768 - 640 ));
-
     padding-top: calc( 53px - ( 768px - 100vw ) * #{$ratio-padding-top} );
-    padding-bottom: calc( 39px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
+    
+    $ratio-padding-bottom: calc(( 40 - 31 ) / ( 768 - 640 ));
+    padding-bottom: calc( 40px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
 
     scroll-margin-top: calc( #{$header-height-mobile} - 1px );
   }
 
   @include media-mobile-landscape {
     padding-top: 44px;
-    padding-bottom: 36px;
+    padding-bottom: 31px;
     border-bottom-color: $color-quote-background;
   }
 }
@@ -43,6 +43,10 @@
   margin-top: 1.0083em;
   @include font ($size: 1.125rem, $height: 1.67, $weight: 300);
   color: $color-quote-text;
+
+  @include media-tablet {
+    letter-spacing: 0.025em;
+  }
 }
 
 .flex-2-column {
@@ -50,7 +54,17 @@
   display: flex;
   justify-content: space-between;
 
+  @include media-laptop {
+    $ratio: calc(( 25 - 44 ) / ( 1020 - 768 ));
+    margin-top: calc( 44px + ( 1020px - 100vw ) * #{$ratio} );
+  }
+
+  @include media-tablet {
+    margin-top: 25px;
+  }
+
   @include media-mobile-landscape {
     flex-direction: column;
+    margin-top: 23px;
   }
 }

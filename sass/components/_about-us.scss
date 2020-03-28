@@ -1,6 +1,6 @@
 
 .about-us {
-  padding: 59px 0 68px 0;
+  padding: 59px 0 67px 0;
   background-color: $color-aboutUs-background;
   border-bottom: 6px solid $color-aboutUs-border;
   scroll-margin-top: calc( #{$header-height} - 1px );
@@ -8,21 +8,24 @@
   @include media-laptop {
     $ratio-padding-top: calc(( 59 - 52 ) / ( 1020 - 768 ));
     padding-top: calc( 59px - ( 1020px - 100vw ) * #{$ratio-padding-top} );
+
+    $ratio-padding-bottom: calc(( 67 - 69 ) / ( 1020 - 768 ));
+    padding-bottom: calc( 67px - ( 1020px - 100vw ) * #{$ratio-padding-bottom} );
   }
 
   @include media-tablet {
     $ratio-padding-top: calc(( 52 - 33 ) / ( 768 - 640 ));
-    $ratio-padding-bottom: calc(( 68 - 39 ) / ( 768 - 640 ));
-
     padding-top: calc( 52px - ( 768px - 100vw ) * #{$ratio-padding-top} );
-    padding-bottom: calc( 68px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
+    
+    $ratio-padding-bottom: calc(( 69 - 39 ) / ( 768 - 640 ));
+    padding-bottom: calc( 69px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
 
     scroll-margin-top: calc( #{$header-height-mobile} - 1px );
   }
 
   @include media-mobile-landscape {
     padding-top: 33px;
-    padding-bottom: 39px;
+    padding-bottom: 40px;
     border-bottom-color: $color-aboutUs-background;
   }
 }
@@ -40,7 +43,21 @@
 }
 
 .about-us__employees {
-  margin-top: 2.8em;
+  margin-top: 44px;
+
+  @include media-laptop {
+    $ratio: calc(( 38 - 44 ) / ( 1020 - 768 ));
+    margin-top: calc( 44px + ( 1020px - 100vw ) * #{$ratio} );
+  }
+
+  @include media-tablet {
+    $ratio: calc(( 24 - 38 ) / ( 768 - 375 ));
+    margin-top: calc( 38px + ( 768px - 100vw ) * #{$ratio} );
+  }
+
+  @include media-mobile {
+    margin-top: 24px;
+  }
 }
 
 .employees-list {

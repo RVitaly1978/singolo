@@ -10,11 +10,25 @@
 }
 
 .employee-card__title {
-  margin-top: 0.8em;
+  margin-top: 17px;
   margin-left: -0.0555em;
   color: $color-aboutUs-title;
   word-spacing: 0.04em;
   letter-spacing: -0.006em;
+
+  @include media-laptop {
+    $ratio: calc(( 12 - 17 ) / ( 1020 - 768 ));
+    margin-top: calc( 17px + ( 1020px - 100vw ) * #{$ratio} );
+  }
+
+  @include media-tablet {
+    $ratio: calc(( 17.5 - 12 ) / ( 768 - 375 ));
+    margin-top: calc( 12px + ( 768px - 100vw ) * #{$ratio} );
+  }
+
+  @include media-mobile {
+    margin-top: 17.5px;
+  }
 }
 
 .employee-card__text {
@@ -23,6 +37,15 @@
   margin-left: -0.045em;
   @include font ($size: 0.75rem, $height: 1.82, $weight: 400);
   color: $color-aboutUs-text;
+
+  @include media-laptop {
+    $ratio: calc(( 3 - 9.96 ) / ( 1020 - 768 ));
+    margin-top: calc( 9.96px + ( 1020px - 100vw ) * #{$ratio} );
+  }
+
+  @include media-tablet {
+    margin-top: 3px;
+  }
 }
 
 .employee-card__socials {

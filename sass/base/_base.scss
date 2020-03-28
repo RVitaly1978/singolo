@@ -12,7 +12,7 @@ body {
   @extend %font-main;
   color: $color-light;
 
-  @include media-mobile-landscape {
+  @include media-tablet {
     margin-top: $header-height-mobile;
   }
 }

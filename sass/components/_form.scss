@@ -1,15 +1,20 @@
 
 .form {
-  flex-basis: calc( 619 / 940 * 100%);
-  flex-shrink: 1;
+  flex: 1 1 600px;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @include media-mobile-landscape {
+    width: 100%;
+    flex: 0 1 auto;
+  }
 }
 
 .form__input {
   width: 100%;
   padding: 0.66667em 1.25em;
+  margin-top: 16px;
   border-radius: 5px;
   border: none;
   background-color: $color-quote-input-background;
@@ -19,8 +24,18 @@
   @extend %transition-bgColor-color-400-linear;
   scroll-margin-top: calc( #{$header-height} + 5px );
 
-  @include media-mobile-landscape {
+  @include media-laptop {
+    $ratio: calc( ( 16 - 12 ) / ( 1020 - 768 ) );
+    margin-top: calc( 16px - ( 1020px - 100vw ) * #{$ratio});
+  }
+
+  @include media-tablet {
+    margin-top: 12px;
     scroll-margin-top: calc( #{$header-height-mobile} + 5px );
+  }
+
+  &:first-child {
+    margin-top: 0;
   }
 
   &::-ms-input-placeholder {
@@ -56,24 +71,11 @@
   }
 }
 
-.form__input + .form__input {
-  margin-top: 16px;
-
-  @include media-laptop {
-    $ratio: calc( ( 16 - 12 ) / ( 1020 - 768 ) );
-    margin-top: calc( 16px - ( 1020px - 100vw ) * #{$ratio});
-  }
-
-  @include media-tablet {
-    margin-top: 12px;
-  }
-}
-
 .form__input--textarea {
   padding-top: 0.6em;
   padding-bottom: 1.6em;
   width: 100%;
-  max-height: 17em;
+  max-height: 159px;
   word-wrap: break-word;
   overflow-y: scroll;
   resize: none;
@@ -99,7 +101,8 @@
 }
 
 .form__submit {
-  padding: 0.785em 4em;
+  padding: 10px 48px;
+  margin-top: 15px;
   flex-grow: 0;
   width: max-content;
   border: 1px solid transparent;
@@ -110,8 +113,28 @@
   cursor: pointer;
   @extend %transition-all-400-linear;
 
+  @include media-laptop {
+    $ratio: calc( ( 15 - 18 ) / ( 1020 - 768 ) );
+    margin-top: calc( 15px - ( 1020px - 100vw ) * #{$ratio});
+  }
+
+  @include media-tablet {
+    $ratio: calc( ( 10 - 17 ) / ( 768 - 375 ) );
+    padding-top: calc( 10px - ( 768px - 100vw ) * #{$ratio});
+    padding-bottom: calc( 10px - ( 768px - 100vw ) * #{$ratio});
+
+    $ratio-margin: calc( ( 15 - 14 ) / ( 768 - 375 ) );
+    margin-top: calc( 15px - ( 768px - 100vw ) * #{$ratio-margin});
+  }
+
   @include media-mobile-landscape {
     width: 100%;
+  }
+
+  @include media-mobile {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    margin-top: 14px;
   }
 
   &:active {

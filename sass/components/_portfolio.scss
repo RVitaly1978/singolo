@@ -1,13 +1,13 @@
 
 .portfolio {
-  padding: 59px 0 calc(67px - 5px) 0;
+  padding: 59px 0 calc(68px - 5px) 0;
   background-color: $color-portfolio-background;
   border-bottom: 6px solid $color-portfolio-border;
   scroll-margin-top: calc( #{$header-height} - 1px );
 
   @include media-tablet {
     $ratio-padding-top: calc(( 59 - 42 ) / ( 768 - 640 ));
-    $ratio-padding-bottom: calc(( 62 - 31 ) / ( 768 - 640 ));
+    $ratio-padding-bottom: calc(( 63 - 31 ) / ( 768 - 640 ));
 
     padding-top: calc( 59px - ( 768px - 100vw ) * #{$ratio-padding-top} );
     padding-bottom: calc( 62px - ( 768px - 100vw ) * #{$ratio-padding-bottom} );
@@ -31,18 +31,18 @@
   margin-top: 0.9833em;
   @include font ($size: 1.125rem, $height: 1.67, $weight: 300);
   color: $color-portfolio-text;
+
+  @include media-laptop {
+    letter-spacing: 0.03em;
+  }
 }
 
 .portfolio__tabs {
-  margin-top: 11.2px;
-
-  @include media-laptop {
-    $ratio-margin-top: calc(( 15 - 11.2 ) / ( 1020 - 768 ));
-    margin-top: calc( 11.2px + ( 1020px - 100vw ) * #{$ratio-margin-top} );
-  }
+  margin-top: 12px;
 
   @include media-tablet {
-    margin-top: 15px;
+    $ratio-margin-top: calc(( 15 - 12 ) / ( 768 - 375 ));
+    margin-top: calc( 12px + ( 768px - 100vw ) * #{$ratio-margin-top} );
   }
 }
 
@@ -113,12 +113,12 @@
   margin-right: -5px;
 
   @include media-laptop {
-    $ratio-margin-top: calc(( 20 - 14 ) / ( 1020 - 768 ));
-    margin-top: calc( 14px + ( 1020px - 100vw ) * #{$ratio-margin-top} );
+    $ratio: calc(( 22 - 14 ) / ( 1020 - 768 ));
+    margin-top: calc( 14px + ( 1020px - 100vw ) * #{$ratio} );
   }
 
   @include media-tablet {
-    margin-top: 20px;
+    margin-top: 22px;
   }
 }
 
@@ -140,7 +140,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     column-gap: calc(13px - 10px);
-    row-gap: calc(14px - 10px);
+    row-gap: calc(13px - 10px);
   }
 }
 

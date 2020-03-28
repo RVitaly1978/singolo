@@ -1,7 +1,6 @@
 
 .contacts {
-  flex-basis: calc( 300 / 940 * 100%);
-  flex-shrink: 2;
+  flex: 0 1 300px;
   margin-left: 20px;
 
   @include media-laptop {
@@ -14,6 +13,8 @@
   }
 
   @include media-mobile-landscape {
+    width: 100%;
+    flex: 0 1 auto;
     margin-left: 0;
     margin-top: 32px;
   }
@@ -30,6 +31,16 @@
   color: $color-quote-text;
   text-align: justify;
   letter-spacing: -0.02em;
+  
+  @include media-laptop {
+    $ratio: calc( ( 3 - 10.2 ) / ( 1020 - 768 ) );
+    margin-top: calc( 10.2px + ( 1020px - 100vw ) * #{$ratio});
+    letter-spacing: 0;
+  }
+
+  @include media-tablet {
+    margin-top: 3px;
+  }
 
   &::first-line {
     line-height: 1.75;
@@ -39,12 +50,27 @@
 .contacts-list {
   margin-top: 1.2625rem;
   padding-left: 1.0rem;
+
+  @include media-laptop {
+    $ratio: calc( ( 10 - 20.2 ) / ( 1020 - 768 ) );
+    margin-top: calc( 20.2px + ( 1020px - 100vw ) * #{$ratio});
+  }
+
+  @include media-tablet {
+    margin-top: 10px;
+  }
+}
+
+.contacts-list__item {
+  @include media-mobile-landscape {
+    margin-bottom: 5px;
+  }
 }
 
 .contact-link {
   position: relative;
-  padding-left: 0.33333em;
-  padding-right: 0.33333em;
+  padding-left: 4px;
+  padding-right: 4px;
   border-radius: 4px;
   @include font ($size: 0.75rem, $height: 1.6, $weight: 400);
   color: $color-quote-text;
